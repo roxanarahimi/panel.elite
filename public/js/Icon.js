@@ -206,7 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nspan i {\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nspan i {\r\n    cursor: pointer;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -255,7 +255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Icon_vue_vue_type_template_id_46fc54a9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Icon.vue?vue&type=template&id=46fc54a9 */ "./resources/js/components/panel/icon/Icon.vue?vue&type=template&id=46fc54a9");
 /* harmony import */ var _Icon_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icon.vue?vue&type=script&lang=js */ "./resources/js/components/panel/icon/Icon.vue?vue&type=script&lang=js");
 /* harmony import */ var _Icon_vue_vue_type_style_index_0_id_46fc54a9_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Icon.vue?vue&type=style&index=0&id=46fc54a9&lang=css */ "./resources/js/components/panel/icon/Icon.vue?vue&type=style&index=0&id=46fc54a9&lang=css");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -263,7 +263,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Icon_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Icon_vue_vue_type_template_id_46fc54a9__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/icon/Icon.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Icon_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Icon_vue_vue_type_template_id_46fc54a9__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/icon/Icon.vue"]])
 /* hot reload */
 if (false) {}
 

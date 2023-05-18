@@ -485,7 +485,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.element-cards {\n        /*box-shadow: none;*/\n        /*background-color: transparent;*/\n}\n.moving-card {\n        opacity: 1 !important;\n        background-color: whitesmoke;\n        border: dotted dimgray !important;\n        box-shadow: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.element-cards {\r\n        /*box-shadow: none;*/\r\n        /*background-color: transparent;*/\n}\n.moving-card {\r\n        opacity: 1 !important;\r\n        background-color: whitesmoke;\r\n        border: dotted dimgray !important;\r\n        box-shadow: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -501,10 +501,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.element-cards {\n        /*box-shad
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "MultiDrag": () => (/* binding */ MultiDragPlugin),
 /* harmony export */   "Sortable": () => (/* binding */ Sortable),
-/* harmony export */   "Swap": () => (/* binding */ SwapPlugin)
+/* harmony export */   "Swap": () => (/* binding */ SwapPlugin),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /**!
  * Sortable 1.14.0
@@ -4327,7 +4327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Slides_vue_vue_type_template_id_e630c554__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Slides.vue?vue&type=template&id=e630c554 */ "./resources/js/components/panel/slide/Slides.vue?vue&type=template&id=e630c554");
 /* harmony import */ var _Slides_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Slides.vue?vue&type=script&lang=js */ "./resources/js/components/panel/slide/Slides.vue?vue&type=script&lang=js");
 /* harmony import */ var _Slides_vue_vue_type_style_index_0_id_e630c554_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Slides.vue?vue&type=style&index=0&id=e630c554&lang=css */ "./resources/js/components/panel/slide/Slides.vue?vue&type=style&index=0&id=e630c554&lang=css");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -4335,7 +4335,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Slides_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Slides_vue_vue_type_template_id_e630c554__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/slide/Slides.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Slides_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Slides_vue_vue_type_template_id_e630c554__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/slide/Slides.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -8022,10 +8022,10 @@ $({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
 /***/ }),
 
 /***/ "dbf1":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_111898__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_111898__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __nested_webpack_require_111898__.d(__webpack_exports__, "a", function() { return console; });
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __nested_webpack_require_111898__.d(__nested_webpack_exports__, "a", function() { return console; });
 function getConsole() {
   if (typeof window !== "undefined") {
     return window.console;
@@ -8386,11 +8386,11 @@ module.exports = function (key) {
 /***/ }),
 
 /***/ "fb15":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_123448__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_123448__) {
 
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_123448__.r(__webpack_exports__);
+__nested_webpack_require_123448__.r(__nested_webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -9428,7 +9428,7 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (vuedraggable);
+/* harmony default export */ var entry_lib = __nested_webpack_exports__["default"] = (vuedraggable);
 
 
 

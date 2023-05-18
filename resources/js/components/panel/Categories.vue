@@ -5,9 +5,9 @@
             <div class="d-flex mb-5">
                 <h3 class="me-2">دسته بندی</h3>
                 <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
-                    <option value="product">محصولات</option>
+<!--                    <option value="product">محصولات</option>-->
                     <option value="article">مطالب</option>
-                    <option value="course">دوره ها</option>
+<!--                    <option value="course">دوره ها</option>-->
                 </select>
             </div>
             <!--            <div class="row flex-row-reverse ">-->
@@ -91,7 +91,7 @@ import Pagination from "../components/Pagination";
 export default {
     components: {BtnSubmit, Loader, App, CategoriesTable, Pagination},
     setup() {
-        const model = ref('product');
+        const model = ref('article');
         const errors = ref([]);
         const allData = ref([]);
         const page = ref();

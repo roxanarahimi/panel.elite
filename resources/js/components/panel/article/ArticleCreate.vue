@@ -37,41 +37,47 @@
                                         <div id="categoryHelp" class="form-text error"></div>
 
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">تصویر محصول</label><br/>
+                                        <image-cropper name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <div id="image2Help" class="form-text error"></div>
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class = "col-md-3 mb-3">
+                                        <label for = "text2" class = "form-label">عنوان محصول</label>
+                                        <input type = "text" :class = "{hasError: errors.text2}" class = "form-control" id = "text2" value = "" aria-describedby = "text2Help" required>
+                                        <div id = "text2Help" class = "form-text error"></div>
+                                        <p class = "form-text error m-0" v-for = "e in errors.text2">{{ e }}</p>
+                                    </div>
+                                    <div class = "col-md-3 mb-3">
+                                        <label for = "text3" class = "form-label">زیرنویس</label>
+                                        <input type = "text" :class = "{hasError: errors.text3}" class = "form-control" id = "text3" value = "" aria-describedby = "text3Help" required>
+                                        <div id = "text3Help" class = "form-text error"></div>
+                                        <p class = "form-text error m-0" v-for = "e in errors.text3">{{ e }}</p>
+                                    </div>
+                                    <div class = "col-md-3 mb-3">
+                                        <label for = "text4" class = "form-label">با طعم</label>
+                                        <input type = "text" :class = "{hasError: errors.text4}" class = "form-control" id = "text4" value = "" aria-describedby = "text4Help" >
+                                        <div id = "text4Help" class = "form-text error"></div>
+                                        <p class = "form-text error m-0" v-for = "e in errors.text4">{{ e }}</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <label class="form-label" >متن</label>
+                                        <label class="form-label" >دستور پخت</label>
 <!--                                       <div id="editor"></div>-->
 
-                                        <editor mode = "new" />
-<!--                                        <textarea @input="watchTextAreas" :class="{hasError: errors.text}"-->
-<!--                                                  aria-describedby="textHelp" class="form-control text-start"-->
-<!--                                                  id="editor"></textarea>-->
+<!--                                        <editor mode = "new" />-->
+                                        <textarea @input="watchTextAreas" :class="{hasError: errors.text}"
+                                                  aria-describedby="textHelp" class="form-control text-start"
+                                                  id="text"></textarea>
                                         <div id="textHelp" class="form-text error"></div>
                                         <p class="form-text error m-0" v-for="e in errors.text">{{ e }}</p>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
-                                        <div>
-                                            <label class="form-label mb-1 align-middle">برچسب ها</label>
-                                            <span @click="addTag" class="px-3 d-inline-block align-middle"><i
-                                                class="bi bi-plus-circle-fill p-0 mt-2 m-0" style="font-size: 15px"></i></span>
-                                        </div>
-
-                                        <div v-for="(tag, index) in tags" :key="index" class="row tagElement">
-                                            <div class="col-5 col-md-3 mb-3">
-                                                <input type="text" name="tagLabel" class="form-control"
-                                                       @input="updateTags" :value="tag.label" placeholder="برچسب"
-                                                       required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-5 col-md-3 mb-3">
-                                                <input type="text" name="tagUri" class="form-control en uri" dir="ltr"
-                                                       @input="updateTags" :value="tag.uri" placeholder="uri" required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-auto mb-3 pt-2">
-                                                <span @click="removeTag(index)"><i class="bi bi-x-circle-fill m-0 "
-                                                                                   style="font-size: 15px"></i></span>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
@@ -109,7 +115,7 @@ export default {
             imgRequired: true,
             hasCaption: false,
             aspect: 16 / 9,
-            tags: [{"label": "", "uri": ""}],
+            // tags: [{"label": "", "uri": ""}],
         }
     },
     mounted() {
@@ -138,21 +144,16 @@ export default {
                 }
             });
             if (emptyFieldsCount === 0) {
-                let tags = [];
-                for (let i = 0; i < document.getElementsByName('tagLabel').length; i++) {
-                    tags.push('{"label": "' + document.getElementsByName('tagLabel')[i].value + '", "uri": "' + document.getElementsByName('tagUri')[i].value + '"}');
-                }
-                if (document.getElementsByName('tagLabel').length === 0) {
-                    tags = '[]';
-                } else {
-                    tags = '[' + tags.toString() + ']';
-                }
                 await axios.post('/api/panel/article', {
                     image: document.getElementById('Image__code').value,
+                    image2: document.getElementById('Image_product_code').value,
                     title: document.getElementById('title').value,
                     article_category_id: document.getElementById('category').value,
-                    text:  document.getElementById('content_text_area').value,
-                    tags: tags,
+                    text:  document.getElementById('text').value,
+                    text2:  document.getElementById('text2').value,
+                    text3:  document.getElementById('text3').value,
+                    text4:  document.getElementById('text4').value,
+                    // tags: tags,
                 })
                     .then((response) => {
                         console.log(response.data)
@@ -215,23 +216,7 @@ export default {
                 this.style.height = (this.scrollHeight) + "px";
             }
         },
-        addTag() {
 
-            this.tags.push('{"label": "", "uri": ""}');
-        },
-        removeTag(index) {
-
-            this.tags.splice(index, 1)
-        },
-        async updateTags() {
-            this.tags = [];
-            for (let i = 0; i < document.getElementsByName('tagLabel').length; i++) {
-                await this.tags.push({
-                    "label": document.getElementsByName('tagLabel')[i].value.toString(),
-                    "uri": document.getElementsByName('tagUri')[i].value.toString()
-                });
-            }
-        },
 
 
     }

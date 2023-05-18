@@ -13,7 +13,7 @@ class ArticleController extends Controller
     {
         try {
             $perPage = $request['perPage'];
-            $data = Article::latest()->paginate($perPage);
+            $data = Article::orderByDesc('id')->paginate($perPage);
             $pages_count = ceil($data->total()/$perPage);
             $labels = [];
             for ($i=1; $i <= $pages_count; $i++){
@@ -70,22 +70,18 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $data = Article::create($request->except('image','image_codes','image_names','text'));
+            $data = Article::create($request->except('image','image2'));
             if ($request['image']) {
                 $name = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/');
-//                (new ImageController)->resizeImage('images/', $name);
-                $data->update(['image' => '/' . $image_path]);
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $name2 = 'article_product_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'img/');
+                $data->update(['image' => '/' . $image_path,'image2' => '/' . $image_path2]);
             }
 
-            $text = $request['text'];
-            $text = str_replace('<span>', '', $text);
-            $text = str_replace('</span>', '', $text);
-            $data->update(['text' => $text]);
             return response(new ArticleResource($data), 201);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
@@ -106,22 +102,20 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $article->update($request->except('image','text'));
+            $article->update($request->except('image','image2'));
 
             if ($request['image']) {
                 $name = 'article_' . $article['id'] . '_' . uniqid() . '.jpg';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/');
-//                (new ImageController)->resizeImage('images/', $name);
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $article->update(['image' => '/' . $image_path]);
             }
-            $text = $request['text'];
-            $text = str_replace('<span>', '', $text);
-            $text = str_replace('</span>', '', $text);
-            $article->update(['text' => $text]);
-
+             if ($request['image2']) {
+                $name2 = 'article_product_' . $article['id'] . '_' . uniqid() . '.jpg';
+                $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'img/');
+                $article->update(['image2' => '/' . $image_path2]);
+            }
             return response(new ArticleResource($article), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
             return response($exception);
         }
     }

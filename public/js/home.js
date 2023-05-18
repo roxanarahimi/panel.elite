@@ -313,10 +313,22 @@ __webpack_require__.r(__webpack_exports__);
     DayReportCards: _dashboard_DayReportCards__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   setup: function setup() {
+    var articles = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)({});
+
+    var loadArticles = function loadArticles() {
+      axios.get('/api/panel/article?page=1&perPage=4').then(function (response) {
+        articles.value = response.data.data;
+      })["catch"]();
+    };
+
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
-      document.querySelector('#admin_label').innerHTML = JSON.parse(localStorage.getItem('admin')).name; // loadProducts();
+      document.querySelector('#admin_label').innerHTML = JSON.parse(localStorage.getItem('admin')).name;
+      loadArticles();
     });
-    return {};
+    return {
+      articles: articles,
+      loadArticles: loadArticles
+    };
   }
 });
 
@@ -507,14 +519,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "mb-5 pb-5"
+}, "جدید ترین مطالب", -1
+/* HOISTED */
+);
+
+var _hoisted_2 = {
+  "class": "row"
+};
+var _hoisted_3 = {
+  "class": "card"
+};
+var _hoisted_4 = {
+  "class": "card-body"
+};
+var _hoisted_5 = ["src"];
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   id: "msg"
 }, null, -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_day_report_cards = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("day-report-cards");
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
   var _component_loader = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("loader");
 
@@ -524,9 +553,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     appear: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Suspense, null, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [_hoisted_1, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Suspense, null, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_day_report_cards)];
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.articles, function (item) {
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+              "class": "col-3 mb-3",
+              to: '/panel/article/' + item.id,
+              key: item.id
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                  src: item.image,
+                  "class": "img-fluid",
+                  alt: ""
+                }, null, 8
+                /* PROPS */
+                , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1
+                /* TEXT */
+                )])])];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["to"]);
+          }), 128
+          /* KEYED_FRAGMENT */
+          ))])];
         }),
         fallback: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader, {
@@ -536,7 +590,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      })), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <Suspense>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #default>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <latest-products/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #fallback>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <loader class=\"mt-5\"/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </Suspense>"), _hoisted_1])];
+      })), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <Suspense>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #default>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <day-report-cards/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #fallback>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <loader class=\"mt-5\"/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </Suspense>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <Suspense>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #default>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <latest-products/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #fallback>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <loader class=\"mt-5\"/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </Suspense>"), _hoisted_6])];
     }),
     _: 1
     /* STABLE */
@@ -876,7 +930,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "defaults": () => (/* reexport safe */ _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.d),
 /* harmony export */   "Animation": () => (/* binding */ Animation),
 /* harmony export */   "Animations": () => (/* binding */ Animations),
 /* harmony export */   "ArcElement": () => (/* binding */ ArcElement),
@@ -916,6 +969,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "_detectPlatform": () => (/* binding */ _detectPlatform),
 /* harmony export */   "animator": () => (/* binding */ animator),
 /* harmony export */   "controllers": () => (/* binding */ controllers),
+/* harmony export */   "defaults": () => (/* reexport safe */ _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.d),
 /* harmony export */   "elements": () => (/* binding */ elements),
 /* harmony export */   "layouts": () => (/* binding */ layouts),
 /* harmony export */   "plugins": () => (/* binding */ plugins),
@@ -14586,14 +14640,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ plugin)
 /* harmony export */ });
 /* harmony import */ var chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js/helpers */ "./node_modules/chart.js/helpers/helpers.esm.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
 /*!
- * chartjs-plugin-datalabels v2.0.0
+ * chartjs-plugin-datalabels v2.2.0
  * https://chartjs-plugin-datalabels.netlify.app
- * (c) 2017-2021 chartjs-plugin-datalabels contributors
+ * (c) 2017-2022 chartjs-plugin-datalabels contributors
  * Released under the MIT license
  */
 
@@ -14936,8 +14990,8 @@ var positioners = {
     return compute$1({
       x0: el.x,
       y0: el.y,
-      x1: el.x,
-      y1: el.y,
+      x1: el.x + (el.width || 0),
+      y1: el.y + (el.height || 0),
       vx: v.x,
       vy: v.y
     }, config);
@@ -15192,10 +15246,10 @@ var Label = function(config, ctx, el, index) {
       display: display,
       font: font,
       lines: lines,
-      offset: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.offset, 0], context, index),
+      offset: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.offset, 4], context, index),
       opacity: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.opacity, 1], context, index),
       origin: getScaleOrigin(me._el, context),
-      padding: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.toPadding)((0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.padding, 0], context, index)),
+      padding: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.toPadding)((0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.padding, 4], context, index)),
       positioner: getPositioner(me._el),
       rotation: (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.resolve)([config.rotation, 0], context, index) * (Math.PI / 180),
       size: utils.textSize(me._ctx, lines, font),
@@ -15532,7 +15586,7 @@ var layout = {
           _hidable: false,
           _visible: true,
           _set: i,
-          _idx: j
+          _idx: label._index
         };
       }
     }
@@ -15729,7 +15783,7 @@ function configure(dataset, options) {
   };
 }
 
-function dispatchEvent(chart, listeners, label) {
+function dispatchEvent(chart, listeners, label, event) {
   if (!listeners) {
     return;
   }
@@ -15747,7 +15801,7 @@ function dispatchEvent(chart, listeners, label) {
     return;
   }
 
-  if ((0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.callback)(callback$1, [context]) === true) {
+  if ((0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_0__.callback)(callback$1, [context, event]) === true) {
     // Users are allowed to tweak the given context by injecting values that can be
     // used in scriptable options to display labels differently based on the current
     // event (e.g. highlight an hovered label). That's why we update the label with
@@ -15757,7 +15811,7 @@ function dispatchEvent(chart, listeners, label) {
   }
 }
 
-function dispatchMoveEvents(chart, listeners, previous, label) {
+function dispatchMoveEvents(chart, listeners, previous, label, event) {
   var enter, leave;
 
   if (!previous && !label) {
@@ -15773,10 +15827,10 @@ function dispatchMoveEvents(chart, listeners, previous, label) {
   }
 
   if (leave) {
-    dispatchEvent(chart, listeners.leave, previous);
+    dispatchEvent(chart, listeners.leave, previous, event);
   }
   if (enter) {
-    dispatchEvent(chart, listeners.enter, label);
+    dispatchEvent(chart, listeners.enter, label, event);
   }
 }
 
@@ -15797,7 +15851,7 @@ function handleMoveEvents(chart, event) {
 
   previous = expando._hovered;
   expando._hovered = label;
-  dispatchMoveEvents(chart, listeners, previous, label);
+  dispatchMoveEvents(chart, listeners, previous, label, event);
 }
 
 function handleClickEvents(chart, event) {
@@ -15805,7 +15859,7 @@ function handleClickEvents(chart, event) {
   var handlers = expando._listeners.click;
   var label = handlers && layout.lookup(expando._labels, event);
   if (label) {
-    dispatchEvent(chart, handlers, label);
+    dispatchEvent(chart, handlers, label, event);
   }
 }
 
@@ -15883,10 +15937,8 @@ var plugin = {
     });
   },
 
-  afterUpdate: function(chart, options) {
-    chart[EXPANDO_KEY]._labels = layout.prepare(
-      chart[EXPANDO_KEY]._datasets,
-      options);
+  afterUpdate: function(chart) {
+    chart[EXPANDO_KEY]._labels = layout.prepare(chart[EXPANDO_KEY]._datasets);
   },
 
   // Draw labels on top of all dataset elements
@@ -15942,7 +15994,7 @@ var plugin = {
   }
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (plugin);
+
 
 
 /***/ }),
@@ -15960,15 +16012,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pan": () => (/* binding */ pan),
 /* harmony export */   "resetZoom": () => (/* binding */ resetZoom),
 /* harmony export */   "zoom": () => (/* binding */ zoom),
+/* harmony export */   "zoomRect": () => (/* binding */ zoomRect),
 /* harmony export */   "zoomScale": () => (/* binding */ zoomScale)
 /* harmony export */ });
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js/helpers */ "./node_modules/chart.js/helpers/helpers.esm.js");
 /*!
-* chartjs-plugin-zoom v1.2.1
+* chartjs-plugin-zoom v2.0.1
 * undefined
- * (c) 2016-2022 chartjs-plugin-zoom Contributors
+ * (c) 2016-2023 chartjs-plugin-zoom Contributors
  * Released under the MIT License
  */
 
@@ -15996,6 +16049,17 @@ function directionEnabled(mode, dir, chart) {
   return false;
 }
 
+function directionsEnabled(mode, chart) {
+  if (typeof mode === 'function') {
+    mode = mode({chart});
+  }
+  if (typeof mode === 'string') {
+    return {x: mode.indexOf('x') !== -1, y: mode.indexOf('y') !== -1};
+  }
+
+  return {x: false, y: false};
+}
+
 /**
  * Debounces calling `fn` for `delay` ms
  * @param {function} fn - Function to call. No arguments are passed.
@@ -16011,7 +16075,8 @@ function debounce(fn, delay) {
   };
 }
 
-/** This function use for check what axis now under mouse cursor.
+/**
+ * Checks which axis is under the mouse cursor.
  * @param {{x: number, y: number}} point - the mouse location
  * @param {import('chart.js').Chart} [chart] instance of the chart in question
  * @return {import('chart.js').Scale}
@@ -16028,27 +16093,40 @@ function getScaleUnderPoint({x, y}, chart) {
   return null;
 }
 
-/** This function return only one scale whose position is under mouse cursor and which direction is enabled.
- * If under mouse hasn't scale, then return all other scales which 'mode' is diffrent with overScaleMode.
- * So 'overScaleMode' works as a limiter to scale the user-selected scale (in 'mode') only when the cursor is under the scale,
- * and other directions in 'mode' works as before.
- * Example: mode = 'xy', overScaleMode = 'y' -> it's means 'x' - works as before, and 'y' only works for one scale when cursor is under it.
+/**
+ * Evaluate the chart's mode, scaleMode, and overScaleMode properties to
+ * determine which axes are eligible for scaling.
  * options.overScaleMode can be a function if user want zoom only one scale of many for example.
- * @param {string} mode - 'xy', 'x' or 'y'
+ * @param options - Zoom or pan options
  * @param {{x: number, y: number}} point - the mouse location
  * @param {import('chart.js').Chart} [chart] instance of the chart in question
  * @return {import('chart.js').Scale[]}
  */
-function getEnabledScalesByPoint(mode, point, chart) {
+function getEnabledScalesByPoint(options, point, chart) {
+  const {mode = 'xy', scaleMode, overScaleMode} = options || {};
   const scale = getScaleUnderPoint(point, chart);
 
-  if (scale && directionEnabled(mode, scale.axis, chart)) {
+  const enabled = directionsEnabled(mode, chart);
+  const scaleEnabled = directionsEnabled(scaleMode, chart);
+
+  // Convert deprecated overScaleEnabled to new scaleEnabled.
+  if (overScaleMode) {
+    const overScaleEnabled = directionsEnabled(overScaleMode, chart);
+    for (const axis of ['x', 'y']) {
+      if (overScaleEnabled[axis]) {
+        scaleEnabled[axis] = enabled[axis];
+        enabled[axis] = false;
+      }
+    }
+  }
+
+  if (scale && scaleEnabled[scale.axis]) {
     return [scale];
   }
 
   const enabledScales = [];
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.each)(chart.scales, function(scaleItem) {
-    if (!directionEnabled(mode, scaleItem.axis, chart)) {
+    if (enabled[scaleItem.axis]) {
       enabledScales.push(scaleItem);
     }
   });
@@ -16103,6 +16181,15 @@ function getLimit(state, scale, scaleLimits, prop, fallback) {
   return (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.valueOrDefault)(limit, fallback);
 }
 
+function getRange(scale, pixel0, pixel1) {
+  const v0 = scale.getValueForPixel(pixel0);
+  const v1 = scale.getValueForPixel(pixel1);
+  return {
+    min: Math.min(v0, v1),
+    max: Math.max(v0, v1)
+  };
+}
+
 function updateRange(scale, {min, max}, limits, zoom = false) {
   const state = getState(scale.chart);
   const {id, axis, options: scaleOpts} = scale;
@@ -16112,24 +16199,17 @@ function updateRange(scale, {min, max}, limits, zoom = false) {
   const minLimit = getLimit(state, scale, scaleLimits, 'min', -Infinity);
   const maxLimit = getLimit(state, scale, scaleLimits, 'max', Infinity);
 
-  const cmin = Math.max(min, minLimit);
-  const cmax = Math.min(max, maxLimit);
-  const range = zoom ? Math.max(cmax - cmin, minRange) : scale.max - scale.min;
-  if (cmax - cmin !== range) {
-    if (minLimit > cmax - range) {
-      min = cmin;
-      max = cmin + range;
-    } else if (maxLimit < cmin + range) {
-      max = cmax;
-      min = cmax - range;
-    } else {
-      const offset = (range - cmax + cmin) / 2;
-      min = cmin - offset;
-      max = cmax + offset;
-    }
-  } else {
-    min = cmin;
-    max = cmax;
+  const range = zoom ? Math.max(max - min, minRange) : scale.max - scale.min;
+  const offset = (range - max + min) / 2;
+  min -= offset;
+  max += offset;
+
+  if (min < minLimit) {
+    min = minLimit;
+    max = Math.min(minLimit + range, maxLimit);
+  } else if (max > maxLimit) {
+    max = maxLimit;
+    min = Math.max(maxLimit - range, minLimit);
   }
   scaleOpts.min = min;
   scaleOpts.max = max;
@@ -16144,6 +16224,10 @@ function zoomNumericalScale(scale, zoom, center, limits) {
   const delta = zoomDelta(scale, zoom, center);
   const newRange = {min: scale.min + delta.min, max: scale.max - delta.max};
   return updateRange(scale, newRange, limits, true);
+}
+
+function zoomRectNumericalScale(scale, from, to, limits) {
+  updateRange(scale, getRange(scale, from, to), limits, true);
 }
 
 const integerChange = (v) => v === 0 || isNaN(v) ? 0 : v < 0 ? Math.min(Math.round(v), -1) : Math.max(Math.round(v), 1);
@@ -16232,6 +16316,10 @@ const zoomFunctions = {
   default: zoomNumericalScale,
 };
 
+const zoomRectFunctions = {
+  default: zoomRectNumericalScale,
+};
+
 const panFunctions = {
   category: panCategoryScale,
   default: panNumericalScale,
@@ -16279,6 +16367,11 @@ function doZoom(scale, amount, center, limits) {
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(fn, [scale, amount, center, limits]);
 }
 
+function doZoomRect(scale, amount, from, to, limits) {
+  const fn = zoomRectFunctions[scale.type] || zoomRectFunctions.default;
+  (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(fn, [scale, amount, from, to, limits]);
+}
+
 function getCenter(chart) {
   const ca = chart.chartArea;
   return {
@@ -16296,13 +16389,12 @@ function zoom(chart, amount, transition = 'none') {
   const {x = 1, y = 1, focalPoint = getCenter(chart)} = typeof amount === 'number' ? {x: amount, y: amount} : amount;
   const state = getState(chart);
   const {options: {limits, zoom: zoomOptions}} = state;
-  const {mode = 'xy', overScaleMode} = zoomOptions || {};
 
   storeOriginalScaleLimits(chart, state);
 
-  const xEnabled = x !== 1 && directionEnabled(mode, 'x', chart);
-  const yEnabled = y !== 1 && directionEnabled(mode, 'y', chart);
-  const enabledScales = overScaleMode && getEnabledScalesByPoint(overScaleMode, focalPoint, chart);
+  const xEnabled = x !== 1;
+  const yEnabled = y !== 1;
+  const enabledScales = getEnabledScalesByPoint(zoomOptions, focalPoint, chart);
 
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.each)(enabledScales || chart.scales, function(scale) {
     if (scale.isHorizontal() && xEnabled) {
@@ -16317,15 +16409,6 @@ function zoom(chart, amount, transition = 'none') {
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(zoomOptions.onZoom, [{chart}]);
 }
 
-function getRange(scale, pixel0, pixel1) {
-  const v0 = scale.getValueForPixel(pixel0);
-  const v1 = scale.getValueForPixel(pixel1);
-  return {
-    min: Math.min(v0, v1),
-    max: Math.max(v0, v1)
-  };
-}
-
 function zoomRect(chart, p0, p1, transition = 'none') {
   const state = getState(chart);
   const {options: {limits, zoom: zoomOptions}} = state;
@@ -16337,9 +16420,9 @@ function zoomRect(chart, p0, p1, transition = 'none') {
 
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.each)(chart.scales, function(scale) {
     if (scale.isHorizontal() && xEnabled) {
-      updateRange(scale, getRange(scale, p0.x, p1.x), limits, true);
+      doZoomRect(scale, p0.x, p1.x, limits);
     } else if (!scale.isHorizontal() && yEnabled) {
-      updateRange(scale, getRange(scale, p0.y, p1.y), limits, true);
+      doZoomRect(scale, p0.y, p1.y, limits);
     }
   });
 
@@ -16418,12 +16501,12 @@ function pan(chart, delta, enabledScales, transition = 'none') {
   const {x = 0, y = 0} = typeof delta === 'number' ? {x: delta, y: delta} : delta;
   const state = getState(chart);
   const {options: {pan: panOptions, limits}} = state;
-  const {mode = 'xy', onPan} = panOptions || {};
+  const {onPan} = panOptions || {};
 
   storeOriginalScaleLimits(chart, state);
 
-  const xEnabled = x !== 0 && directionEnabled(mode, 'x', chart);
-  const yEnabled = y !== 0 && directionEnabled(mode, 'y', chart);
+  const xEnabled = x !== 0;
+  const yEnabled = y !== 0;
 
   (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.each)(enabledScales || chart.scales, function(scale) {
     if (scale.isHorizontal() && xEnabled) {
@@ -16440,6 +16523,7 @@ function pan(chart, delta, enabledScales, transition = 'none') {
 
 function getInitialScaleBounds(chart) {
   const state = getState(chart);
+  storeOriginalScaleLimits(chart, state);
   const scaleBounds = {};
   for (const scaleId of Object.keys(chart.scales)) {
     const {min, max} = state.originalScaleLimits[scaleId] || {min: {}, max: {}};
@@ -16497,14 +16581,22 @@ function mouseMove(chart, event) {
   }
 }
 
+function keyDown(chart, event) {
+  const state = getState(chart);
+  if (!state.dragStart || event.key !== 'Escape') {
+    return;
+  }
+
+  removeHandler(chart, 'keydown');
+  state.dragging = false;
+  state.dragStart = state.dragEnd = null;
+  chart.update('none');
+}
+
 function zoomStart(chart, event, zoomOptions) {
   const {onZoomStart, onZoomRejected} = zoomOptions;
   if (onZoomStart) {
-    const {left: offsetX, top: offsetY} = event.target.getBoundingClientRect();
-    const point = {
-      x: event.clientX - offsetX,
-      y: event.clientY - offsetY
-    };
+    const point = (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.getRelativePosition)(event, chart);
     if ((0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(onZoomStart, [{chart, event, point}]) === false) {
       (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(onZoomRejected, [{chart, event}]);
       return false;
@@ -16515,7 +16607,11 @@ function zoomStart(chart, event, zoomOptions) {
 function mouseDown(chart, event) {
   const state = getState(chart);
   const {pan: panOptions, zoom: zoomOptions = {}} = state.options;
-  if (keyPressed(getModifierKey(panOptions), event) || keyNotPressed(getModifierKey(zoomOptions.drag), event)) {
+  if (
+    event.button !== 0 ||
+    keyPressed(getModifierKey(panOptions), event) ||
+    keyNotPressed(getModifierKey(zoomOptions.drag), event)
+  ) {
     return (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(zoomOptions.onZoomRejected, [{chart, event}]);
   }
 
@@ -16525,22 +16621,25 @@ function mouseDown(chart, event) {
   state.dragStart = event;
 
   addHandler(chart, chart.canvas, 'mousemove', mouseMove);
+  addHandler(chart, window.document, 'keydown', keyDown);
 }
 
-function computeDragRect(chart, mode, beginPoint, endPoint) {
-  const {left: offsetX, top: offsetY} = beginPoint.target.getBoundingClientRect();
+function computeDragRect(chart, mode, beginPointEvent, endPointEvent) {
   const xEnabled = directionEnabled(mode, 'x', chart);
   const yEnabled = directionEnabled(mode, 'y', chart);
   let {top, left, right, bottom, width: chartWidth, height: chartHeight} = chart.chartArea;
 
+  const beginPoint = (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.getRelativePosition)(beginPointEvent, chart);
+  const endPoint = (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.getRelativePosition)(endPointEvent, chart);
+
   if (xEnabled) {
-    left = Math.min(beginPoint.clientX, endPoint.clientX) - offsetX;
-    right = Math.max(beginPoint.clientX, endPoint.clientX) - offsetX;
+    left = Math.min(beginPoint.x, endPoint.x);
+    right = Math.max(beginPoint.x, endPoint.x);
   }
 
   if (yEnabled) {
-    top = Math.min(beginPoint.clientY, endPoint.clientY) - offsetY;
-    bottom = Math.max(beginPoint.clientY, endPoint.clientY) - offsetY;
+    top = Math.min(beginPoint.y, endPoint.y);
+    bottom = Math.max(beginPoint.y, endPoint.y);
   }
   const width = right - left;
   const height = bottom - top;
@@ -16596,7 +16695,7 @@ function wheelPreconditions(chart, event, zoomOptions) {
     return;
   }
 
-  // Prevent the event from triggering the default behavior (eg. Content scrolling).
+  // Prevent the event from triggering the default behavior (e.g. content scrolling).
   if (event.cancelable) {
     event.preventDefault();
   }
@@ -16660,6 +16759,7 @@ function addListeners(chart, options) {
     removeHandler(chart, 'mousedown');
     removeHandler(chart, 'mousemove');
     removeHandler(chart, 'mouseup');
+    removeHandler(chart, 'keydown');
   }
 }
 
@@ -16669,6 +16769,7 @@ function removeListeners(chart) {
   removeHandler(chart, 'mouseup');
   removeHandler(chart, 'wheel');
   removeHandler(chart, 'click');
+  removeHandler(chart, 'keydown');
 }
 
 function createEnabler(chart, state) {
@@ -16757,7 +16858,7 @@ function handlePan(chart, state, e) {
 }
 
 function startPan(chart, state, event) {
-  const {enabled, overScaleMode, onPanStart, onPanRejected} = state.options.pan;
+  const {enabled, onPanStart, onPanRejected} = state.options.pan;
   if (!enabled) {
     return;
   }
@@ -16771,7 +16872,7 @@ function startPan(chart, state, event) {
     return (0,chart_js_helpers__WEBPACK_IMPORTED_MODULE_1__.callback)(onPanRejected, [{chart, event}]);
   }
 
-  state.panScales = overScaleMode && getEnabledScalesByPoint(overScaleMode, point, chart);
+  state.panScales = getEnabledScalesByPoint(state.options.pan, point, chart);
   state.delta = {x: 0, y: 0};
   clearTimeout(state.panEndTimeout);
   handlePan(chart, state, event);
@@ -16826,7 +16927,30 @@ function stopHammer(chart) {
   }
 }
 
-var version = "1.2.1";
+var version = "2.0.1";
+
+function draw(chart, caller, options) {
+  const dragOptions = options.zoom.drag;
+  const {dragStart, dragEnd} = getState(chart);
+
+  if (dragOptions.drawTime !== caller || !dragEnd) {
+    return;
+  }
+  const {left, top, width, height} = computeDragRect(chart, options.zoom.mode, dragStart, dragEnd);
+  const ctx = chart.ctx;
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.fillStyle = dragOptions.backgroundColor || 'rgba(225,225,225,0.3)';
+  ctx.fillRect(left, top, width, height);
+
+  if (dragOptions.borderWidth > 0) {
+    ctx.lineWidth = dragOptions.borderWidth;
+    ctx.strokeStyle = dragOptions.borderColor || 'rgba(225,225,225)';
+    ctx.strokeRect(left, top, width, height);
+  }
+  ctx.restore();
+}
 
 var plugin = {
   id: 'zoom',
@@ -16848,6 +16972,7 @@ var plugin = {
       },
       drag: {
         enabled: false,
+        drawTime: 'beforeDatasetsDraw',
         modifierKey: null
       },
       pinch: {
@@ -16864,6 +16989,10 @@ var plugin = {
     if (Object.prototype.hasOwnProperty.call(options.zoom, 'enabled')) {
       console.warn('The option `zoom.enabled` is no longer supported. Please use `zoom.wheel.enabled`, `zoom.drag.enabled`, or `zoom.pinch.enabled`.');
     }
+    if (Object.prototype.hasOwnProperty.call(options.zoom, 'overScaleMode')
+      || Object.prototype.hasOwnProperty.call(options.pan, 'overScaleMode')) {
+      console.warn('The option `overScaleMode` is deprecated. Please use `scaleMode` instead (and update `mode` as desired).');
+    }
 
     if ((hammerjs__WEBPACK_IMPORTED_MODULE_0___default())) {
       startHammer(chart, options);
@@ -16871,6 +17000,7 @@ var plugin = {
 
     chart.pan = (delta, panScales, transition) => pan(chart, delta, panScales, transition);
     chart.zoom = (args, transition) => zoom(chart, args, transition);
+    chart.zoomRect = (p0, p1, transition) => zoomRect(chart, p0, p1, transition);
     chart.zoomScale = (id, range, transition) => zoomScale(chart, id, range, transition);
     chart.resetZoom = (transition) => resetZoom(chart, transition);
     chart.getZoomLevel = () => getZoomLevel(chart);
@@ -16892,27 +17022,20 @@ var plugin = {
     addListeners(chart, options);
   },
 
-  beforeDatasetsDraw: function(chart, args, options) {
-    const {dragStart, dragEnd} = getState(chart);
+  beforeDatasetsDraw(chart, _args, options) {
+    draw(chart, 'beforeDatasetsDraw', options);
+  },
 
-    if (dragEnd) {
-      const {left, top, width, height} = computeDragRect(chart, options.zoom.mode, dragStart, dragEnd);
+  afterDatasetsDraw(chart, _args, options) {
+    draw(chart, 'afterDatasetsDraw', options);
+  },
 
-      const dragOptions = options.zoom.drag;
-      const ctx = chart.ctx;
+  beforeDraw(chart, _args, options) {
+    draw(chart, 'beforeDraw', options);
+  },
 
-      ctx.save();
-      ctx.beginPath();
-      ctx.fillStyle = dragOptions.backgroundColor || 'rgba(225,225,225,0.3)';
-      ctx.fillRect(left, top, width, height);
-
-      if (dragOptions.borderWidth > 0) {
-        ctx.lineWidth = dragOptions.borderWidth;
-        ctx.strokeStyle = dragOptions.borderColor || 'rgba(225,225,225)';
-        ctx.strokeRect(left, top, width, height);
-      }
-      ctx.restore();
-    }
+  afterDraw(chart, _args, options) {
+    draw(chart, 'afterDraw', options);
   },
 
   stop: function(chart) {
@@ -16925,8 +17048,8 @@ var plugin = {
   },
 
   panFunctions,
-
-  zoomFunctions
+  zoomFunctions,
+  zoomRectFunctions,
 };
 
 
@@ -16975,7 +17098,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-body[data-v-28bebef8], h4[data-v-28bebef8] {\n    background-color: black !important;\n    color: white !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-body[data-v-28bebef8], h4[data-v-28bebef8] {\r\n    background-color: black !important;\r\n    color: white !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16999,7 +17122,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img[data-v-1fd7f588] {\n    /*min-height: 200px;*/\n    /*background: whitesmoke;*/\n}\n.a[data-v-1fd7f588], .a[data-v-1fd7f588]:hover {\n    color: black;\n    text-decoration: none;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img[data-v-1fd7f588] {\r\n    /*min-height: 200px;*/\r\n    /*background: whitesmoke;*/\n}\n.a[data-v-1fd7f588], .a[data-v-1fd7f588]:hover {\r\n    color: black;\r\n    text-decoration: none;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19759,13 +19882,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Chart_vue_vue_type_template_id_03f21b50__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Chart.vue?vue&type=template&id=03f21b50 */ "./resources/js/components/components/Chart.vue?vue&type=template&id=03f21b50");
 /* harmony import */ var _Chart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chart.vue?vue&type=script&lang=js */ "./resources/js/components/components/Chart.vue?vue&type=script&lang=js");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Chart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Chart_vue_vue_type_template_id_03f21b50__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/components/Chart.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Chart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Chart_vue_vue_type_template_id_03f21b50__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/components/Chart.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -19788,7 +19911,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_33040db5__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=33040db5 */ "./resources/js/components/panel/Home.vue?vue&type=template&id=33040db5");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js */ "./resources/js/components/panel/Home.vue?vue&type=script&lang=js");
 /* harmony import */ var _Home_vue_vue_type_style_index_0_id_33040db5_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=33040db5&lang=css */ "./resources/js/components/panel/Home.vue?vue&type=style&index=0&id=33040db5&lang=css");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -19796,7 +19919,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_33040db5__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/Home.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_33040db5__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/Home.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -19819,7 +19942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DayReportCards_vue_vue_type_template_id_28bebef8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DayReportCards.vue?vue&type=template&id=28bebef8&scoped=true */ "./resources/js/components/panel/dashboard/DayReportCards.vue?vue&type=template&id=28bebef8&scoped=true");
 /* harmony import */ var _DayReportCards_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DayReportCards.vue?vue&type=script&lang=js */ "./resources/js/components/panel/dashboard/DayReportCards.vue?vue&type=script&lang=js");
 /* harmony import */ var _DayReportCards_vue_vue_type_style_index_0_id_28bebef8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DayReportCards.vue?vue&type=style&index=0&id=28bebef8&scoped=true&lang=css */ "./resources/js/components/panel/dashboard/DayReportCards.vue?vue&type=style&index=0&id=28bebef8&scoped=true&lang=css");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -19827,7 +19950,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_DayReportCards_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DayReportCards_vue_vue_type_template_id_28bebef8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-28bebef8"],['__file',"resources/js/components/panel/dashboard/DayReportCards.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_DayReportCards_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DayReportCards_vue_vue_type_template_id_28bebef8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-28bebef8"],['__file',"resources/js/components/panel/dashboard/DayReportCards.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -19850,7 +19973,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LatestProducts_vue_vue_type_template_id_1fd7f588_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LatestProducts.vue?vue&type=template&id=1fd7f588&scoped=true */ "./resources/js/components/panel/dashboard/LatestProducts.vue?vue&type=template&id=1fd7f588&scoped=true");
 /* harmony import */ var _LatestProducts_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LatestProducts.vue?vue&type=script&lang=js */ "./resources/js/components/panel/dashboard/LatestProducts.vue?vue&type=script&lang=js");
 /* harmony import */ var _LatestProducts_vue_vue_type_style_index_0_id_1fd7f588_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LatestProducts.vue?vue&type=style&index=0&id=1fd7f588&scoped=true&lang=css */ "./resources/js/components/panel/dashboard/LatestProducts.vue?vue&type=style&index=0&id=1fd7f588&scoped=true&lang=css");
-/* harmony import */ var F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -19858,7 +19981,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2022_one_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_LatestProducts_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LatestProducts_vue_vue_type_template_id_1fd7f588_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1fd7f588"],['__file',"resources/js/components/panel/dashboard/LatestProducts.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_LatestProducts_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LatestProducts_vue_vue_type_template_id_1fd7f588_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1fd7f588"],['__file',"resources/js/components/panel/dashboard/LatestProducts.vue"]])
 /* hot reload */
 if (false) {}
 

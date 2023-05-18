@@ -37,13 +37,13 @@
                             <span class="sidebar_title">داشبورد</span>
                         </router-link>
                     </li>
-                    <li>
-                        <router-link to="/panel/orders" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/orders'}">
-                            <i title="سفارش ها" class="bi bi-box2-heart-fill me-2"></i>
-                            <span class="sidebar_title">سفارش ها</span>
-                        </router-link>
-                    </li>
+<!--                    <li>-->
+<!--                        <router-link to="/panel/orders" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/orders'}">-->
+<!--                            <i title="سفارش ها" class="bi bi-box2-heart-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">سفارش ها</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <li>
                         <router-link to="/panel/categories" class="nav-link text-white"
                                      :class="{active: $route.fullPath ==='/panel/categories'}">
@@ -51,13 +51,13 @@
                             <span class="sidebar_title">دسته ها</span>
                         </router-link>
                     </li>
-                    <li>
-                        <router-link to="/panel/products" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/products'}">
-                            <i title="محصولات" class="bi bi-grid-fill me-2"></i>
-                            <span class="sidebar_title">محصولات</span>
-                        </router-link>
-                    </li>
+<!--                    <li>-->
+<!--                        <router-link to="/panel/products" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/products'}">-->
+<!--                            <i title="محصولات" class="bi bi-grid-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">محصولات</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <!--                    <li>-->
                     <!--                        <router-link to="/panel/categories/product" class="nav-link text-white"-->
                     <!--                                     :class="{active: $route.fullPath ==='/panel/categories/product'}">-->
@@ -80,21 +80,21 @@
                     <!--                            <span class="sidebar_title">دسته مطالب</span>-->
                     <!--                        </router-link>-->
                     <!--                    </li>-->
-                    <li>
-                        <router-link to="/panel/projects" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/projects'}">
-                            <!--                            <i class = "bi bi-journals me-2"></i>-->
-                            <i title="پروژه ها" class="bi bi-briefcase-fill me-2"></i>
-                            <span class="sidebar_title">پروژه ها</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/panel/slides" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/slides'}">
-                            <i title="اسلاید ها" class="bi bi-collection-fill me-2"></i>
-                            <span class="sidebar_title">اسلاید ها</span>
-                        </router-link>
-                    </li>
+<!--                    <li>-->
+<!--                        <router-link to="/panel/projects" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/projects'}">-->
+<!--                            &lt;!&ndash;                            <i class = "bi bi-journals me-2"></i>&ndash;&gt;-->
+<!--                            <i title="پروژه ها" class="bi bi-briefcase-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">پروژه ها</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <router-link to="/panel/slides" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/slides'}">-->
+<!--                            <i title="اسلاید ها" class="bi bi-collection-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">اسلاید ها</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <!--                    <li>-->
                     <!--                        <router-link to="/panel/icon" class="nav-link text-white"-->
                     <!--                                     :class="{active: $route.fullPath ==='/panel/icon'}">-->
@@ -103,41 +103,41 @@
                     <!--                        </router-link>-->
                     <!--                    </li>-->
 
-                    <li>
-                        <router-link to="/panel/teachers" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/teachers'}">
-                            <i title="آموزگاران" class="bi bi-person-video3 me-2"></i>
-                            <span class="sidebar_title">آموزگاران</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/panel/courses" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/courses'}">
-                            <i title="دوره ها" class="bi bi-easel-fill me-2"></i>
-                            <span class="sidebar_title">دوره ها</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/panel/resumes" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/resumes'}">
-                            <i title="رزومه ها" class="bi bi-person-lines-fill me-2"></i>
-                            <span class="sidebar_title">رزومه ها</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/panel/users" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/users'}">
-                            <i title="کاربران" class="bi bi-people-fill me-2"></i>
-                            <span class="sidebar_title">کاربران</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/panel/finance" class="nav-link text-white"
-                                     :class="{active: $route.fullPath ==='/panel/finance'}">
-                            <i title="مالی" class="bi bi-currency-exchange me-2"></i>
-                            <span class="sidebar_title">مالی</span>
-                        </router-link>
-                    </li>
+<!--                    <li>-->
+<!--                        <router-link to="/panel/teachers" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/teachers'}">-->
+<!--                            <i title="آموزگاران" class="bi bi-person-video3 me-2"></i>-->
+<!--                            <span class="sidebar_title">آموزگاران</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <router-link to="/panel/courses" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/courses'}">-->
+<!--                            <i title="دوره ها" class="bi bi-easel-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">دوره ها</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <router-link to="/panel/resumes" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/resumes'}">-->
+<!--                            <i title="رزومه ها" class="bi bi-person-lines-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">رزومه ها</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <router-link to="/panel/users" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/users'}">-->
+<!--                            <i title="کاربران" class="bi bi-people-fill me-2"></i>-->
+<!--                            <span class="sidebar_title">کاربران</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <router-link to="/panel/finance" class="nav-link text-white"-->
+<!--                                     :class="{active: $route.fullPath ==='/panel/finance'}">-->
+<!--                            <i title="مالی" class="bi bi-currency-exchange me-2"></i>-->
+<!--                            <span class="sidebar_title">مالی</span>-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <!--                    <li>-->
                     <!--                        <router-link to="/panel/reports" class="nav-link text-white"-->
                     <!--                                     :class="{active: $route.fullPath ==='/panel/reports'}">-->

@@ -2,7 +2,7 @@
     <transition name = "route" mode = "out-in" appear>
         <section class = "" v-if = "data">
             <div class = "index_image">
-             <img class = "w-50 mb-2" :src = "data.image" alt = "">
+             <img class = " mb-2" :src = "data.image" width="350" alt = "">
                 <div class = "label">
                    <span class = "badge bg-danger">
                        <i class = "bi bi-tags-fill ms-2"></i>
@@ -12,6 +12,7 @@
             </div>
 
                 <h3 class = "mb-2 fw-bold d-inline-block ">{{data.title}}</h3>
+
             <router-link :to = "'/panel/edit/article/'+data.id" class = "text-dark">
                 <span title = "ویرایش مطلب" class = "mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle">
                     <i class = "bi bi-pencil p-0 edit-pen"></i>
@@ -20,13 +21,26 @@
 
 
             <div class = "row mt-3">
-                <div class = "col-12 mb-3">
-                    <div class = "card">
+                <div class = "col-md-6 mb-3">
+                    <div class = "card h-100">
                         <div class = "card-body p-md-5">
+                            <h3  class="mb-5">محصول:</h3>
+                            <img class = " mb-2" :src = "data.image2" width="350" alt = "">
+                            <h3>{{ data.text2 }}</h3>
+                            <h4>{{ data.text3 }}</h4>
+                            <h6>{{ data.text4 }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-md-6 mb-3">
+                    <div class = "card h-100">
+                        <div class = "card-body p-md-5">
+                            <h3 class="mb-5">دستور پخت:</h3>
+
                             <div id = "text" class = "mb-5"></div>
-                            <div>
-                                <span v-for = "tag in tags" :key = "tag" :title = "tag.uri" class = "btn btn-sm btn-outline-dark m-1"> {{ tag.label }} </span>
-                            </div>
+<!--                            <div>-->
+<!--                                <span v-for = "tag in tags" :key = "tag" :title = "tag.uri" class = "btn btn-sm btn-outline-dark m-1"> {{ tag.label }} </span>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -62,11 +76,11 @@
                                 this.data = response.data;
                                 document.getElementById('text').innerHTML = this.data.text;
 
-                                if (this.data.tags) {
-                                    for (let i = 0; i < JSON.parse(this.data.tags).length; i++) {
-                                        this.tags.push(JSON.parse(this.data.tags)[i]);
-                                    }
-                                }
+                                // if (this.data.tags) {
+                                //     for (let i = 0; i < JSON.parse(this.data.tags).length; i++) {
+                                //         this.tags.push(JSON.parse(this.data.tags)[i]);
+                                //     }
+                                // }
                             })
                             .catch();
             },

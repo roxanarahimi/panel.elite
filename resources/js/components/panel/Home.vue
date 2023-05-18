@@ -2,14 +2,35 @@
     <!--<h3>داشبورد</h3>-->
     <transition name="route" mode="out-in" appear>
         <section>
+            <h3 class="mb-5 pb-5">جدید ترین مطالب</h3>
+
             <Suspense>
                 <template #default>
-                    <day-report-cards/>
+                  <div class="row">
+                      <router-link class="col-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
+                          <div class="card">
+                              <div class="card-body">
+                                  <img :src="item.image" class="img-fluid" alt="">
+                                  <p>{{ item.title }}</p>
+                              </div>
+                          </div>
+                      </router-link>
+                  </div>
+
                 </template>
                 <template #fallback>
                     <loader class="mt-5"/>
                 </template>
             </Suspense>
+
+            <!--            <Suspense>-->
+<!--                <template #default>-->
+<!--                    <day-report-cards/>-->
+<!--                </template>-->
+<!--                <template #fallback>-->
+<!--                    <loader class="mt-5"/>-->
+<!--                </template>-->
+<!--            </Suspense>-->
 
 <!--            <Suspense>-->
 <!--                <template #default>-->
@@ -33,11 +54,22 @@ import DayReportCards from "./dashboard/DayReportCards";
 export default {
     components: {LatestProducts, App, Loader, DayReportCards},
     setup() {
+        const articles = ref({});
+        const loadArticles= ()=>{
+            axios.get('/api/panel/article?page=1&perPage=4')
+                .then((response) => {
+                    articles.value = response.data.data;
+
+
+                })
+                .catch();
+        }
         onMounted(() => {
             document.querySelector('#admin_label').innerHTML = JSON.parse(localStorage.getItem('admin')).name;
-            // loadProducts();
+            loadArticles();
+
         });
-        return { }
+        return { articles, loadArticles}
     },
 
 
