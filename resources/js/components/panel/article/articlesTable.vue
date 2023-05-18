@@ -8,10 +8,12 @@
                     <th class = "d-none d-md-table-cell" style = "width: 100px" scope = "col">تصویر</th>
                     <th scope = "col">عنوان</th>
                     <th scope = "col">دسته</th>
-<!--                    <th class = "d-none d-xl-table-cell" scope = "col">متن</th>-->
-                    <th class = "d-none d-xl-table-cell" scope = "col">بازدید</th>
-                    <th class = "d-none d-xl-table-cell" scope = "col">لایک</th>
-                    <th class = "d-none d-xl-table-cell" scope = "col">دیسلایک</th>
+                    <th class = "d-none d-md-table-cell" style = "width: 100px" scope = "col">تصویر محصول</th>
+
+                    <!--                    <th class = "d-none d-xl-table-cell" scope = "col">متن</th>-->
+                    <th class = "d-none d-xl-table-cell" scope = "col">عنوان محصول</th>
+                    <th class = "d-none d-xl-table-cell" scope = "col">زیرنویس</th>
+<!--                    <th class = "d-none d-xl-table-cell" scope = "col">با طعم</th>-->
                     <th class = "d-none d-md-table-cell" scope = "col">تاریخ ثبت</th>
                     <th scope = "col" class = "active_cell">وضعیت</th>
                     <th scope = "col"></th>
@@ -32,9 +34,12 @@
                         {{ data.category.title }}
                     </td>
 <!--                    <td class = "d-none d-xl-table-cell text_cell">{{ // data.text }}</td>-->
-                    <td class = "d-none d-xl-table-cell text_cell">{{ data.views }}</td>
-                    <td class = "d-none d-xl-table-cell text_cell">{{ data.likes }}</td>
-                    <td class = "d-none d-xl-table-cell text_cell">{{ data.dislikes }}</td>
+                    <td class = "d-none d-md-table-cell" style = "width: 100px">
+                        <img v-if = "data.image2" :src = "data.image2" width = "80" alt = "">
+                    </td>
+                    <td class = "d-none d-xl-table-cell text_cell">{{ data.text2 }}</td>
+                    <td class = "d-none d-xl-table-cell text_cell">{{ data.text3 }}</td>
+<!--                    <td class = "d-none d-xl-table-cell text_cell">{{ // data.text4 }}</td>-->
                     <td class = "d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
                         <span @click="activeToggle(model,data.id)" v-if="data.active" class="badge bg-success text-light"><i class="bi bi-eye-fill"></i></span>

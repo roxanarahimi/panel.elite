@@ -13,7 +13,7 @@ class ArticleCategoryController extends Controller
     {
         try {
             $perPage = $request['perPage'];
-            $data = ArticleCategory::latest()->paginate($perPage);
+            $data = ArticleCategory::orderByDesc('id')->paginate($perPage);
             $pages_count = ceil($data->total()/$perPage);
             $labels = [];
             for ($i=1; $i <= $pages_count; $i++){
@@ -26,8 +26,7 @@ class ArticleCategoryController extends Controller
                 "labels"=> $labels,
             ], 200);
         } catch (\Exception $exception) {
-            return response($exception->getMessage(), (integer)$exception->getCode());
-
+            return response($exception);
         }
     }
 
@@ -36,8 +35,7 @@ class ArticleCategoryController extends Controller
         try {
             return response(new ArticleCategoryResource($articleCategory), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
@@ -56,11 +54,16 @@ class ArticleCategoryController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $data = ArticleCategory::create($request->all());
+            $data = ArticleCategory::create($request->except('image'));
+            if ($request['image']) {
+                $name = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $data->update(['image' => '/' . $image_path]);
+            }
+
             return response(new ArticleCategoryResource($data), 201);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
@@ -79,24 +82,28 @@ class ArticleCategoryController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $articleCategory->update($request->all());
+            $articleCategory->update($request->except('image'));
+            if ($request['image']) {
+                $name = 'article_' . $articleCategory['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $articleCategory->update(['image' => '/' . $image_path]);
+            }
+
             return response(new ArticleCategoryResource($articleCategory), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
     public function destroy(Request $request)
     {
         try {
-            $data = ArticleCategory::findOrFail($request['id']);
+            $data = ArticleCategory::where('id',$request['id'])->first();
             $data->articles->each->delete();
             $data->delete();
             return response("category and it's subsets deleted", 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
@@ -106,8 +113,7 @@ class ArticleCategoryController extends Controller
             $articleCategory->update(['active' => !$articleCategory['active']]);
             return response(new ArticleCategoryResource($articleCategory), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 }

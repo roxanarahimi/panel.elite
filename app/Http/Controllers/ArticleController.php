@@ -14,23 +14,22 @@ class ArticleController extends Controller
         try {
             $perPage = $request['perPage'];
             $data = Article::orderByDesc('id')->paginate($perPage);
-            $pages_count = ceil($data->total()/$perPage);
+            $pages_count = ceil($data->total() / $perPage);
             $labels = [];
-            for ($i=1; $i <= $pages_count; $i++){
-                (array_push($labels,$i));
+            for ($i = 1; $i <= $pages_count; $i++) {
+                (array_push($labels, $i));
             }
             return response([
-                "data"=>ArticleResource::collection($data),
-                "pages"=>$pages_count,
-                "total"=> $data->total(),
-                "labels"=> $labels,
-                "title"=> 'مطالب',
-                "tooltip_new"=> 'ثبت مطلب جدید',
+                "data" => ArticleResource::collection($data),
+                "pages" => $pages_count,
+                "total" => $data->total(),
+                "labels" => $labels,
+                "title" => 'مطالب',
+                "tooltip_new" => 'ثبت مطلب جدید',
 
             ], 200);
         } catch (\Exception $exception) {
-            return response($exception->getMessage(), (integer)$exception->getCode());
-
+            return response($exception);
         }
     }
 
@@ -40,8 +39,7 @@ class ArticleController extends Controller
             $data = Article::all()->sortByDesc('id')->take(3);
             return response(ArticleResource::collection($data), 200);
         } catch (\Exception $exception) {
-            return response($exception->getMessage(), (integer)$exception->getCode());
-
+            return response($exception);
         }
     }
 
@@ -50,8 +48,8 @@ class ArticleController extends Controller
         try {
             return response(new ArticleResource($article), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+
+            return response($exception);
         }
     }
 
@@ -70,13 +68,16 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $data = Article::create($request->except('image','image2'));
+            $data = Article::create($request->except('image', 'image2'));
             if ($request['image']) {
                 $name = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
-                $name2 = 'article_product_' . $data['id'] . '_' . uniqid() . '.jpg';
-                $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'img/');
-                $data->update(['image' => '/' . $image_path,'image2' => '/' . $image_path2]);
+                $data->update(['image' => '/' . $image_path]);
+            }
+            if ($request['image2']) {
+                $name2 = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $image_path2 = (new ImageController)->uploadImage($request['image'], $name2, 'img/');
+                $data->update(['image2' => '/' . $image_path2]);
             }
 
             return response(new ArticleResource($data), 201);
@@ -102,14 +103,14 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $article->update($request->except('image','image2'));
+            $article->update($request->except('image', 'image2'));
 
             if ($request['image']) {
                 $name = 'article_' . $article['id'] . '_' . uniqid() . '.jpg';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $article->update(['image' => '/' . $image_path]);
             }
-             if ($request['image2']) {
+            if ($request['image2']) {
                 $name2 = 'article_product_' . $article['id'] . '_' . uniqid() . '.jpg';
                 $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'img/');
                 $article->update(['image2' => '/' . $image_path2]);
@@ -123,7 +124,7 @@ class ArticleController extends Controller
 //    public function destroy(Article $article)
     public function destroy($id)
     {
-        $data = Article::where('id',$id)->first();
+        $data = Article::where('id', $id)->first();
         try {
             $data->delete();
             return response('article deleted', 200);
@@ -139,8 +140,7 @@ class ArticleController extends Controller
             $article->update(['active' => !$article['active']]);
             return response(new ArticleResource($article), 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 }

@@ -3,26 +3,26 @@
         <section>
 
             <div class="d-flex mb-5">
-                <h3 class="me-2">دسته بندی</h3>
-                <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
-<!--                    <option value="product">محصولات</option>-->
-                    <option value="article">مطالب</option>
-<!--                    <option value="course">دوره ها</option>-->
-                </select>
+                <h3 class="me-2">دسته بندی مطالب</h3>
+                <!--                <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">-->
+                <!--&lt;!&ndash;                    <option value="product">محصولات</option>&ndash;&gt;-->
+                <!--                    <option value="article">مطالب</option>-->
+                <!--&lt;!&ndash;                    <option value="course">دوره ها</option>&ndash;&gt;-->
+                <!--                </select>-->
             </div>
             <!--            <div class="row flex-row-reverse ">-->
             <div class="row ">
                 <!--                <div class="col-xl-4 mb-4 mt-3 mt-xl-4 pt-xl-5">-->
                 <!--            <suspense >-->
                 <!--                <template #default>-->
-                <div class="col-xl-8 mb-3">
+                <div class="col-xl-6 mb-3">
                     <loader style="margin-top: -72px"/>
                     <categories-table class="mb-3" :model="model" :allData="allData" :page="page" :pages="pages"
                                       :load="loadData"/>
                     <pagination :page="page" :pages="pages" :total="total" :labels="labels" :load="loadData"/>
 
                 </div>
-                <div class="col-xl-4 mb-4">
+                <div class="col-xl-6 mb-4">
                     <!--                    <div class="card mt-xl-1 ">-->
                     <div class="card">
                         <div class="card-body">
@@ -30,10 +30,19 @@
                             <form>
                                 <div class="row">
                                     <div class="col-12 mb-3">
+                                        <label class="form-label">تصویر</label><br/>
+                                        <image-cropper name="" caption="" :hasCaption="hasCaption"
+                                                       :isRequired="imgRequired" :aspect="aspect"/>
+                                        <div id="imageHelp" class="form-text error"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
                                         <label for="title" class="form-label">عنوان</label>
                                         <input type="text" class="form-control" id="title" required="required">
                                         <div>
-                                            <small v-for="error in errors.title" class="form-text error py-0 my-0 d-block">{{ error }}</small>
+                                            <small v-for="error in errors.title"
+                                                   class="form-text error py-0 my-0 d-block">{{ error }}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -86,10 +95,12 @@ import Loader from "../components/Loader";
 import BtnSubmit from "../components/BtnSubmit";
 // import categoriesTable from "./categoriesTable";
 import Pagination from "../components/Pagination";
+import categoriesTable from "./categoriesTable";
+import imageCropper from "../components/ImageCropper";
 
 
 export default {
-    components: {BtnSubmit, Loader, App, CategoriesTable, Pagination},
+    components: {BtnSubmit, Loader, App, CategoriesTable, Pagination, imageCropper},
     setup() {
         const model = ref('article');
         const errors = ref([]);
@@ -98,6 +109,10 @@ export default {
         const pages = ref();
         const total = ref();
         const labels = ref([]);
+        const imgRequired = true;
+        const hasCaption = false;
+        const aspect = 1 / 1;
+
         const loadData = async (p) => {
             if (p === undefined) {
                 page.value = 1;
@@ -109,25 +124,27 @@ export default {
             document.querySelector('#loader').classList.remove('d-none');
             await axios.get('/api/panel/category/' + model.value + '?page=' + page.value + '&perPage=' + perPage)
                 .then((response) => {
-                allData.value = response.data.data;
-                pages.value = response.data.pages;
-                total.value = response.data.total;
-                labels.value = response.data.labels;
+                    allData.value = response.data.data;
+                    pages.value = response.data.pages;
+                    total.value = response.data.total;
+                    labels.value = response.data.labels;
 
-                document.querySelector('#loader').classList.add('d-none');
-            }).catch();
+                    document.querySelector('#loader').classList.add('d-none');
+                }).catch();
         }
         const createInfo = async () => {
             errors.value = [];
-            // await App.methods.checkToken();
             await axios.post('/api/panel/category/' + model.value,
                 {
                     title: document.getElementById('title').value,
+                    image: document.getElementById('Image__code').value,
+
                 })
                 .then((response) => {
                     loadData();
                     setTimeout(() => {
                         document.getElementById('title').value = "";
+                        document.getElementById('btn_clear_image_').click();
                     }, 200);
 
                 })
@@ -165,6 +182,18 @@ export default {
 
                 })
         };
+        const deleteInfo = async () => {
+            await axios.post('/api/panel/delete/category/article', {
+                id: document.getElementById('deleteId').value,
+            })
+                .then((response) => {
+                    console.log(response.data)
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            await loadData();
+        };
 
         const activeToggle = async (id) => {
             // await App.methods.checkToken();
@@ -183,7 +212,7 @@ export default {
         })
         return {
             model, errors, allData, page, pages, total, labels,
-            loadData, createInfo, activeToggle
+            loadData, createInfo, activeToggle, deleteInfo, imgRequired, hasCaption, aspect
         }
     },
 

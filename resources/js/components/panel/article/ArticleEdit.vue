@@ -38,7 +38,7 @@
                                 <div class = "row">
                                     <div class = "col-12 mb-3">
                                         <label class = "form-label">تصویر محصول</label><br/>
-                                        <image-cropper name = "product" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :aspect = "aspect" :src="data.image2"/>
+                                        <image-cropper name = "product" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :src="data.image2"/>
                                         <div id = "image2Help" class = "form-text error"></div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                 errors: [],
                 imgRequired: false,
                 hasCaption: false,
-                aspect: 16 / 9,
+                aspect: 388 / 391,
                 isDefined: false,
                 enableClick: true,
                 // tags: [],

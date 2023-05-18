@@ -17,6 +17,7 @@ class ArticleCategoryResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "title" => $this->title,
+            "image" => $this->image,
             "active" => (boolean)$this->active,
             "editor" => ProductResource::collection($this->articles),
             "subsets" => ProductResource::collection($this->articles),

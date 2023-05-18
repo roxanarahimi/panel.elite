@@ -21167,7 +21167,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors: [],
       imgRequired: true,
       hasCaption: false,
-      aspect: 16 / 9 // tags: [{"label": "", "uri": ""}],
+      aspect: 388 / 391 // tags: [{"label": "", "uri": ""}],
 
     };
   },
@@ -21382,7 +21382,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors: [],
       imgRequired: false,
       hasCaption: false,
-      aspect: 16 / 9,
+      aspect: 388 / 391,
       isDefined: false,
       enableClick: true // tags: [],
 
@@ -26279,11 +26279,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         name: "product",
         caption: "",
         hasCaption: _ctx.hasCaption,
-        isRequired: _ctx.imgRequired,
-        aspect: _ctx.aspect
+        isRequired: _ctx.imgRequired
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["hasCaption", "isRequired"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: _ctx.errors.text2
@@ -26660,11 +26659,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         caption: "",
         hasCaption: $data.hasCaption,
         isRequired: $data.imgRequired,
-        aspect: $data.aspect,
         src: $data.data.image2
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect", "src"]), _hoisted_27])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["hasCaption", "isRequired", "src"]), _hoisted_27])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: $data.errors.text2

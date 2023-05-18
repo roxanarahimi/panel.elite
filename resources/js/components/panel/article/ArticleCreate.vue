@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر محصول</label><br/>
-                                        <image-cropper name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <image-cropper name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired"/>
                                         <div id="image2Help" class="form-text error"></div>
                                     </div>
                                 </div>
@@ -114,7 +114,8 @@ export default {
             errors: [],
             imgRequired: true,
             hasCaption: false,
-            aspect: 16 / 9,
+            aspect: 388 / 391,
+
             // tags: [{"label": "", "uri": ""}],
         }
     },
