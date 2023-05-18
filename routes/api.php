@@ -103,7 +103,7 @@ Route::controller(App\Http\Controllers\ArticleController::class)->group(function
         Route::get('/article/{article}', 'show');
         Route::post('/article', 'store');
         Route::post('/article/{article}', 'update');
-        Route::post('/delete/article', 'destroy');
+        Route::get('/delete/article/{id}', 'destroy');
 
         Route::get('/active/article/{article}', 'activeToggle');
         Route::get('/latest/article', 'latest');

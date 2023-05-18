@@ -121,15 +121,14 @@ class ArticleController extends Controller
     }
 
 //    public function destroy(Article $article)
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $data = Article::findOrFail($request['id']);
+        $data = Article::where('id',$id)->first();
         try {
             $data->delete();
             return response('article deleted', 200);
         } catch (\Exception $exception) {
-//            return response($exception->getMessage(), (integer)$exception->getCode());
-            return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
+            return response($exception);
         }
     }
 
