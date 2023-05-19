@@ -2,7 +2,7 @@
     <transition name = "route" mode = "out-in" appear>
         <section class = "" v-if = "data">
             <div class = "index_image">
-             <img class = " mb-2" :src = "data.image" width="350" alt = "">
+             <img class = "img-fluid mb-2" :src = "data.image" width="350" alt = "">
                 <div class = "label">
                    <span class = "badge bg-danger">
                        <i class = "bi bi-tags-fill ms-2"></i>
@@ -25,7 +25,7 @@
                     <div class = "card h-100">
                         <div class = "card-body p-md-5">
                             <h3  class="mb-5">محصول:</h3>
-                            <img class = " mb-2" :src = "data.image2" width="350" alt = "">
+                            <img class = "img-fluid mb-2" :src = "data.image2" width="350" alt = "">
                             <h3>{{ data.text2 }}</h3>
                             <h4>{{ data.text3 }}</h4>
                             <h6>{{ data.text4 }}</h6>
