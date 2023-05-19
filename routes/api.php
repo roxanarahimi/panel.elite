@@ -96,6 +96,7 @@ Route::controller(App\Http\Controllers\ArticleController::class)->group(function
     Route::get('/article', 'indexSite');
     Route::get('/article/{article}', 'show');
     Route::get('/latest/article', 'latestSite');
+    Route::get('/article/by/category/{id}', 'byCat');
 
     Route::prefix('panel')->group(function () {
 
@@ -301,5 +302,4 @@ Route::controller(App\Http\Controllers\TeacherController::class)->group(function
 Route::get('/foods', [ApiController::class,'foods']);
 Route::get('/food/{food}', [ApiController::class,'food']);
 Route::get('/category/article', [\App\Http\Controllers\ArticleCategoryController::class,'indexSite']);
-Route::get('/article/by/category/{id}', [\App\Http\Controllers\ArticleController::class,'byCat']);
 
