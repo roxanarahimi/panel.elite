@@ -32,7 +32,7 @@ class ArticleCategoryController extends Controller
     public function indexSite()
     {
         try {
-            $data = ArticleCategory::orderBy('id')->get();
+            $data = ArticleCategory::orderBy('id')->where('active',1)->get();
             return response(ArticleCategoryResource::collection($data), 200);
         } catch (\Exception $exception) {
             return response($exception);
