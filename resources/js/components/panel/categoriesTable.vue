@@ -96,6 +96,9 @@ export default {
     components: { imageCropper},
     setup(props) {
         const errors = ref([]);
+        const imgRequired = true;
+        const hasCaption = false;
+        const aspect = 330 / 244;
 
         const loadData = async (p) => {
             props.load(p);
@@ -187,7 +190,7 @@ export default {
 
         return {
             loadData, updateInfo, showUpdateForm, hideUpdateForm, activeToggle,
-            showDeleteModal,
+            showDeleteModal, errors, imgRequired, hasCaption, aspect
         }
 
     },

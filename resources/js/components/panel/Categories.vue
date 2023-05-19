@@ -111,7 +111,7 @@ export default {
         const labels = ref([]);
         const imgRequired = true;
         const hasCaption = false;
-        const aspect = 1 / 1;
+        const aspect = 330 / 244;
 
         const loadData = async (p) => {
             if (p === undefined) {

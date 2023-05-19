@@ -184,7 +184,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var labels = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
     var imgRequired = true;
     var hasCaption = false;
-    var aspect = 1 / 1;
+    var aspect = 330 / 244;
 
     var loadData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(p) {
@@ -405,6 +405,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   setup: function setup(props) {
     var errors = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
+    var imgRequired = true;
+    var hasCaption = false;
+    var aspect = 330 / 244;
 
     var loadData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(p) {
@@ -601,7 +604,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       showUpdateForm: showUpdateForm,
       hideUpdateForm: hideUpdateForm,
       activeToggle: activeToggle,
-      showDeleteModal: showDeleteModal
+      showDeleteModal: showDeleteModal,
+      errors: errors,
+      imgRequired: imgRequired,
+      hasCaption: hasCaption,
+      aspect: aspect
     };
   }
 });
@@ -1233,9 +1240,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
       name: data.id,
       caption: "",
-      hasCaption: _ctx.hasCaption,
-      isRequired: _ctx.imgRequired,
-      aspect: _ctx.aspect,
+      hasCaption: $setup.hasCaption,
+      isRequired: $setup.imgRequired,
+      aspect: $setup.aspect,
       src: data.image
     }, null, 8
     /* PROPS */
