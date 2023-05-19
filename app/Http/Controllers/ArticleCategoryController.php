@@ -29,6 +29,15 @@ class ArticleCategoryController extends Controller
             return response($exception);
         }
     }
+    public function indexSite()
+    {
+        try {
+            $data = ArticleCategory::orderBy('id')->get();
+            return response(ArticleCategoryResource::collection($data), 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+        }
+    }
 
     public function show(ArticleCategory $articleCategory)
     {
