@@ -522,6 +522,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return document.getElementById('form_' + id).classList.add('d-none');
 
               case 6:
+                _context4.next = 8;
+                return document.getElementById('btn_clear_image_' + id).click();
+
+              case 8:
               case "end":
                 return _context4.stop();
             }

@@ -7,7 +7,7 @@
             <Suspense>
                 <template #default>
                   <div class="row">
-                      <router-link class="col-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
+                      <router-link class="col-sm-6 col-xl-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
                           <div class="card">
                               <div class="card-body">
                                   <img :src="item.image" class="img-fluid" alt="">

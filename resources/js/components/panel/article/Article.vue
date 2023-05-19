@@ -21,7 +21,7 @@
 
 
             <div class = "row mt-3">
-                <div class = "col-md-6 mb-3">
+                <div class = "col-lg-6 mb-3">
                     <div class = "card h-100">
                         <div class = "card-body p-md-5">
                             <h3  class="mb-5">محصول:</h3>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class = "col-md-6 mb-3">
+                <div class = "col-lg-6 mb-3">
                     <div class = "card h-100">
                         <div class = "card-body p-md-5">
                             <h3 class="mb-5">دستور پخت:</h3>

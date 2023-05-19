@@ -141,6 +141,8 @@ export default {
                 element.classList.remove('d-none');
             });
             await document.getElementById('form_' + id).classList.add('d-none');
+            await document.getElementById('btn_clear_image_'+id).click();
+
         };
         const updateInfo = async (id) => {
             // await App.methods.checkToken();

@@ -8,7 +8,7 @@
                     <th scope="col">نام</th>
                     <th scope="col">ایمیل</th>
                     <th class="d-none d-md-table-cell" scope="col">تاریخ ثبت</th>
-                    <th scope="col"></th>
+<!--                    <th scope="col"></th>-->
                 </tr>
                 </thead>
                 <tbody>
@@ -18,11 +18,11 @@
                     <td class="ellipsis pe-md-5 en" :title="data.email">{{ data.email }}</td>
 
                     <td class="d-none d-md-table-cell ">{{ data.created_at }}</td>
-                    <td>
-                        <span role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-three-dots-vertical"></i>
-                        </span>
-                    </td>
+<!--                    <td>-->
+<!--                        <span role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                            <i class="bi bi-three-dots-vertical"></i>-->
+<!--                        </span>-->
+<!--                    </td>-->
                 </tr>
 
                 </tbody>

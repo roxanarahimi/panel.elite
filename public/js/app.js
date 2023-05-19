@@ -25897,7 +25897,7 @@ var _hoisted_10 = {
   "class": "row mt-3"
 };
 var _hoisted_11 = {
-  "class": "col-md-6 mb-3"
+  "class": "col-lg-6 mb-3"
 };
 var _hoisted_12 = {
   "class": "card h-100"
@@ -25915,7 +25915,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_15 = ["src"];
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-md-6 mb-3"
+  "class": "col-lg-6 mb-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card h-100"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
