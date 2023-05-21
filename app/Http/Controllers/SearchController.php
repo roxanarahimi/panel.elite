@@ -12,8 +12,12 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         try {
-            $data = Article::where('title',  'Like', '%' . $request['term'] . '%')->get();
-            return response(ArticleResource::collection($data), 200);
+            if ($request['term'] != ''){
+                $data = Article::where('title',  'Like', '%' . $request['term'] . '%')->get();
+                return response(ArticleResource::collection($data), 200);
+            }else{
+                return response([], 200);
+            }
         }catch (Exception $exception){
             return response($exception);
         }
