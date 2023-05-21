@@ -303,3 +303,6 @@ Route::get('/foods', [ApiController::class,'foods']);
 Route::get('/food/{food}', [ApiController::class,'food']);
 Route::get('/category/article', [\App\Http\Controllers\ArticleCategoryController::class,'indexSite']);
 
+
+Route::get('/search', [\App\Http\Controllers\SearchController::class,'search']);
+
