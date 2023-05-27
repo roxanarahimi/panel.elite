@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductCategoryController extends Controller
 {
+
     public function index(Request $request)
     {
         try {
             $perPage = $request['perPage'];
-            $data = ProductCategory::latest()->paginate($perPage);
+            $data = ProductCategory::orderByDesc('id')->paginate($perPage);
             $pages_count = ceil($data->total()/$perPage);
             $labels = [];
             for ($i=1; $i <= $pages_count; $i++){
@@ -27,18 +28,15 @@ class ProductCategoryController extends Controller
             ], 200);
         } catch (\Exception $exception) {
             return response($exception);
-
         }
     }
-
     public function indexSite()
     {
         try {
-            $data = ProductCategory::all()->where('active',1);
+            $data = ProductCategory::orderBy('id')->where('active',1)->get();
             return response(ProductCategoryResource::collection($data), 200);
         } catch (\Exception $exception) {
             return response($exception);
-
         }
     }
 
@@ -55,7 +53,7 @@ class ProductCategoryController extends Controller
     {
         $validator = Validator::make($request->all('title'),
             [
-                'title' => 'required|unique:product_categories',
+                'title' => 'required|unique:Product_categories',
             ],
             [
                 'title.required' => 'لطفا عنوان را وارد کنید',
@@ -66,7 +64,13 @@ class ProductCategoryController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $data = ProductCategory::create($request->all());
+            $data = ProductCategory::create($request->except('image'));
+            if ($request['image']) {
+                $name = 'Product_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $data->update(['image' => '/' . $image_path]);
+            }
+
             return response(new ProductCategoryResource($data), 201);
         } catch (\Exception $exception) {
             return response($exception);
@@ -77,7 +81,7 @@ class ProductCategoryController extends Controller
     {
         $validator = Validator::make($request->all('title'),
             [
-                'title' => 'required|unique:product_categories,title,' . $productCategory['id'],
+                'title' => 'required|unique:Product_categories,title,' . $productCategory['id'],
             ],
             [
                 'title.required' => 'لطفا عنوان را وارد کنید',
@@ -88,7 +92,13 @@ class ProductCategoryController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $productCategory->update($request->all());
+            $productCategory->update($request->except('image'));
+            if ($request['image']) {
+                $name = 'Product_' . $productCategory['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $productCategory->update(['image' => '/' . $image_path]);
+            }
+
             return response(new ProductCategoryResource($productCategory), 200);
         } catch (\Exception $exception) {
             return response($exception);
@@ -98,8 +108,8 @@ class ProductCategoryController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $data = ProductCategory::findOrFail($request['id']);
-            $data->products->each->delete();
+            $data = ProductCategory::where('id',$request['id'])->first();
+            $data->Products->each->delete();
             $data->delete();
             return response("category and it's subsets deleted", 200);
         } catch (\Exception $exception) {

@@ -3,12 +3,11 @@
         <section>
 
             <div class="d-flex mb-5">
-                <h3 class="me-2">دسته بندی مطالب</h3>
-                <!--                <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">-->
-                <!--&lt;!&ndash;                    <option value="product">محصولات</option>&ndash;&gt;-->
-                <!--                    <option value="article">مطالب</option>-->
-                <!--&lt;!&ndash;                    <option value="course">دوره ها</option>&ndash;&gt;-->
-                <!--                </select>-->
+                <h3 class="me-2">دسته بندی</h3>
+                <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
+                    <option value="product">محصولات</option>
+                    <option value="article">مطالب</option>
+                </select>
             </div>
             <!--            <div class="row flex-row-reverse ">-->
             <div class="row ">
@@ -102,7 +101,7 @@ import imageCropper from "../components/ImageCropper";
 export default {
     components: {BtnSubmit, Loader, App, CategoriesTable, Pagination, imageCropper},
     setup() {
-        const model = ref('article');
+        const model = ref('product');
         const errors = ref([]);
         const allData = ref([]);
         const page = ref();
@@ -183,7 +182,7 @@ export default {
                 })
         };
         const deleteInfo = async () => {
-            await axios.post('/api/panel/delete/category/article', {
+            await axios.post('/api/panel/delete/category/'+model.value, {
                 id: document.getElementById('deleteId').value,
             })
                 .then((response) => {

@@ -51,13 +51,13 @@
                             <span class="sidebar_title">دسته ها</span>
                         </router-link>
                     </li>
-<!--                    <li>-->
-<!--                        <router-link to="/panel/products" class="nav-link text-white"-->
-<!--                                     :class="{active: $route.fullPath ==='/panel/products'}">-->
-<!--                            <i title="محصولات" class="bi bi-grid-fill me-2"></i>-->
-<!--                            <span class="sidebar_title">محصولات</span>-->
-<!--                        </router-link>-->
-<!--                    </li>-->
+                    <li>
+                        <router-link to="/panel/products" class="nav-link text-white"
+                                     :class="{active: $route.fullPath ==='/panel/products'}">
+                            <i title="محصولات" class="bi bi-grid-fill me-2"></i>
+                            <span class="sidebar_title">محصولات</span>
+                        </router-link>
+                    </li>
                     <!--                    <li>-->
                     <!--                        <router-link to="/panel/categories/product" class="nav-link text-white"-->
                     <!--                                     :class="{active: $route.fullPath ==='/panel/categories/product'}">-->

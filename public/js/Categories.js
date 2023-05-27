@@ -175,7 +175,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   setup: function setup() {
     var _this = this;
 
-    var model = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)('article');
+    var model = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)('product');
     var errors = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
     var allData = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
     var page = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)();
@@ -294,7 +294,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return axios.post('/api/panel/delete/category/article', {
+                return axios.post('/api/panel/delete/category/' + model.value, {
                   id: document.getElementById('deleteId').value
                 }).then(function (response) {
                   console.log(response.data);
@@ -849,76 +849,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_1 = {
   "class": "d-flex mb-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "me-2"
-}, "دسته بندی مطالب"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <select id=\"model\" @change=\"loadData\" v-model=\"model\" class=\"form-select\" style=\"width: 200px\">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("&lt;!&ndash;                    <option value=\"product\">محصولات</option>&ndash;&gt;"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <option value=\"article\">مطالب</option>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("&lt;!&ndash;                    <option value=\"course\">دوره ها</option>&ndash;&gt;"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </select>")], -1
+}, "دسته بندی", -1
 /* HOISTED */
 );
 
-var _hoisted_2 = {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "product"
+}, "محصولات", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "article"
+}, "مطالب", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = [_hoisted_3, _hoisted_4];
+var _hoisted_6 = {
   "class": "row"
 };
-var _hoisted_3 = {
+var _hoisted_7 = {
   "class": "col-xl-6 mb-3"
 };
-var _hoisted_4 = {
+var _hoisted_8 = {
   "class": "col-xl-6 mb-4"
 };
-var _hoisted_5 = {
+var _hoisted_9 = {
   "class": "card"
 };
-var _hoisted_6 = {
+var _hoisted_10 = {
   "class": "card-body"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "fw-bold"
 }, "ثبت دسته جدید", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = {
+var _hoisted_12 = {
   "class": "row"
 };
-var _hoisted_9 = {
+var _hoisted_13 = {
   "class": "col-12 mb-3"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-label"
 }, "تصویر", -1
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "imageHelp",
   "class": "form-text error"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_17 = {
   "class": "row"
 };
-var _hoisted_14 = {
+var _hoisted_18 = {
   "class": "col-12 mb-3"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "title",
   "class": "form-label"
 }, "عنوان", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   "class": "form-control",
   id: "title",
@@ -927,40 +941,40 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_17 = {
+var _hoisted_21 = {
   "class": "form-text error py-0 my-0 d-block"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ثبت ");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ثبت ");
 
-var _hoisted_19 = {
+var _hoisted_23 = {
   "class": "modal fade",
   id: "exampleModal",
   tabindex: "-1",
   "aria-labelledby": "exampleModalLabel",
   "aria-hidden": "true"
 };
-var _hoisted_20 = {
+var _hoisted_24 = {
   "class": "modal-dialog modal-md"
 };
-var _hoisted_21 = {
+var _hoisted_25 = {
   "class": "modal-content"
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-header border-0\"><!--                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Modal title&lt;/h5&gt;--><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"> آیا دسته مورد نظر حذف شود؟ <small class=\"d-block fw-bold mt-2 text-danger\"><i class=\"bi bi-exclamation-triangle-fill\"></i> با حذف این دسته همه موارد زیر مجموعه آن حذف خواهند شد!!!</small></div>", 2);
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-header border-0\"><!--                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Modal title&lt;/h5&gt;--><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"> آیا دسته مورد نظر حذف شود؟ <small class=\"d-block fw-bold mt-2 text-danger\"><i class=\"bi bi-exclamation-triangle-fill\"></i> با حذف این دسته همه موارد زیر مجموعه آن حذف خواهند شد!!!</small></div>", 2);
 
-var _hoisted_24 = {
+var _hoisted_28 = {
   "class": "modal-footer border-0"
 };
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "hidden",
   id: "deleteId"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "button",
   "class": "btn btn-secondary",
   "data-bs-dismiss": "modal"
@@ -985,7 +999,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     appear: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <div class=\"row flex-row-reverse \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div class=\"col-xl-4 mb-4 mt-3 mt-xl-4 pt-xl-5\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <suspense >"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #default>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+        id: "model",
+        onChange: _cache[0] || (_cache[0] = function () {
+          return $setup.loadData && $setup.loadData.apply($setup, arguments);
+        }),
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $setup.model = $event;
+        }),
+        "class": "form-select",
+        style: {
+          "width": "200px"
+        }
+      }, _hoisted_5, 544
+      /* HYDRATE_EVENTS, NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.model]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <div class=\"row flex-row-reverse \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div class=\"col-xl-4 mb-4 mt-3 mt-xl-4 pt-xl-5\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <suspense >"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <template #default>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader, {
         style: {
           "margin-top": "-72px"
         }
@@ -1006,7 +1034,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         load: $setup.loadData
       }, null, 8
       /* PROPS */
-      , ["page", "pages", "total", "labels", "load"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"card mt-xl-1 \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+      , ["page", "pages", "total", "labels", "load"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"card mt-xl-1 \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
         name: "",
         caption: "",
         hasCaption: $setup.hasCaption,
@@ -1014,8 +1042,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         aspect: $setup.aspect
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect"]), _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.title, function (error) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1
+      , ["hasCaption", "isRequired", "aspect"]), _hoisted_16])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.title, function (error) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1
         /* TEXT */
         );
       }), 256
@@ -1024,7 +1052,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.createInfo, ["prevent"])
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_18];
+          return [_hoisted_22];
         }),
         _: 1
         /* STABLE */
@@ -1036,14 +1064,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-dark",
     "data-bs-dismiss": "modal",
-    onClick: _cache[0] || (_cache[0] = function () {
+    onClick: _cache[2] || (_cache[2] = function () {
       return $setup.deleteInfo && $setup.deleteInfo.apply($setup, arguments);
     })
-  }, "بله "), _hoisted_26])])])])], 64
+  }, "بله "), _hoisted_30])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
