@@ -86,25 +86,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_ImageCropper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/ImageCropper */ "./resources/js/components/components/ImageCropper.vue");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../App */ "./resources/js/components/panel/App.vue");
-/* harmony import */ var _components_BtnSubmit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/BtnSubmit */ "./resources/js/components/components/BtnSubmit.vue");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _components_ImageCropper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/ImageCropper */ "./resources/js/components/components/ImageCropper.vue");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App */ "./resources/js/components/panel/App.vue");
+/* harmony import */ var _components_BtnSubmit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/BtnSubmit */ "./resources/js/components/components/BtnSubmit.vue");
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ImageCropper: _components_ImageCropper__WEBPACK_IMPORTED_MODULE_1__["default"],
-    App: _App__WEBPACK_IMPORTED_MODULE_2__["default"],
-    BtnSubmit: _components_BtnSubmit__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ImageCropper: _components_ImageCropper__WEBPACK_IMPORTED_MODULE_0__["default"],
+    App: _App__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BtnSubmit: _components_BtnSubmit__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -130,7 +122,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       images: []
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     this.loadCategories();
     this.loadProduct();
   },
@@ -138,42 +130,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     loadProduct: function loadProduct() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get('/api/panel/product/' + _this.id).then(function (response) {
-                  console.log(response.data);
-                  _this.data = response.data.product;
+      axios.get('/api/panel/product/' + this.id).then(function (response) {
+        console.log(response.data);
+        _this.data = response.data.product;
 
-                  if (_this.data.features) {
-                    for (var i = 0; i < JSON.parse(_this.data.features).length; i++) {
-                      _this.features.push(JSON.parse(_this.data.features)[i]);
-                    }
-                  }
-
-                  if (_this.data.sizes && _this.data.sizes.length) {
-                    _this.sizes = _this.data.sizes;
-                  }
-
-                  if (_this.data.images) {
-                    _this.images = _this.data.images;
-                  }
-                }).then(function () {
-                  _this.isDefined = true;
-                }).then(function () {
-                  _this.watchTextAreas();
-                })["catch"]();
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
+        if (_this.data.features) {
+          for (var i = 0; i < JSON.parse(_this.data.features).length; i++) {
+            _this.features.push(JSON.parse(_this.data.features)[i]);
           }
-        }, _callee);
-      }))();
+        }
+
+        if (_this.data.sizes && _this.data.sizes.length) {
+          _this.sizes = _this.data.sizes;
+        }
+
+        if (_this.data.images) {
+          _this.images = _this.data.images;
+        }
+      }).then(function () {
+        _this.isDefined = true;
+      }).then(function () {
+        _this.watchTextAreas();
+      })["catch"]();
     },
     loadCategories: function loadCategories() {
       var _this2 = this;
@@ -185,159 +163,98 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     updateInfo: function updateInfo() {
       var _this3 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var emptyFieldsCount, req, features, i;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _this3.errors = [];
-                emptyFieldsCount = 0;
-                req = document.querySelectorAll('[required]');
-                req.forEach(function (element) {
-                  if (element.value === "") {
-                    element.classList.add('hasError');
-                    element.nextSibling.innerHTML = "فیلد اجباری";
-                    emptyFieldsCount++;
-                  } else {
-                    element.classList.remove('hasError');
-                    element.nextSibling.innerHTML = "";
-                  }
-                }); // let images = [];
-                // for (let i = 0; i < this.images.length; i++) {
-                //     if (document.getElementById('prev_image_' + i).value || document.getElementById('Image_' + i + '_code').value) {
-                //         images.push([
-                //             document.getElementById('prev_image_' + i).value,
-                //             document.getElementById('Image_' + i + '_code').value,
-                //         ]);
-                //     }
-                //
-                // }
+      this.errors = [];
+      var emptyFieldsCount = 0;
+      var req = document.querySelectorAll('[required]');
+      req.forEach(function (element) {
+        if (element.value === "") {
+          element.classList.add('hasError');
+          element.nextSibling.innerHTML = "فیلد اجباری";
+          emptyFieldsCount++;
+        } else {
+          element.classList.remove('hasError');
+          element.nextSibling.innerHTML = "";
+        }
+      });
 
-                if (!(emptyFieldsCount === 0)) {
-                  _context4.next = 10;
-                  break;
-                }
+      if (emptyFieldsCount === 0) {
+        var features = [];
 
-                features = [];
+        for (var i = 0; i < document.getElementsByName('featureLabel').length; i++) {
+          features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + '", "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
+        }
 
-                for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                  features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + '", "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
-                }
+        if (document.getElementsByName('featureLabel').length === 0) {
+          features = '[]';
+        } else {
+          features = '[' + features.toString() + ']';
+        }
 
-                if (document.getElementsByName('featureLabel').length === 0) {
-                  features = '[]';
-                } else {
-                  features = '[' + features.toString() + ']';
-                }
+        axios.post('/api/panel/product/' + this.$route.params.id, {
+          // image: document.getElementById('Image_index_code').value,
+          image: document.getElementById('Image__code').value,
+          title: document.getElementById('title').value,
+          subTitle: document.getElementById('subTitle').value,
+          title_en: document.getElementById('title_en').value,
+          flavor: document.getElementById('flavor').value,
+          tag1: document.getElementById('tag1').value,
+          tag2: document.getElementById('tag2').value,
+          product_category_id: document.getElementById('category').value,
+          text: document.getElementById('text').value,
+          features: features // sizes: this.sizes,
+          // off: document.getElementById('off').value,
+          // price: document.getElementById('price').value,
 
-                _context4.next = 10;
-                return axios.post('/api/panel/product/' + _this3.$route.params.id, {
-                  // image: document.getElementById('Image_index_code').value,
-                  image: document.getElementById('Image__code').value,
-                  title: document.getElementById('title').value,
-                  subTitle: document.getElementById('subTitle').value,
-                  title_en: document.getElementById('title_en').value,
-                  flavor: document.getElementById('flavor').value,
-                  tag1: document.getElementById('tag1').value,
-                  tag2: document.getElementById('tag2').value,
-                  product_category_id: document.getElementById('category').value,
-                  text: document.getElementById('text').value,
-                  features: features // sizes: this.sizes,
-                  // off: document.getElementById('off').value,
-                  // price: document.getElementById('price').value,
+        }).then(function (response) {
+          console.log('res', response);
 
-                }).then(function (response) {
-                  console.log('res', response);
-
-                  if (response.status === 200) {
-                    setTimeout(function () {
-                      _this3.$router.push({
-                        path: '/panel/product/' + _this3.id
-                      });
-                    }, 1000);
-                  }
-                })["catch"](function (error) {
-                  document.querySelector('#submit').removeAttribute('disabled');
-                  document.querySelector('.loader-sm').classList.add('d-none');
-
-                  if (error.response.status === 422) {
-                    var errorList = Array(error.response.data);
-
-                    for (var i = 0; i < errorList.length; i++) {
-                      _this3.errors = errorList[i];
-                    }
-                  } else if (error.response.status === 500) {
-                    if (error.response.data.message.includes("SQLSTATE")) {
-                      var showAlertSql = function showAlertSql() {
-                        setTimeout(function () {
-                          alert(error.response.data.message);
-                        }, 200);
-                      };
-
-                      console.error('خطای پایگاه داده');
-                      showAlertSql();
-                    } else {
-                      var showAlert500 = /*#__PURE__*/function () {
-                        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-                          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-                            while (1) {
-                              switch (_context2.prev = _context2.next) {
-                                case 0:
-                                  setTimeout(function () {
-                                    alert(error.message + ' ' + error.response.data.message);
-                                  }, 200);
-
-                                case 1:
-                                case "end":
-                                  return _context2.stop();
-                              }
-                            }
-                          }, _callee2);
-                        }));
-
-                        return function showAlert500() {
-                          return _ref.apply(this, arguments);
-                        };
-                      }();
-
-                      showAlert500();
-                    }
-                  } else {
-                    var showAlert = /*#__PURE__*/function () {
-                      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-                        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-                          while (1) {
-                            switch (_context3.prev = _context3.next) {
-                              case 0:
-                                setTimeout(function () {
-                                  alert(error.message);
-                                }, 200);
-
-                              case 1:
-                              case "end":
-                                return _context3.stop();
-                            }
-                          }
-                        }, _callee3);
-                      }));
-
-                      return function showAlert() {
-                        return _ref2.apply(this, arguments);
-                      };
-                    }();
-
-                    showAlert();
-                  }
-                });
-
-              case 10:
-              case "end":
-                return _context4.stop();
-            }
+          if (response.status === 200) {
+            setTimeout(function () {
+              _this3.$router.push({
+                path: '/panel/product/' + _this3.id
+              });
+            }, 1000);
           }
-        }, _callee4);
-      }))();
+        })["catch"](function (error) {
+          document.querySelector('#submit').removeAttribute('disabled');
+          document.querySelector('.loader-sm').classList.add('d-none');
+
+          if (error.response.status === 422) {
+            var errorList = Array(error.response.data);
+
+            for (var i = 0; i < errorList.length; i++) {
+              _this3.errors = errorList[i];
+            }
+          } else if (error.response.status === 500) {
+            if (error.response.data.message.includes("SQLSTATE")) {
+              var showAlertSql = function showAlertSql() {
+                setTimeout(function () {
+                  alert(error.response.data.message);
+                }, 200);
+              };
+
+              console.error('خطای پایگاه داده');
+              showAlertSql();
+            } else {
+              var showAlert500 = function showAlert500() {
+                setTimeout(function () {
+                  alert(error.message + ' ' + error.response.data.message);
+                }, 200);
+              };
+
+              showAlert500();
+            }
+          } else {
+            var showAlert = function showAlert() {
+              setTimeout(function () {
+                alert(error.message);
+              }, 200);
+            };
+
+            showAlert();
+          }
+        });
+      }
     },
     watchTextAreas: function watchTextAreas() {
       var txt = document.querySelector("#text");
@@ -356,81 +273,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.features.splice(index, 1);
     },
     updateFeatures: function updateFeatures() {
-      var _this4 = this;
+      this.features = [];
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        var i;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _this4.features = [];
-
-                for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                  _this4.features.push({
-                    "label": document.getElementsByName('featureLabel')[i].value.toString(),
-                    "value": document.getElementsByName('featureValue')[i].value.toString(),
-                    "unit": document.getElementsByName('featureUnit')[i].value.toString()
-                  });
-                }
-
-              case 2:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
-      }))();
-    } // addSize() {
-    //     this.sizes.push('{}');
-    // },
-    // removeSize(index) {
-    //     this.sizes.splice(index, 1);
-    // },
-    // async updateSizes() {
-    //
-    //     await axios.post('/api/panel/check/user/token', {id: JSON.parse(localStorage.getItem('user')).id})
-    //         .then((response) => {
-    //             if (response.status === 200) {
-    //                 localStorage.setItem('expire', response.data.expire);
-    //                 // console.log(localStorage);
-    //             }
-    //         })
-    //         .then(() => {
-    //             // // this.sizes = [];
-    //             // let a = [];
-    //             // for (let i = 0; i < document.getElementsByName('size').length; i++) {
-    //             //     a.push({
-    //             //         "id": document.getElementsByName('id')[i].value,
-    //             //         "size": document.getElementsByName('size')[i].value.toString(),
-    //             //         "dimensions": document.getElementsByName('dimensions')[i].value.toString(),
-    //             //         "color_name": document.getElementsByName('color_name')[i].value.toString(),
-    //             //         "color_code": document.getElementsByName('color_code')[i].value.toString(),
-    //             //         "stock": document.getElementsByName('stock')[i].value,
-    //             //     });
-    //             // }
-    //             // this.sizes = a;
-    //             // console.log(this.sizes);
-    //
-    //         })
-    //         .catch((error) => {
-    //             if (error.response.status === 401) {
-    //                 window.location = '/panel/login'
-    //                 App.methods.logout();
-    //             }
-    //         });
-    //
-    //
-    // },
-    // removeImage(index) {
-    //     this.images.splice(index, 1);
-    //
-    // },
-    // addImage() {
-    //     this.images.push(['', '']);
-    //
-    // }
-
+      for (var i = 0; i < document.getElementsByName('featureLabel').length; i++) {
+        this.features.push({
+          "label": document.getElementsByName('featureLabel')[i].value.toString(),
+          "value": document.getElementsByName('featureValue')[i].value.toString(),
+          "unit": document.getElementsByName('featureUnit')[i].value.toString()
+        });
+      }
+    }
   }
 });
 

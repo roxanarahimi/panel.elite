@@ -158,8 +158,9 @@
                                                 <div class="form-text error"></div>
                                             </div>
                                             <div class="col-auto mb-3 pt-2">
-                                                <span @click="removeFeature(index)"><i class="bi bi-x-circle-fill m-0 "
-                                                                                       style="font-size: 15px"></i></span>
+                                                <span @click="removeFeature(index)">
+                                                    <i class="bi bi-x-circle-fill m-0 " style="font-size: 15px"></i>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -259,19 +260,15 @@ export default {
         }
     },
 
-    mounted() {
-
-
+    created() {
         this.loadCategories();
         this.loadProduct();
-
-
     },
 
     methods: {
-        async loadProduct() {
+        loadProduct() {
 
-            await axios.get('/api/panel/product/' + this.id)
+            axios.get('/api/panel/product/' + this.id)
                 .then((response) => {
                     console.log(response.data);
                     this.data = response.data.product;
@@ -294,8 +291,6 @@ export default {
                     this.watchTextAreas();
                 })
                 .catch();
-
-
         },
         loadCategories() {
             axios.get('/api/panel/category/product?page=1&perPage=100000')
@@ -304,7 +299,7 @@ export default {
                 })
                 .catch();
         },
-        async updateInfo() {
+        updateInfo() {
 
 
             this.errors = [];
@@ -321,16 +316,6 @@ export default {
                     element.nextSibling.innerHTML = "";
                 }
             });
-            // let images = [];
-            // for (let i = 0; i < this.images.length; i++) {
-            //     if (document.getElementById('prev_image_' + i).value || document.getElementById('Image_' + i + '_code').value) {
-            //         images.push([
-            //             document.getElementById('prev_image_' + i).value,
-            //             document.getElementById('Image_' + i + '_code').value,
-            //         ]);
-            //     }
-            //
-            // }
 
             if (emptyFieldsCount === 0) {
                 let features = [];
@@ -342,7 +327,7 @@ export default {
                 } else {
                     features = '[' + features.toString() + ']';
                 }
-                await axios.post('/api/panel/product/' + this.$route.params.id,
+                axios.post('/api/panel/product/' + this.$route.params.id,
                     {
                         // image: document.getElementById('Image_index_code').value,
                         image: document.getElementById('Image__code').value,
@@ -389,7 +374,7 @@ export default {
 
                                 showAlertSql();
                             } else {
-                                async function showAlert500() {
+                                 function showAlert500() {
                                     setTimeout(() => {
                                         alert(error.message + ' '
                                             + error.response.data.message);
@@ -400,7 +385,7 @@ export default {
                             }
 
                         } else {
-                            async function showAlert() {
+                             function showAlert() {
                                 setTimeout(() => {
                                     alert(error.message);
                                 }, 200);
@@ -423,76 +408,25 @@ export default {
             }
         },
         addFeature() {
-
             this.features.push('{"label": "", "value": "", "unit": ""}');
         },
         removeFeature(index) {
 
             this.features.splice(index, 1)
         },
-        async updateFeatures() {
-
+        updateFeatures() {
             this.features = [];
             for (let i = 0; i < document.getElementsByName('featureLabel').length; i++) {
                 this.features.push({
                     "label": document.getElementsByName('featureLabel')[i].value.toString(),
                     "value": document.getElementsByName('featureValue')[i].value.toString(),
                     "unit": document.getElementsByName('featureUnit')[i].value.toString()
-
                 });
             }
 
         },
 
-        // addSize() {
-        //     this.sizes.push('{}');
-        // },
-        // removeSize(index) {
-        //     this.sizes.splice(index, 1);
-        // },
-        // async updateSizes() {
-        //
-        //     await axios.post('/api/panel/check/user/token', {id: JSON.parse(localStorage.getItem('user')).id})
-        //         .then((response) => {
-        //             if (response.status === 200) {
-        //                 localStorage.setItem('expire', response.data.expire);
-        //                 // console.log(localStorage);
-        //             }
-        //         })
-        //         .then(() => {
-        //             // // this.sizes = [];
-        //             // let a = [];
-        //             // for (let i = 0; i < document.getElementsByName('size').length; i++) {
-        //             //     a.push({
-        //             //         "id": document.getElementsByName('id')[i].value,
-        //             //         "size": document.getElementsByName('size')[i].value.toString(),
-        //             //         "dimensions": document.getElementsByName('dimensions')[i].value.toString(),
-        //             //         "color_name": document.getElementsByName('color_name')[i].value.toString(),
-        //             //         "color_code": document.getElementsByName('color_code')[i].value.toString(),
-        //             //         "stock": document.getElementsByName('stock')[i].value,
-        //             //     });
-        //             // }
-        //             // this.sizes = a;
-        //             // console.log(this.sizes);
-        //
-        //         })
-        //         .catch((error) => {
-        //             if (error.response.status === 401) {
-        //                 window.location = '/panel/login'
-        //                 App.methods.logout();
-        //             }
-        //         });
-        //
-        //
-        // },
-        // removeImage(index) {
-        //     this.images.splice(index, 1);
-        //
-        // },
-        // addImage() {
-        //     this.images.push(['', '']);
-        //
-        // }
+
 
     }
 }
