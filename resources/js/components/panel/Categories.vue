@@ -119,7 +119,7 @@ export default {
                 page.value = p;
             }
             // await App.methods.checkToken();
-            let perPage = document.querySelector('#perPage')?.value || 5;
+            let perPage = document.querySelector('#perPage')?.value || 10;
             document.querySelector('#loader').classList.remove('d-none');
             await axios.get('/api/panel/category/' + model.value + '?page=' + page.value + '&perPage=' + perPage)
                 .then((response) => {

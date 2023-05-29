@@ -1,16 +1,19 @@
 <template>
     <transition name="route" mode="out-in" appear>
         <section class="" style="text-align: justify">
-            <div class="row "  v-if="data.id">
+            <div class="row " v-if="data.id">
                 <div class="col-12 ">
                     <div class="row ">
                         <div class="col-12 mb-3">
                             <div class="d-inline-block mt-5">
-                                <div class="label">
-                            <span class="badge bg-danger">
-                                <i class="bi bi-tags-fill me-2"></i>
-                                <b v-if="data.category">  {{ data.category.title }}</b>
-                            </span>
+                                <div class="index_image">
+                                    <img class="img-fluid mb-2" :src="data.image" width="350" alt="">
+                                    <div class="label">
+                                        <span class="badge bg-danger">
+                                            <i class="bi bi-tags-fill ms-2"></i>
+                                            <b v-if="data.category">  {{ data.category.title }}</b>
+                                        </span>
+                                    </div>
                                 </div>
                                 <h3 class="mb-2 fw-bold d-block">{{ data.title }}</h3>
                                 <p class="mb-2 fw-bold d-block">{{ data.subTitle }}</p>
@@ -24,69 +27,72 @@
                         </div>
                     </div>
                 </div>
-               <div class="row">
-                   <p class="col-sm-4 col-md-3 col-xxl-2 mb-5" style="font-size: 14px">برای عوض کردن ترتیب تصاویر،
-                       در این لیست
-                       drag & drop کنید</p>
-               </div>
-                <div class="col-sm-4 col-md-3 col-xxl-2 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <draggable ghost-class="moving-card" :animation="500" v-model="data.images"
-                                       @start="drag=true" @end="drag=false"
-                                       @drop="updateOrder" item-key="item" id="" class="row px-4 justify-content-center">
-                                <template #item="{element}">
-                                    <div class="text-center d-block mb-2" style="width: 140px">
-                                        <div class="border rounded p-1 " style="cursor: pointer">
-                                            <img class="img-fluid" :src="element">
-                                        </div>
-                                        <input type="hidden" name="order" :value="element">
-                                    </div>
-                                </template>
-                            </draggable>
-                        </div>
-                    </div>
+                <div class="row">
+<!--                    <p class="col-sm-4 col-md-3 col-xxl-2 mb-5" style="font-size: 14px">برای عوض کردن ترتیب تصاویر،-->
+<!--                        در این لیست-->
+<!--                        drag & drop کنید</p>-->
                 </div>
-                <div class="col-sm-8 col-md-9 col-xxl-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body justify-content-center">
-                            <!--                                        <div class="row">-->
-                            <!--                                            <div v-for="(image, index) in data.images" :key="index"  v-if="data.images" class="col-4 d-flex mb-3 p-2">-->
-                            <!--                                                <div class="border rounded p-1">-->
-                            <!--                                                    <img class="img-fluid" :src="image">-->
-                            <!--                                                </div>-->
-                            <!--                                            </div>-->
-                            <!--                                        </div>-->
-                            <images v-if="data.images" :images="data.images" class="w-100  mx-auto" style="max-width: 600px"/>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="col-sm-4 col-md-3 col-xxl-2 mb-5">-->
+<!--                    <div class="card h-100">-->
+<!--                        <div class="card-body">-->
+<!--                            <draggable ghost-class="moving-card" :animation="500" v-model="data.images"-->
+<!--                                       @start="drag=true" @end="drag=false"-->
+<!--                                       @drop="updateOrder" item-key="item" id=""-->
+<!--                                       class="row px-4 justify-content-center">-->
+<!--                                <template #item="{element}">-->
+<!--                                    <div class="text-center d-block mb-2" style="width: 140px">-->
+<!--                                        <div class="border rounded p-1 " style="cursor: pointer">-->
+<!--                                            <img class="img-fluid" :src="element">-->
+<!--                                        </div>-->
+<!--                                        <input type="hidden" name="order" :value="element">-->
+<!--                                    </div>-->
+<!--                                </template>-->
+<!--                            </draggable>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-8 col-md-9 col-xxl-4 mb-5">-->
+<!--                    <div class="card h-100">-->
+<!--                        <div class="card-body justify-content-center">-->
+<!--                            &lt;!&ndash;                                        <div class="row">&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <div v-for="(image, index) in data.images" :key="index"  v-if="data.images" class="col-4 d-flex mb-3 p-2">&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                <div class="border rounded p-1">&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                    <img class="img-fluid" :src="image">&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--                            <images v-if="data.images" :images="data.images" class="w-100  mx-auto"-->
+<!--                                    style="max-width: 600px"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="col-xxl-6 mb-5 ">
                     <div class="card h-100">
                         <div class="card-body p-md-5 ">
                             <div class="row">
-                                <div class="col-lg-12 table-responsive">
-                                    <h5>سایز بندی</h5>
-                                    <table v-if="data.sizes">
-                                       <tbody >
-                                       <tr v-for="item in data.sizes" :key="item.id">
-                                           <th>{{ item.size }}:</th>
-                                           <td>{{ item.dimensions}}</td>
-                                           <td>{{ item.color_name }}
-                                               <span class="me-2 color-span border d-inline-block" :style="'background-color:'+ item.color_code+';'"></span>
-                                           </td>
-                                           <td> موجودی:{{ item.stock }}عدد</td>
-                                       </tr>
-                                       </tbody>
-                                    </table>
-                                </div>
+<!--                                <div class="col-lg-12 table-responsive">-->
+<!--                                    <h5>سایز بندی</h5>-->
+<!--                                    <table v-if="data.sizes">-->
+<!--                                        <tbody>-->
+<!--                                        <tr v-for="item in data.sizes" :key="item.id">-->
+<!--                                            <th>{{ item.size }}:</th>-->
+<!--                                            <td>{{ item.dimensions }}</td>-->
+<!--                                            <td>{{ item.color_name }}-->
+<!--                                                <span class="me-2 color-span border d-inline-block"-->
+<!--                                                      :style="'background-color:'+ item.color_code+';'"></span>-->
+<!--                                            </td>-->
+<!--                                            <td> موجودی:{{ item.stock }}عدد</td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
                                 <div class="col-lg-12">
                                     <h5>ویژگی ها</h5>
                                     <table v-if="data.features">
-                                        <tbody >
+                                        <tbody>
                                         <tr v-for="item in features" :key="item.id">
                                             <th>{{ item.label }}:</th>
-                                            <td style="min-width: 400px">{{ item.value}}</td>
+                                            <td style="min-width: 400px">{{ item.value }}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -96,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 mb-3">
+                <div class="col-xxl-6 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-md-5">
                             <div id="text" class="mb-5"></div>
@@ -238,8 +244,9 @@ export default {
     box-shadow: none;
 
 }
-th, td{
-    padding:10px;
+
+th, td {
+    padding: 10px;
     min-width: 100px;
 }
 </style>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
+use App\Models\Article;
 use App\Models\Product;
 use App\Models\ProductSize;
 use Illuminate\Http\Request;
@@ -333,6 +334,20 @@ class ProductController extends Controller
         } catch (\Exception $exception) {
             return response($exception);
 
+        }
+    }
+
+    public function fix()
+    {
+        $data = Product::all();
+
+        foreach ($data as $item){
+            $item->update('image', str_replace('/img', '/images/products', $item['image']));
+        }
+        $data2 = Article::all();
+        foreach ($data2 as $item){
+            $item->update('image', str_replace('/img', '/images/products', $item['image']));
+            $item->update('image2', str_replace('/img', '/images/products', $item['image2']));
         }
     }
 }

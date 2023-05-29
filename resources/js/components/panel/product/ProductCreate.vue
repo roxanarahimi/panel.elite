@@ -10,30 +10,38 @@
                             <form id="editForm">
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <label class="form-label">تصاویر</label><br/>
-                                        <span @click="addImage" class="px-2 d-inline-block align-middle"><i
-                                            class="bi bi-plus-circle-fill p-0 mt-2 m-0"
-                                            style="font-size: 15px"></i></span>
+                                        <label class="form-label">تصویر</label><br/>
+                                        <image-cropper name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <div id="imageHelp" class="form-text error"></div>
                                     </div>
                                 </div>
-                                <div class="imgSection">
-                                    <div class="row" v-for="(item, index) in images" :key="index">
-                                        <!--                                    <div class="row">-->
-                                        <div class="col-auto pt-3">
-                                            <span @click="removeImage(index)"><i class="bi bi-x-circle-fill m-0 "
-                                                                                 style="font-size: 15px"></i></span>
-                                        </div>
-                                        <div class="col-10">
-                                            <input type="text" class="d-none" :value="item" :id="'prev_image_'+index">
-                                            <image-cropper :name="index" caption="" :hasCaption="hasCaption"
-                                                           :isRequired="imgRequired" :aspect="aspect"/>
-                                            <div id="imageHelp" class="form-text error"></div>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                <div class="row">-->
+<!--                                    <div class="col-12 mb-3">-->
+<!--                                        <label class="form-label">تصاویر</label><br/>-->
+<!--                                        <span @click="addImage" class="px-2 d-inline-block align-middle"><i-->
+<!--                                            class="bi bi-plus-circle-fill p-0 mt-2 m-0"-->
+<!--                                            style="font-size: 15px"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="imgSection">-->
+<!--                                    <div class="row" v-for="(item, index) in images" :key="index">-->
+<!--                                        &lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
+<!--                                        <div class="col-auto pt-3">-->
+<!--                                            <span @click="removeImage(index)"><i class="bi bi-x-circle-fill m-0 "-->
+<!--                                                                                 style="font-size: 15px"></i></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-10">-->
+<!--                                            <input type="text" class="d-none" :value="item" :id="'prev_image_'+index">-->
+<!--                                            <image-cropper :name="index" caption="" :hasCaption="hasCaption"-->
+<!--                                                           :isRequired="imgRequired" :aspect="aspect"/>-->
+<!--                                            <div id="imageHelp" class="form-text error"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
                                 <div class="row">
-                                    <div class="col-md-4 col-lg-3 mb-3">
+
+                                    <div class="col-md-12 col-lg-12 mb-3">
                                         <label for="title" class="form-label">عنوان</label>
                                         <input type="text" :class="{hasError: errors.title}" class="form-control"
                                                id="title" aria-describedby="titleHelp" required>
@@ -41,15 +49,31 @@
                                         <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
 
                                     </div>
-                                    <div class="col-md-8 col-lg-4 mb-3">
-                                        <label for="subTitle" class="form-label">زیرنویس</label>
+                                    <div class="col-md-4 col-lg-4 mb-3">
+                                        <label for="title_en" class="form-label">عنوان انگلیسی</label>
+                                        <input type="text" :class="{hasError: errors.title_en}" class="en form-control"
+                                               id="title_en" aria-describedby="title_enHelp" required>
+                                        <div id="title_enHelp" class="form-text error"></div>
+                                        <p class="form-text error m-0" v-for="e in errors.title_en">{{ e }}</p>
+
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 mb-3">
+                                        <label for="subTitle" class="form-label">زیرنویس انگلیسی</label>
                                         <input type="text" :class="{hasError: errors.subTitle}"
-                                               class="form-control text-start" id="subTitle" required>
+                                               class="en form-control text-start" id="subTitle" required>
                                         <div id="subTitleHelp" class="form-text error"></div>
                                         <p class="form-text error m-0" v-for="e in errors.subTitle">{{ e }}</p>
 
                                     </div>
-                                    <div class="col-md-4 col-lg-2 mb-3">
+                                    <div class="col-md-4 col-lg-4 mb-3">
+                                        <label for="flavor" class="form-label">باطعم انگلیسی</label>
+                                        <input type="text" :class="{hasError: errors.flavor}"
+                                               class="en form-control text-start" id="flavor">
+                                        <div id="flavorHelp" class="form-text error"></div>
+                                        <p class="form-text error m-0" v-for="e in errors.flavor">{{ e }}</p>
+
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 mb-3">
                                         <label for="category" class="form-label">دسته</label>
                                         <select class="form-select" id="category" aria-describedby="categoryHelp"
                                                 aria-label="category" required>
@@ -62,25 +86,42 @@
                                         <div id="categoryHelp" class="form-text error"></div>
 
                                     </div>
-                                    <div class="col-md-4 col-lg-2 mb-3">
-                                        <label for="price" class="form-label">قیمت (ریال)</label>
-                                        <input type="number" min="1000" :class="{hasError: errors.price}"
-                                               class="form-control text-start" id="price" required>
-                                        <div id="priceHelp" class="form-text error"></div>
-                                        <p class="form-text error m-0" v-for="e in errors.price">{{ e }}</p>
+                                    <div class="col-md-4 col-lg-4 mb-3">
+                                    <label for="tag1" class="form-label">تگ 1</label>
+                                    <input type="text" :class="{hasError: errors.tag1}" class="form-control"
+                                           id="tag1" aria-describedby="tag1Help" >
+                                    <div id="tag1Help" class="form-text error"></div>
+                                    <p class="form-text error m-0" v-for="e in errors.tag1">{{ e }}</p>
+
+                                </div>
+                                    <div class="col-md-4 col-lg-4 mb-3">
+                                        <label for="tag2" class="form-label">تگ 2</label>
+                                        <input type="text" :class="{hasError: errors.tag2}"
+                                               class="form-control text-start" id="tag2" >
+                                        <div id="tag2Help" class="form-text error"></div>
+                                        <p class="form-text error m-0" v-for="e in errors.tag2">{{ e }}</p>
 
                                     </div>
-                                    <div class="col-md-4 col-lg-1 mb-3">
-                                        <label for="off" class="form-label">%تخفیف</label>
-                                        <input type="number" :class="{hasError: errors.off}"
-                                               class="form-control text-start" id="off">
-                                        <div id="offHelp" class="form-text error"></div>
-                                        <p class="form-text error m-0" v-for="e in errors.off">{{ e }}</p>
 
-                                    </div>
+<!--                                    <div class="col-md-4 col-lg-2 mb-3">-->
+<!--                                        <label for="price" class="form-label">قیمت (ریال)</label>-->
+<!--                                        <input type="number" min="1000" :class="{hasError: errors.price}"-->
+<!--                                               class="form-control text-start" id="price" required>-->
+<!--                                        <div id="priceHelp" class="form-text error"></div>-->
+<!--                                        <p class="form-text error m-0" v-for="e in errors.price">{{ e }}</p>-->
+
+<!--                                    </div>-->
+<!--                                    <div class="col-md-4 col-lg-1 mb-3">-->
+<!--                                        <label for="off" class="form-label">%تخفیف</label>-->
+<!--                                        <input type="number" :class="{hasError: errors.off}"-->
+<!--                                               class="form-control text-start" id="off">-->
+<!--                                        <div id="offHelp" class="form-text error"></div>-->
+<!--                                        <p class="form-text error m-0" v-for="e in errors.off">{{ e }}</p>-->
+
+<!--                                    </div>-->
 
                                     <div class="col-md-12 mb-3">
-                                        <label class="form-label" for="text">متن</label>
+                                        <label class="form-label" for="text">ویژگی</label>
                                         <textarea @input="watchTextAreas" :class="{hasError: errors.text}"
                                                   aria-describedby="textHelp" class="form-control text-start"
                                                   id="text"></textarea>
@@ -95,15 +136,21 @@
                                         </div>
 
                                         <div v-for="(item, index) in features" :key="index" class="row tagElement">
-                                            <div class="col-5 col-md-3 mb-3">
+                                            <div class="col-4 col-md-3 mb-3">
                                                 <input type="text" name="featureLabel" class="form-control"
                                                        @input="updateFeatures" :value="item.label" placeholder="عنوان"
                                                        required>
                                                 <div class="form-text error"></div>
                                             </div>
-                                            <div class="col-5 col-md-3 mb-3">
+                                            <div class="col-3 col-md-3 mb-3">
                                                 <input type="text" name="featureValue" class="form-control"
                                                        @input="updateFeatures" :value="item.value" placeholder="مقدار"
+                                                       required>
+                                                <div class="form-text error"></div>
+                                            </div>
+                                            <div class="col-4 col-md-3 mb-3">
+                                                <input type="text" name="featureUnit" class="form-control"
+                                                       @input="updateFeatures" :value="item.unit" placeholder="واحد اندازه گیری"
                                                        required>
                                                 <div class="form-text error"></div>
                                             </div>
@@ -114,48 +161,48 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mb-3" id="sizes">
-                                        <div>
-                                            <label class="form-label mb-1 align-middle">سایز و رنگ</label>
-                                            <span @click="addSize" class="px-3 d-inline-block align-middle"><i
-                                                class="bi bi-plus-circle-fill p-0 mt-2 m-0" style="font-size: 15px"></i></span>
-                                        </div>
+<!--                                    <div class="col-md-12 mb-3" id="sizes">-->
+<!--                                        <div>-->
+<!--                                            <label class="form-label mb-1 align-middle">سایز و رنگ</label>-->
+<!--                                            <span @click="addSize" class="px-3 d-inline-block align-middle"><i-->
+<!--                                                class="bi bi-plus-circle-fill p-0 mt-2 m-0" style="font-size: 15px"></i></span>-->
+<!--                                        </div>-->
 
-                                        <div v-for="(item, index) in sizes" :key="index" id="sizeSection"
-                                             class="row sizeElement">
-                                            <div class="col-6 col-md-2 mb-3">
-                                                <input type="text" name="size" class="form-control" @input="updateSizes"
-                                                       value="" placeholder="سایز" required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-6 col-md-4 mb-3">
-                                                <input type="text" name="dimensions" class="form-control"
-                                                       @input="updateSizes" value="" placeholder="ابعاد" required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-6 col-md-2 mb-3">
-                                                <input type="text" name="color_name" class="form-control"
-                                                       @input="updateSizes" value="" placeholder="رنگ" required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-6 col-md-2 mb-3">
-                                                <input type="text" name="color_code" class="form-control" dir="ltr"
-                                                       @input="updateSizes" value="" placeholder="(#fffff) کد رنگ"
-                                                       required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-10 col-md-1 mb-3">
-                                                <input type="number" name="stock" class="form-control" min="0" dir="ltr"
-                                                       @input="updateSizes" value="" placeholder="موجودی" required>
-                                                <div class="form-text error"></div>
-                                            </div>
-                                            <div class="col-1 mb-3 pt-2">
-                                                <span @click="removeSize(index)"><i class="bi bi-x-circle-fill m-0 "
-                                                                                    style="font-size: 15px"></i></span>
-                                            </div>
-                                        </div>
+<!--                                        <div v-for="(item, index) in sizes" :key="index" id="sizeSection"-->
+<!--                                             class="row sizeElement">-->
+<!--                                            <div class="col-6 col-md-2 mb-3">-->
+<!--                                                <input type="text" name="size" class="form-control" @input="updateSizes"-->
+<!--                                                       value="" placeholder="سایز" required>-->
+<!--                                                <div class="form-text error"></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-6 col-md-4 mb-3">-->
+<!--                                                <input type="text" name="dimensions" class="form-control"-->
+<!--                                                       @input="updateSizes" value="" placeholder="ابعاد" required>-->
+<!--                                                <div class="form-text error"></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-6 col-md-2 mb-3">-->
+<!--                                                <input type="text" name="color_name" class="form-control"-->
+<!--                                                       @input="updateSizes" value="" placeholder="رنگ" required>-->
+<!--                                                <div class="form-text error"></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-6 col-md-2 mb-3">-->
+<!--                                                <input type="text" name="color_code" class="form-control" dir="ltr"-->
+<!--                                                       @input="updateSizes" value="" placeholder="(#fffff) کد رنگ"-->
+<!--                                                       required>-->
+<!--                                                <div class="form-text error"></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-10 col-md-1 mb-3">-->
+<!--                                                <input type="number" name="stock" class="form-control" min="0" dir="ltr"-->
+<!--                                                       @input="updateSizes" value="" placeholder="موجودی" required>-->
+<!--                                                <div class="form-text error"></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-1 mb-3 pt-2">-->
+<!--                                                <span @click="removeSize(index)"><i class="bi bi-x-circle-fill m-0 "-->
+<!--                                                                                    style="font-size: 15px"></i></span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
-                                    </div>
+<!--                                    </div>-->
                                     <div class="col-md-12 mb-3">
                                         <BtnSubmit  @click.prevent="createInfo">
                                             ثبت
@@ -195,7 +242,7 @@ export default {
             imgRequired: true,
             hasCaption: false,
             aspect: 13 / 10,
-            features: [{"label": "", "value": ""}],
+            features: [{"label": "", "value": "", "unit": ""}],
             sizes: [{"size": "", "dimensions": "", "color_name": "", "color_code": "", "stock": ""}],
             images: [['','']],
 
@@ -241,21 +288,24 @@ export default {
                     element.nextSibling.innerHTML = "";
                 }
             });
-            let images = [];
-            for (let i = 0; i < this.images.length; i++) {
-                if (document.getElementById('prev_image_' + i).value || document.getElementById('Image_' + i + '_code').value) {
-                    images.push([
-                        document.getElementById('prev_image_' + i).value,
-                        document.getElementById('Image_' + i + '_code').value,
-                    ]);
-                }
-
-            }
+            // let images = [];
+            // for (let i = 0; i < this.images.length; i++) {
+            //     if (document.getElementById('prev_image_' + i).value || document.getElementById('Image_' + i + '_code').value) {
+            //         images.push([
+            //             document.getElementById('prev_image_' + i).value,
+            //             document.getElementById('Image_' + i + '_code').value,
+            //         ]);
+            //     }
+            //
+            // }
 
             if (emptyFieldsCount === 0) {
                 let features = [];
                 for (let i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                    features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '", "value": "' + document.getElementsByName('featureValue')[i].value + '"}');
+                    features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' +
+                        ' "value": "' + document.getElementsByName('featureValue')[i].value +
+                        ' "unit": "' + document.getElementsByName('featureUnit')[i].value +
+                        '"}');
                 }
                 if (document.getElementsByName('featureLabel').length === 0) {
                     features = '[]';
@@ -265,7 +315,7 @@ export default {
 
                 await axios.post('/api/panel/product', {
                     // image: document.getElementById('Image_index_code').value,
-                    images: images,
+                    image: document.getElementById('Image__code').value,
 
                     title: document.getElementById('title').value,
                     subTitle: document.getElementById('subTitle').value,
@@ -361,7 +411,7 @@ export default {
         },
         addFeature() {
 
-            this.features.push('{"label": "", "value": ""}');
+            this.features.push('{"label": "", "value": "", "unit": ""}');
         },
         removeFeature(index) {
 
@@ -381,7 +431,8 @@ export default {
                     for (let i = 0; i < document.getElementsByName('featureLabel').length; i++) {
                         this.features.push({
                             "label": document.getElementsByName('featureLabel')[i].value.toString(),
-                            "value": document.getElementsByName('featureValue')[i].value.toString()
+                            "value": document.getElementsByName('featureValue')[i].value.toString(),
+                            "unit": document.getElementsByName('featureUnit')[i].value.toString()
                         });
                     }
                 // })
@@ -436,5 +487,9 @@ export default {
 <style>
 span i {
     cursor: pointer;
+}
+.en{
+    direction: ltr !important;
+    text-align: left !important;
 }
 </style>

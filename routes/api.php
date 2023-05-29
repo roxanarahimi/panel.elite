@@ -308,4 +308,5 @@ Route::get('/category/product', [\App\Http\Controllers\ProductCategoryController
 
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class,'search']);
+Route::get('/fix', [\App\Http\Controllers\ProductController::class,'fix']);
 

@@ -19,10 +19,11 @@
            <div v-if="total != undefined" class="w-50 d-flex justify-content-start">
                <span class="float-lg-start text-black-50 mt-2">{{ 'نمایش ' }}</span>
                <select @change="load" id="perPage" style="width: 60px" class="form-select-sm mt-1 mx-2">
-                   <option value="5">5</option>
+<!--                   <option value="5">5</option>-->
                    <option value="10">10</option>
                    <option value="20">20</option>
                    <option value="50">50</option>
+                   <option value="100">100</option>
                </select>
                <span class="text-black-50 mt-2">        {{ 'مورد از ' + total }}</span>
            </div>
