@@ -31,6 +31,7 @@ class ProductResource extends JsonResource
             "flavor" => $this->flavor,
             "tag1" => $this->tag1,
             "tag2" => $this->tag2,
+            "color" => $this->color,
 
             "stock" => $this->stock,
             "active" => (boolean)$this->active,

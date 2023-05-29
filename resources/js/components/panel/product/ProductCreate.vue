@@ -41,13 +41,20 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-12 col-lg-12 mb-3">
+                                    <div class="col-md-9 col-lg-10 mb-3">
                                         <label for="title" class="form-label">عنوان</label>
                                         <input type="text" :class="{hasError: errors.title}" class="form-control"
                                                id="title" aria-describedby="titleHelp" required>
                                         <div id="titleHelp" class="form-text error"></div>
                                         <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
 
+                                    </div>
+                                    <div class="col-md-3 col-lg-2 mb-3">
+                                        <label for="color" class="form-label">تم رنگ محصول</label>
+                                        <input type="text" :class="{hasError: errors.color}" class="form-control"
+                                               id="color" aria-describedby="colorHelp" required>
+                                        <div id="colorHelp" class="form-text error"></div>
+                                        <p class="form-text error m-0" v-for="e in errors.color">{{ e }}</p>
                                     </div>
                                     <div class="col-md-4 col-lg-4 mb-3">
                                         <label for="title_en" class="form-label">عنوان انگلیسی</label>
@@ -324,6 +331,8 @@ export default {
                     product_category_id: document.getElementById('category').value,
                     text: document.getElementById('text').value,
                     features: features,
+                    color: document.getElementById('color').value,
+
                     // sizes: this.sizes,
                     // off: document.getElementById('off').value,
                     // price: document.getElementById('price').value,
