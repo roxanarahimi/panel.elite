@@ -325,10 +325,21 @@ class ProductController extends Controller
     public function byCat($id)
     {
         try {
-            $data = Product::all()->where('product_category_id', $id);
+            $data = Product::orderBy('id')->where('product_category_id', $id)->where('active',1)->get()->toArray();
+
+            $info=[];
+            for($i=0;$i<count($data);$i+=2){
+                if (count($data)%2==0){
+                    $x=$data[$i+1];
+                }else{
+                    $x=$data[count($data)-1];
+                }
+
+                $info[]=[0=>$data[$i],1=>$x];
+            }
 
             return response([
-                "data"=>ProductResource::collection($data),
+                "data"=>$info,
 
             ], 200);
         } catch (\Exception $exception) {

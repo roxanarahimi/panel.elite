@@ -146,7 +146,7 @@ class ArticleController extends Controller
     public function byCat($id)
     {
         try {
-            $data = Article::all()->where('article_category_id', $id);
+            $data = Article::orderByDesc('id')->where('article_category_id', $id)->where('active',1)->get();
 
             return response([
                 "data"=>ArticleResource::collection($data),
