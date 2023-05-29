@@ -222,7 +222,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 features = [];
 
                 for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                  features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + ' "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
+                  features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + '", "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
                 }
 
                 if (document.getElementsByName('featureLabel').length === 0) {
@@ -237,12 +237,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   image: document.getElementById('Image__code').value,
                   title: document.getElementById('title').value,
                   subTitle: document.getElementById('subTitle').value,
+                  title_en: document.getElementById('title_en').value,
+                  flavor: document.getElementById('flavor').value,
+                  tag1: document.getElementById('tag1').value,
+                  tag2: document.getElementById('tag2').value,
                   product_category_id: document.getElementById('category').value,
                   text: document.getElementById('text').value,
-                  features: features,
-                  sizes: _this3.sizes,
-                  off: document.getElementById('off').value,
-                  price: document.getElementById('price').value
+                  features: features // sizes: this.sizes,
+                  // off: document.getElementById('off').value,
+                  // price: document.getElementById('price').value,
+
                 }).then(function (response) {
                   console.log('res', response);
 
@@ -377,66 +381,56 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee5);
       }))();
-    },
-    addSize: function addSize() {
-      this.sizes.push('{}');
-    },
-    removeSize: function removeSize(index) {
-      this.sizes.splice(index, 1);
-    },
-    updateSizes: function updateSizes() {
-      var _this5 = this;
+    } // addSize() {
+    //     this.sizes.push('{}');
+    // },
+    // removeSize(index) {
+    //     this.sizes.splice(index, 1);
+    // },
+    // async updateSizes() {
+    //
+    //     await axios.post('/api/panel/check/user/token', {id: JSON.parse(localStorage.getItem('user')).id})
+    //         .then((response) => {
+    //             if (response.status === 200) {
+    //                 localStorage.setItem('expire', response.data.expire);
+    //                 // console.log(localStorage);
+    //             }
+    //         })
+    //         .then(() => {
+    //             // // this.sizes = [];
+    //             // let a = [];
+    //             // for (let i = 0; i < document.getElementsByName('size').length; i++) {
+    //             //     a.push({
+    //             //         "id": document.getElementsByName('id')[i].value,
+    //             //         "size": document.getElementsByName('size')[i].value.toString(),
+    //             //         "dimensions": document.getElementsByName('dimensions')[i].value.toString(),
+    //             //         "color_name": document.getElementsByName('color_name')[i].value.toString(),
+    //             //         "color_code": document.getElementsByName('color_code')[i].value.toString(),
+    //             //         "stock": document.getElementsByName('stock')[i].value,
+    //             //     });
+    //             // }
+    //             // this.sizes = a;
+    //             // console.log(this.sizes);
+    //
+    //         })
+    //         .catch((error) => {
+    //             if (error.response.status === 401) {
+    //                 window.location = '/panel/login'
+    //                 App.methods.logout();
+    //             }
+    //         });
+    //
+    //
+    // },
+    // removeImage(index) {
+    //     this.images.splice(index, 1);
+    //
+    // },
+    // addImage() {
+    //     this.images.push(['', '']);
+    //
+    // }
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                _context6.next = 2;
-                return axios.post('/api/panel/check/user/token', {
-                  id: JSON.parse(localStorage.getItem('user')).id
-                }).then(function (response) {
-                  if (response.status === 200) {
-                    localStorage.setItem('expire', response.data.expire); // console.log(localStorage);
-                  }
-                }).then(function () {
-                  // this.sizes = [];
-                  var a = [];
-
-                  for (var i = 0; i < document.getElementsByName('size').length; i++) {
-                    a.push({
-                      "id": document.getElementsByName('id')[i].value,
-                      "size": document.getElementsByName('size')[i].value.toString(),
-                      "dimensions": document.getElementsByName('dimensions')[i].value.toString(),
-                      "color_name": document.getElementsByName('color_name')[i].value.toString(),
-                      "color_code": document.getElementsByName('color_code')[i].value.toString(),
-                      "stock": document.getElementsByName('stock')[i].value
-                    });
-                  }
-
-                  _this5.sizes = a;
-                  console.log(_this5.sizes);
-                })["catch"](function (error) {
-                  if (error.response.status === 401) {
-                    window.location = '/panel/login';
-                    _App__WEBPACK_IMPORTED_MODULE_2__["default"].methods.logout();
-                  }
-                });
-
-              case 2:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6);
-      }))();
-    },
-    removeImage: function removeImage(index) {
-      this.images.splice(index, 1);
-    },
-    addImage: function addImage() {
-      this.images.push(['', '']);
-    }
   }
 });
 
@@ -765,7 +759,7 @@ var _hoisted_53 = {
 
 var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-label mb-1 align-middle"
-}, "مشخصات", -1
+}, "ارزش غذایی", -1
 /* HOISTED */
 );
 

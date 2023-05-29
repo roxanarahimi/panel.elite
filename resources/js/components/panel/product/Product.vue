@@ -16,7 +16,6 @@
                                     </div>
                                 </div>
                                 <h3 class="mb-2 fw-bold d-block">{{ data.title }}</h3>
-                                <p class="mb-2 fw-bold d-block">{{ data.subTitle }}</p>
                             </div>
                             <router-link :to="'/panel/edit/product/'+data.id" class="text-dark">
                 <span title="ویرایش محصول"
@@ -66,7 +65,20 @@
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
-                <div class="col-xxl-6 mb-5 ">
+                <div class="col-xxl-12 mb-5 ">
+                    <div class="card h-100">
+                        <div class="card-body p-md-5 ">
+                            <div class="d-md-flex justify-content-md-between flex-row-reverse">
+                                <p>{{ data.title_en }}</p>
+                                <p>{{ data.subTitle }}</p>
+                                <p>{{ data.flavor }}</p>
+                                <p>{{ data.tag1 }}</p>
+                                <p>{{ data.tag2 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5 ">
                     <div class="card h-100">
                         <div class="card-body p-md-5 ">
                             <div class="row">
@@ -87,12 +99,14 @@
 <!--                                    </table>-->
 <!--                                </div>-->
                                 <div class="col-lg-12">
-                                    <h5>ویژگی ها</h5>
+                                    <h5  class="mb-5">ارزش غذایی</h5>
                                     <table v-if="data.features">
                                         <tbody>
                                         <tr v-for="item in features" :key="item.id">
                                             <th>{{ item.label }}:</th>
-                                            <td style="min-width: 400px">{{ item.value }}</td>
+                                            <td class="text-center">{{ item.unit }}</td>
+                                            <td class="text-center">{{ item.value }}</td>
+
                                         </tr>
                                         </tbody>
                                     </table>
@@ -102,10 +116,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-6 mb-3">
+                <div class="col-lg-6 mb-5">
                     <div class="card h-100">
                         <div class="card-body p-md-5">
-                            <div id="text" class="mb-5"></div>
+                            <h5 class="mb-5">ویژگی</h5>
+
+                            <div id="text"  style="font-size: 18px;white-space: pre-line; text-align: right !important"  class="mb-5" >
+                                {{ data.text }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,9 +161,9 @@ export default {
             await axios.get('/api/panel/product/' + this.id)
                 .then((response) => {
                     this.data = response.data.product;
-                    if (document.querySelector('#text')) {
-                        document.querySelector('#text').innerText = this.data.text;
-                    }
+                    // if (document.querySelector('#text')) {
+                    //     document.querySelector('#text').innerText = this.data.text;
+                    // }
                     if (this.data.features) {
                         this.features = [];
                         for (let i = 0; i < JSON.parse(this.data.features).length; i++) {

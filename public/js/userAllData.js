@@ -2904,7 +2904,8 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_5 = ["id", "data-index"];
 var _hoisted_6 = {
-  "class": "table-first-cell"
+  "class": "table-first-cell",
+  scope: "row"
 };
 var _hoisted_7 = {
   "class": "d-none d-md-table-cell",
@@ -2972,9 +2973,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "data-index": index
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_7, [data.images ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_7, [data.image ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
       key: 0,
-      src: data.images[0],
+      src: data.image,
       width: "80",
       alt: ""
     }, null, 8

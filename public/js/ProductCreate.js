@@ -210,7 +210,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 features = [];
 
                 for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                  features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + ' "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
+                  features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value + '", "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
                 }
 
                 if (document.getElementsByName('featureLabel').length === 0) {
@@ -225,12 +225,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   image: document.getElementById('Image__code').value,
                   title: document.getElementById('title').value,
                   subTitle: document.getElementById('subTitle').value,
+                  title_en: document.getElementById('title_en').value,
+                  flavor: document.getElementById('flavor').value,
+                  tag1: document.getElementById('tag1').value,
+                  tag2: document.getElementById('tag2').value,
                   product_category_id: document.getElementById('category').value,
                   text: document.getElementById('text').value,
-                  features: features,
-                  sizes: _this2.sizes,
-                  off: document.getElementById('off').value,
-                  price: document.getElementById('price').value // stock: document.getElementById('stock').value,
+                  features: features // sizes: this.sizes,
+                  // off: document.getElementById('off').value,
+                  // price: document.getElementById('price').value,
+                  // stock: document.getElementById('stock').value,
                   // image_codes: this.image_codes,
                   // image_names: this.image_names,
 
@@ -772,7 +776,7 @@ var _hoisted_47 = {
 
 var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-label mb-1 align-middle"
-}, "مشخصات", -1
+}, "ارزش غذایی", -1
 /* HOISTED */
 );
 

@@ -16,15 +16,22 @@ class ProductResource extends JsonResource
     {
 //        $dots = strlen($this->text)>20 ? '...' : '';
         $images= [];
-        if ($this->images){
-            $images = explode(',',$this->images);
-        }
+//        if ($this->images){
+//            $images = explode(',',$this->images);
+//        }
         return [
             "id" => (string)$this->id,
 //            "image" => $this->images[0],
-            "images" => $images,
+//            "images" => $images,
+
+            "image" => $this->image,
             "title" => $this->title,
+            "title_en" => $this->title_en,
             "subTitle" => $this->subTitle,
+            "flavor" => $this->flavor,
+            "tag1" => $this->tag1,
+            "tag2" => $this->tag2,
+
             "stock" => $this->stock,
             "active" => (boolean)$this->active,
             "text" => $this->text,

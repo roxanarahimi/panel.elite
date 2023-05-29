@@ -25955,6 +25955,11 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "mb-5"
 }, "دستور پخت:"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "text",
+  style: {
+    "font-size": "18px",
+    "white-space": "pre-line",
+    "text-align": "right !important"
+  },
   "class": "mb-5"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <span v-for = \"tag in tags\" :key = \"tag\" :title = \"tag.uri\" class = \"btn btn-sm btn-outline-dark m-1\"> {{ tag.label }} </span>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </div>")])])], -1
 /* HOISTED */

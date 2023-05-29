@@ -21,9 +21,9 @@
 
                 <tr :id="'row_'+data.id" v-for="(data, index) in allData" :key="data.id"
                     :data-index="index">
-                    <td class="table-first-cell" >{{ index + 1 }}</td>
+                    <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
                     <td class="d-none d-md-table-cell" style="width: 100px">
-                        <img v-if="data.images" :src="data.images[0]" width="80" alt="">
+                        <img v-if="data.image" :src="data.image" width="80" alt="">
                         <!--       tumb-->
                     </td>
                     <td>

@@ -217,24 +217,12 @@ class ProductController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-//            return $request['sizes'];
-            $product = Product::create($request->except('sizes', 'images'));
-
-            foreach ($request['sizes'] as $item) {
-                ProductSize::create([
-                    'product_id' => $product['id'],
-                    'size' => $item['size'],
-                    'dimensions' => $item['dimensions'],
-                    'color_name' => $item['color_name'],
-                    'color_code' => $item['color_code'],
-                    'stock' => $item['stock'],
-                    'sale' => 0,
-                ]);
-
-                $images = $this->saveImages($request['images'], $product['id']);
-                $product->update(['images' => substr($images, 0, -1)]);
-
-            };
+            $product = Product::create($request->except('image'));
+            if ($request['image']) {
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
+                $product->update(['image' => '/' . $image_path]);
+            }
 
             return response(new ProductResource($product), 201);
         } catch (\Exception $exception) {
@@ -257,33 +245,12 @@ class ProductController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $product->update($request->except('sizes', 'images'));
-
-            foreach ($request['sizes'] as $item) {
-                if ($item['id']) {
-                    ProductSize::find($item['id'])->update([
-                        'size' => $item['size'],
-                        'dimensions' => $item['dimensions'],
-                        'color_name' => $item['color_name'],
-                        'color_code' => $item['color_code'],
-                        'stock' => $item['stock'],
-                        'sale' => 0
-                    ]);
-                } else {
-                    ProductSize::create([
-                        'product_id' => $product['id'],
-                        'size' => $item['size'],
-                        'dimensions' => $item['dimensions'],
-                        'color_name' => $item['color_name'],
-                        'color_code' => $item['color_code'],
-                        'stock' => $item['stock'],
-                        'sale' => 0
-                    ]);
-                }
+            $product->update($request->except('image'));
+            if ($request['image']) {
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.jpg';
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
+                $product->update(['image' => '/' . $image_path]);
             }
-
-            $images = $this->saveImages($request['images'], $product['id']);
-            $product->update(['images' => substr($images, 0, -1)]);
 
             return response(new ProductResource($product), 200);
         } catch (\Exception $exception) {

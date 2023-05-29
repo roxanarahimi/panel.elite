@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="col-md-12 mb-3" id="features">
                                         <div>
-                                            <label class="form-label mb-1 align-middle">مشخصات</label>
+                                            <label class="form-label mb-1 align-middle">ارزش غذایی</label>
                                             <span @click="addFeature" class="px-3 d-inline-block align-middle"><i
                                                 class="bi bi-plus-circle-fill p-0 mt-2 m-0" style="font-size: 15px"></i></span>
                                         </div>
@@ -302,10 +302,8 @@ export default {
             if (emptyFieldsCount === 0) {
                 let features = [];
                 for (let i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                    features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' +
-                        ' "value": "' + document.getElementsByName('featureValue')[i].value +
-                        ' "unit": "' + document.getElementsByName('featureUnit')[i].value +
-                        '"}');
+                    features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '",' + ' "value": "' + document.getElementsByName('featureValue')[i].value  + '", "unit": "' + document.getElementsByName('featureUnit')[i].value + '"}');
+
                 }
                 if (document.getElementsByName('featureLabel').length === 0) {
                     features = '[]';
@@ -319,12 +317,16 @@ export default {
 
                     title: document.getElementById('title').value,
                     subTitle: document.getElementById('subTitle').value,
+                    title_en: document.getElementById('title_en').value,
+                    flavor: document.getElementById('flavor').value,
+                    tag1: document.getElementById('tag1').value,
+                    tag2: document.getElementById('tag2').value,
                     product_category_id: document.getElementById('category').value,
                     text: document.getElementById('text').value,
                     features: features,
-                    sizes: this.sizes,
-                    off: document.getElementById('off').value,
-                    price: document.getElementById('price').value,
+                    // sizes: this.sizes,
+                    // off: document.getElementById('off').value,
+                    // price: document.getElementById('price').value,
 
                     // stock: document.getElementById('stock').value,
                     // image_codes: this.image_codes,

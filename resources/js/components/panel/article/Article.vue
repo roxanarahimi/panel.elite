@@ -37,7 +37,7 @@
                         <div class = "card-body p-md-5">
                             <h3 class="mb-5">دستور پخت:</h3>
 
-                            <div id = "text" class = "mb-5"></div>
+                            <div id = "text" style="font-size: 18px;white-space: pre-line; text-align: right !important" class = "mb-5"></div>
 <!--                            <div>-->
 <!--                                <span v-for = "tag in tags" :key = "tag" :title = "tag.uri" class = "btn btn-sm btn-outline-dark m-1"> {{ tag.label }} </span>-->
 <!--                            </div>-->
