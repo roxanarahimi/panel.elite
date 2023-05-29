@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class ProductCategoryController extends Controller
 {
 
+
     public function index(Request $request)
     {
         try {

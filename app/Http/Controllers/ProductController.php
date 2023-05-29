@@ -321,5 +321,18 @@ class ProductController extends Controller
             return response($exception);
         }
     }
+    public function byCat($id)
+    {
+        try {
+            $data = Product::all()->where('product_category_id', $id);
 
+            return response([
+                "data"=>ProductResource::collection($data),
+
+            ], 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+
+        }
+    }
 }

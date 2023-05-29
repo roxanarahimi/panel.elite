@@ -8,9 +8,9 @@
                     <th class="d-none d-md-table-cell" style="width: 100px" scope="col">تصویر</th>
                     <th scope="col">عنوان</th>
                     <th scope="col" class="d-none d-xl-table-cell text_cell">دسته</th>
-                    <th scope="col">قیمت</th>
-                    <th scope="col">%تخفیف</th>
-                    <th class="">موجودی</th>
+<!--                    <th scope="col">قیمت</th>-->
+<!--                    <th scope="col">%تخفیف</th>-->
+<!--                    <th class="">موجودی</th>-->
                     <th class="d-none d-xl-table-cell" scope="col">متن</th>
                     <th class="d-none d-md-table-cell" scope="col">تاریخ ثبت</th>
                     <th scope="col" class="active_cell">وضعیت</th>
@@ -21,7 +21,7 @@
 
                 <tr :id="'row_'+data.id" v-for="(data, index) in allData" :key="data.id"
                     :data-index="index">
-                    <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
+                    <td class="table-first-cell" >{{ index + 1 }}</td>
                     <td class="d-none d-md-table-cell" style="width: 100px">
                         <img v-if="data.images" :src="data.images[0]" width="80" alt="">
                         <!--       tumb-->
@@ -35,10 +35,10 @@
                         :class="{'text-decoration-line-through text-muted ': !data.category.active}">
                         {{ data.category.title }}
                     </td>
-                    <td>{{ data.price }}</td>
-                    <td>{{ data.off }}</td>
+<!--                    <td>{{ data.price }}</td>-->
+<!--                    <td>{{ data.off }}</td>-->
 
-                    <td class="">{{ data.stock }}</td>
+<!--                    <td class="">{{ data.stock }}</td>-->
                     <td class="d-none d-xl-table-cell text_cell">{{ data.text }}</td>
                     <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">

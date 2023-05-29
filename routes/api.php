@@ -157,6 +157,8 @@ Route::controller(App\Http\Controllers\ProductController::class)->group(function
     Route::get('/latest/product', 'latestSite');
     Route::get('/stock/product', 'stockSite');
     Route::get('/sizes/product/{id}/{color}', 'getSizes');
+    Route::get('/product/by/category/{id}', 'byCat');
+
 
     Route::prefix('panel')->group(function () {
         Route::get('/product', 'index');
