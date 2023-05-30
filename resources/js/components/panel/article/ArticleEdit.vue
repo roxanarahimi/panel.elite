@@ -12,7 +12,7 @@
                                 <div class = "row">
                                     <div class = "col-12 mb-3">
                                         <label class = "form-label">تصویر شاخص</label><br/>
-                                        <image-cropper name = "" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :aspect = "aspect" :src="data.image"/>
+                                        <image-cropper   :isPng="isPng"  name = "" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :aspect = "aspect" :src="data.image"/>
                                         <div id = "imageHelp" class = "form-text error"></div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                 <div class = "row">
                                     <div class = "col-12 mb-3">
                                         <label class = "form-label">تصویر محصول</label><br/>
-                                        <image-cropper name = "product" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :src="data.image2"/>
+                                        <image-cropper   :isPng="isPng" name = "product" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :src="data.image2"/>
                                         <div id = "image2Help" class = "form-text error"></div>
                                     </div>
                                 </div>
@@ -111,6 +111,8 @@
                 isDefined: false,
                 enableClick: true,
                 // tags: [],
+                isPng: true,
+
             }
         },
 

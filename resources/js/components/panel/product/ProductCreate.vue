@@ -11,7 +11,7 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر</label><br/>
-                                        <image-cropper name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <image-cropper    :isPng="isPng"  name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
                                         <div id="imageHelp" class="form-text error"></div>
                                     </div>
                                 </div>
@@ -248,7 +248,8 @@ export default {
             image_names: [],
             imgRequired: true,
             hasCaption: false,
-            aspect: 13 / 10,
+            aspect: false,
+            isPng: true,
             features: [{"label": "", "value": "", "unit": ""}],
             sizes: [{"size": "", "dimensions": "", "color_name": "", "color_code": "", "stock": ""}],
             images: [['','']],
@@ -321,7 +322,6 @@ export default {
                 await axios.post('/api/panel/product', {
                     // image: document.getElementById('Image_index_code').value,
                     image: document.getElementById('Image__code').value,
-
                     title: document.getElementById('title').value,
                     subTitle: document.getElementById('subTitle').value,
                     title_en: document.getElementById('title_en').value,

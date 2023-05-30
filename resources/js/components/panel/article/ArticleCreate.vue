@@ -11,7 +11,7 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر</label><br/>
-                                        <image-cropper name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <image-cropper   :isPng="isPng"  name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
                                         <div id="imageHelp" class="form-text error"></div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر محصول</label><br/>
-                                        <image-cropper name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired"/>
+                                        <image-cropper   :isPng="isPng"  name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired"/>
                                         <div id="image2Help" class="form-text error"></div>
                                     </div>
                                 </div>
@@ -115,6 +115,7 @@ export default {
             imgRequired: true,
             hasCaption: false,
             aspect: 388 / 391,
+            isPng: true,
 
             // tags: [{"label": "", "uri": ""}],
         }

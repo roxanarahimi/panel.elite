@@ -21167,7 +21167,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors: [],
       imgRequired: true,
       hasCaption: false,
-      aspect: 388 / 391 // tags: [{"label": "", "uri": ""}],
+      aspect: 388 / 391,
+      isPng: true // tags: [{"label": "", "uri": ""}],
 
     };
   },
@@ -21384,8 +21385,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       hasCaption: false,
       aspect: 388 / 391,
       isDefined: false,
-      enableClick: true // tags: [],
-
+      enableClick: true,
+      // tags: [],
+      isPng: true
     };
   },
   mounted: function mounted() {
@@ -26279,6 +26281,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return _ctx.enableClick;
         })
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+        isPng: _ctx.isPng,
         name: "",
         caption: "",
         hasCaption: _ctx.hasCaption,
@@ -26286,7 +26289,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         aspect: _ctx.aspect
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect"]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["isPng", "hasCaption", "isRequired", "aspect"]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: _ctx.errors.title
@@ -26312,13 +26315,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), 128
       /* KEYED_FRAGMENT */
       ))]), _hoisted_21])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+        isPng: _ctx.isPng,
         name: "product",
         caption: "",
         hasCaption: _ctx.hasCaption,
         isRequired: _ctx.imgRequired
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["isPng", "hasCaption", "isRequired"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: _ctx.errors.text2
@@ -26655,6 +26659,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.enableClick;
         })
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+        isPng: $data.isPng,
         name: "",
         caption: "",
         hasCaption: $data.hasCaption,
@@ -26663,7 +26668,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         src: $data.data.image
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect", "src"]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["isPng", "hasCaption", "isRequired", "aspect", "src"]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: $data.errors.title
@@ -26691,6 +26696,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), 128
       /* KEYED_FRAGMENT */
       ))]), _hoisted_22])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+        isPng: $data.isPng,
         name: "product",
         caption: "",
         hasCaption: $data.hasCaption,
@@ -26698,7 +26704,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         src: $data.data.image2
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "src"]), _hoisted_27])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      , ["isPng", "hasCaption", "isRequired", "src"]), _hoisted_27])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: $data.errors.text2
@@ -30810,7 +30816,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\r\n    width: inherit;\r\n    height: inherit;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\n    width: inherit;\n    height: inherit;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

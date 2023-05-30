@@ -188,7 +188,7 @@ class ProductController extends Controller
             $images = '';
             for ($i = 0; $i < count($requestImages); $i++) {
                 if ($requestImages[$i][1]) {
-                    $name = 'product_' . $productId . '_' . uniqid() . '.jpg';
+                    $name = 'product_' . $productId . '_' . uniqid() . '.png';
                     $image_path = (new ImageController)->uploadImage($requestImages[$i][1], $name, 'images/');
 //                    (new ImageController)->resizeImage('images/', $name);
                     $images = $images . '/' . $image_path . ',';
@@ -219,7 +219,7 @@ class ProductController extends Controller
         try {
             $product = Product::create($request->except('image'));
             if ($request['image']) {
-                $name = 'product_' . $product['id'] . '_' . uniqid() . '.jpg';
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
                 $product->update(['image' => '/' . $image_path]);
             }
@@ -247,7 +247,7 @@ class ProductController extends Controller
         try {
             $product->update($request->except('image'));
             if ($request['image']) {
-                $name = 'product_' . $product['id'] . '_' . uniqid() . '.jpg';
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
                 $product->update(['image' => '/' . $image_path]);
             }
