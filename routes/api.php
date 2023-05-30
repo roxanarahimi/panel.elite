@@ -171,6 +171,8 @@ Route::controller(App\Http\Controllers\ProductController::class)->group(function
         Route::get('/latest/product', 'latest');
 
         Route::post('/images/reorder/product/{product}', 'updateOrder');
+        Route::get('/product/by/category/{id}', 'byCatPanel');
+
     });
 });
 Route::controller(App\Http\Controllers\ProductCategoryController::class)->group(function () {

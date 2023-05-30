@@ -18,15 +18,21 @@ class ArticleResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "image" => $this->image,
-            "image2" => $this->image2,
             "thumb" => $thumb,
             "title" => $this->title,
             "stock" => $this->stock,
             "active" => (boolean)$this->active,
             "text" => $this->text,
+
             "text2" => $this->text2,
             "text3" => $this->text3,
             "text4" => $this->text4,
+            "image2" => $this->image2,
+
+
+
+            "product"=> new ProductResource($this->product),
+//            "product"=> $this->product,
             "category" => [
                 'id' => $this->category->id,
                 'title' => $this->category->title,

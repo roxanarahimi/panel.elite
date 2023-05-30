@@ -17,4 +17,9 @@ class Article extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'article_category_id', 'id')->where('active',1);
     }
+
+    public function product()
+    {
+        return $this->hasOne(Product::class,  'id','product_id');
+    }
 }

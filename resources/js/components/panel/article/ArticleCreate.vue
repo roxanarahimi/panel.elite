@@ -7,16 +7,17 @@
                 <div class="col-12 mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <form id="editForm" @click = "e => enableClick">
+                            <form id="editForm" @click="e => enableClick">
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر</label><br/>
-                                        <image-cropper   :isPng="isPng"  name="" caption="" :hasCaption="hasCaption" :isRequired="imgRequired" :aspect="aspect"/>
+                                        <image-cropper :isPng="isPng" name="" caption="" :hasCaption="hasCaption"
+                                                       :isRequired="imgRequired" :aspect="aspect"/>
                                         <div id="imageHelp" class="form-text error"></div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3 mb-3">
+                                    <div class="col-xl-3 mb-3">
                                         <label for="title" class="form-label">عنوان</label>
                                         <input type="text" :class="{hasError: errors.title}" class="form-control"
                                                id="title" aria-describedby="titleHelp" required>
@@ -24,7 +25,7 @@
                                         <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
 
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div class="col-md-4 col-xl-3 mb-3">
                                         <label for="category" class="form-label">دسته</label>
                                         <select class="form-select" id="category" aria-describedby="categoryHelp"
                                                 aria-label="category" required>
@@ -37,42 +38,43 @@
                                         <div id="categoryHelp" class="form-text error"></div>
 
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 mb-3">
-                                        <label class="form-label">تصویر محصول</label><br/>
-                                        <image-cropper   :isPng="isPng"  name="product" caption="" :hasCaption="hasCaption" :isRequired="imgRequired"/>
-                                        <div id="image2Help" class="form-text error"></div>
+                                    <!--                                </div>-->
+                                    <!--                                <div class="row">-->
+                                    <div class="col-md-4 col-xl-3 col-xl-3 mb-3">
+                                        <label for="category" class="form-label">دسته بندی محصول</label>
+                                        <select @change="showProducts" class="form-select" id="productCategory"
+                                                aria-describedby="categoryHelp" aria-label="category" required>
+                                            <option value=""></option>
+                                            <!--                                            -->
+                                            <option v-for="Pcategory in productCategories" :key="Pcategory.id"
+                                                    :value="Pcategory.id">
+                                                {{ Pcategory.title }}
+                                            </option>
+                                        </select>
+                                        <div id="productCategoryHelp" class="form-text error"></div>
                                     </div>
-                                </div>
-                                <div class = "row">
-                                    <div class = "col-md-3 mb-3">
-                                        <label for = "text2" class = "form-label">عنوان محصول</label>
-                                        <input type = "text" :class = "{hasError: errors.text2}" class = "form-control" id = "text2" value = "" aria-describedby = "text2Help" required>
-                                        <div id = "text2Help" class = "form-text error"></div>
-                                        <p class = "form-text error m-0" v-for = "e in errors.text2">{{ e }}</p>
+                                    <div class="col-md-4 col-xl-3 col-xl-3 mb-3">
+                                        <label for="product_id" class="form-label">محصول</label>
+                                        <select class="form-select" id="product_id" aria-describedby="productHelp"
+                                                aria-label="product" required>
+                                            <!--                                          -->
+                                            <option v-for="product in products" :key="product.id" :value="product.id">
+                                                {{ product.title }}
+                                            </option>
+                                        </select>
+                                        <div id="productHelp" class="form-text error"></div>
                                     </div>
-                                    <div class = "col-md-3 mb-3">
-                                        <label for = "text3" class = "form-label">زیرنویس</label>
-                                        <input type = "text" :class = "{hasError: errors.text3}" class = "form-control" id = "text3" value = "" aria-describedby = "text3Help" required>
-                                        <div id = "text3Help" class = "form-text error"></div>
-                                        <p class = "form-text error m-0" v-for = "e in errors.text3">{{ e }}</p>
-                                    </div>
-                                    <div class = "col-md-3 mb-3">
-                                        <label for = "text4" class = "form-label">با طعم</label>
-                                        <input type = "text" :class = "{hasError: errors.text4}" class = "form-control" id = "text4" value = "" aria-describedby = "text4Help" >
-                                        <div id = "text4Help" class = "form-text error"></div>
-                                        <p class = "form-text error m-0" v-for = "e in errors.text4">{{ e }}</p>
-                                    </div>
+
+
                                 </div>
 
 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <label class="form-label" >دستور پخت</label>
-<!--                                       <div id="editor"></div>-->
+                                        <label class="form-label">دستور پخت</label>
+                                        <!--                                       <div id="editor"></div>-->
 
-<!--                                        <editor mode = "new" />-->
+                                        <!--                                        <editor mode = "new" />-->
                                         <textarea @input="watchTextAreas" :class="{hasError: errors.text}"
                                                   aria-describedby="textHelp" class="form-control text-start"
                                                   id="text"></textarea>
@@ -94,7 +96,7 @@
                 </div>
             </div>
 
-             </section>
+        </section>
     </transition>
 
 </template>
@@ -111,6 +113,8 @@ export default {
             id: '',
             blog: [],
             categories: [],
+            productCategories: [],
+            products: [],
             errors: [],
             imgRequired: true,
             hasCaption: false,
@@ -126,10 +130,26 @@ export default {
     methods: {
 
         loadCategories() {
-             axios.get('/api/panel/category/article?page=1&perPage=100000')
+            axios.get('/api/panel/category/article?page=1&perPage=100000')
                 .then((response) => {
-                this.categories = response.data.data;
-            }).catch();
+                    this.categories = response.data.data;
+                })
+                .catch();
+            axios.get('/api/panel/category/product?page=1&perPage=100000')
+                .then((response) => {
+                    this.productCategories = response.data.data;
+                })
+                .catch();
+        },
+
+        showProducts() {
+
+            axios.get('/api/panel/product/by/category/' + document.getElementById('productCategory').value)
+                .then((response) => {
+                    this.products = response.data.data;
+                    console.log(response.data.data)
+                })
+                .catch();
         },
         async createInfo() {
             this.errors = [];
@@ -148,13 +168,15 @@ export default {
             if (emptyFieldsCount === 0) {
                 await axios.post('/api/panel/article', {
                     image: document.getElementById('Image__code').value,
-                    image2: document.getElementById('Image_product_code').value,
                     title: document.getElementById('title').value,
                     article_category_id: document.getElementById('category').value,
-                    text:  document.getElementById('text').value,
-                    text2:  document.getElementById('text2').value,
-                    text3:  document.getElementById('text3').value,
-                    text4:  document.getElementById('text4').value,
+                    text: document.getElementById('text').value,
+                    product_id:  document.getElementById('product_id').value,
+
+                    // image2: document.getElementById('Image_product_code').value,
+                    // text2: document.getElementById('text2').value,
+                    // text3: document.getElementById('text3').value,
+                    // text4: document.getElementById('text4').value,
                     // tags: tags,
                 })
                     .then((response) => {
@@ -218,7 +240,6 @@ export default {
                 this.style.height = (this.scrollHeight) + "px";
             }
         },
-
 
 
     }

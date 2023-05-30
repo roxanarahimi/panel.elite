@@ -68,17 +68,17 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $data = Article::create($request->except('image', 'image2'));
+            $data = Article::create($request->except('image'));
             if ($request['image']) {
                 $name = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/articles/');
                 $data->update(['image' => '/' . $image_path]);
             }
-            if ($request['image2']) {
-                $name2 = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
-                $image_path2 = (new ImageController)->uploadImage($request['image'], $name2, 'img/');
-                $data->update(['image2' => '/' . $image_path2]);
-            }
+//            if ($request['image2']) {
+//                $name2 = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
+//                $image_path2 = (new ImageController)->uploadImage($request['image'], $name2, 'images/articles/');
+//                $data->update(['image2' => '/' . $image_path2]);
+//            }
 
             return response(new ArticleResource($data), 201);
         } catch (\Exception $exception) {
@@ -103,18 +103,18 @@ class ArticleController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $article->update($request->except('image', 'image2'));
+            $article->update($request->except('image'));
 
             if ($request['image']) {
                 $name = 'article_' . $article['id'] . '_' . uniqid() . '.jpg';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/articles/');
                 $article->update(['image' => '/' . $image_path]);
             }
-            if ($request['image2']) {
-                $name2 = 'article_product_' . $article['id'] . '_' . uniqid() . '.jpg';
-                $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'img/');
-                $article->update(['image2' => '/' . $image_path2]);
-            }
+//            if ($request['image2']) {
+//                $name2 = 'article_product_' . $article['id'] . '_' . uniqid() . '.jpg';
+//                $image_path2 = (new ImageController)->uploadImage($request['image2'], $name2, 'images/articles/');
+//                $article->update(['image2' => '/' . $image_path2]);
+//            }
             return response(new ArticleResource($article), 200);
         } catch (\Exception $exception) {
             return response($exception);

@@ -17,10 +17,14 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id', 'id')->where('active',1);
     }
-    public function sizes()
+//    public function sizes()
+//    {
+//        return $this->hasMany(ProductSize::class,  'product_id', 'id');
+////            ->orderByDesc('id');
+//    }
+    public function article()
     {
-        return $this->hasMany(ProductSize::class,  'product_id', 'id');
-//            ->orderByDesc('id');
+        return $this->belongsToMany(Article::class, 'id','product_id');
     }
 }
 

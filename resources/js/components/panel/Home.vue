@@ -2,19 +2,41 @@
     <!--<h3>داشبورد</h3>-->
     <transition name="route" mode="out-in" appear>
         <section>
-            <h3 class="mb-5 pb-5">جدید ترین مطالب</h3>
 
             <Suspense>
                 <template #default>
                   <div class="row">
-                      <router-link class="col-sm-6 col-xl-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
-                          <div class="card">
-                              <div class="card-body">
-                                  <img :src="item.image" class="img-fluid" alt="">
-                                  <p>{{ item.title }}</p>
+                      <h3 class="mb-5 ">جدید ترین محصولات</h3>
+
+                      <router-link class="col-sm-6 col-xl-3 mb-3 " :to="'/panel/product/'+item.id" :key="item.id" v-for="item in products" >
+                          <div class="card h-100" >
+                              <div class="card-body text-center justify-content-center" style="display: grid">
+                                  <div style="align-self: center; text-align: center" >
+                                      <img :src="item.image" class="img-fluid w-50  " alt="">
+                                  </div>
                               </div>
+                              <div class="card-footer border-none bg-white">
+                                  <p>{{ item.title }}</p>
+
+                              </div>
+
                           </div>
                       </router-link>
+                      <h3 class="mb-5 ">جدید ترین مطالب</h3>
+
+                      <router-link class="col-sm-6 col-xl-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
+                          <div class="card h-100">
+                              <div class="card-body text-center">
+                                  <img :src="item.image" class="img-fluid w-50 " alt="">
+                              </div>
+                              <div class="card-footer border-none bg-white">
+                                  <p>{{ item.title }}</p>
+
+                              </div>
+
+                          </div>
+                      </router-link>
+
                   </div>
 
                 </template>
@@ -23,24 +45,7 @@
                 </template>
             </Suspense>
 
-            <!--            <Suspense>-->
-<!--                <template #default>-->
-<!--                    <day-report-cards/>-->
-<!--                </template>-->
-<!--                <template #fallback>-->
-<!--                    <loader class="mt-5"/>-->
-<!--                </template>-->
-<!--            </Suspense>-->
-
-<!--            <Suspense>-->
-<!--                <template #default>-->
-<!--                    <latest-products/>-->
-<!--                </template>-->
-<!--                <template #fallback>-->
-<!--                    <loader class="mt-5"/>-->
-<!--                </template>-->
-<!--            </Suspense>-->
-            <p id="msg"></p>
+<!--            <p id="msg"></p>-->
         </section>
     </transition>
 </template>
@@ -55,6 +60,7 @@ export default {
     components: {LatestProducts, App, Loader, DayReportCards},
     setup() {
         const articles = ref({});
+        const products = ref({});
         const loadArticles= ()=>{
             axios.get('/api/panel/article?page=1&perPage=4')
                 .then((response) => {
@@ -64,12 +70,23 @@ export default {
                 })
                 .catch();
         }
+        const loadProducts= ()=>{
+            axios.get('/api/panel/product?page=1&perPage=4')
+                .then((response) => {
+                    console.log(response.data)
+                    products.value = response.data.data;
+
+
+                })
+                .catch();
+        }
         onMounted(() => {
             document.querySelector('#admin_label').innerHTML = JSON.parse(localStorage.getItem('admin')).name;
             loadArticles();
+            loadProducts();
 
         });
-        return { articles, loadArticles}
+        return { articles, loadArticles,loadProducts, products}
     },
 
 

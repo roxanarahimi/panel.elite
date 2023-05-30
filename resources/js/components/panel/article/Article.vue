@@ -25,10 +25,11 @@
                     <div class = "card h-100">
                         <div class = "card-body p-md-5">
                             <h3  class="mb-5">محصول:</h3>
-                            <img class = "img-fluid mb-2" :src = "data.image2" width="350" alt = "">
-                            <h3>{{ data.text2 }}</h3>
-                            <h4>{{ data.text3 }}</h4>
-                            <h6>{{ data.text4 }}</h6>
+                            <h3 v-if="data.product">{{ data.product.title }}</h3>
+                            <img v-if="data.product" class = "img-fluid mb-2" :src = "data.product.image" width="350" alt = "">
+                            <h3 v-if="data.product">{{ data.product.title_en }}</h3>
+                            <h4 v-if="data.product">{{ data.product.subTitle }}</h4>
+                            <h6 v-if="data.product">{{ data.product.flavor }}</h6>
                         </div>
                     </div>
                 </div>

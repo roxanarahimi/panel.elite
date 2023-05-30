@@ -289,6 +289,18 @@ class ProductController extends Controller
             return response($exception);
         }
     }
+    public function byCatPanel($id)
+    {
+        try {
+            $data = Product::orderBy('title')->where('product_category_id', $id)->where('active',1)->get();
+
+
+            return response(["data"=>ProductResource::collection($data)], 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+
+        }
+    }
     public function byCat($id)
     {
         try {

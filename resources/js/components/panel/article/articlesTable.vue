@@ -12,7 +12,6 @@
 
                     <!--                    <th class = "d-none d-xl-table-cell" scope = "col">متن</th>-->
                     <th class = "d-none d-xl-table-cell" scope = "col">عنوان محصول</th>
-                    <th class = "d-none d-xl-table-cell" scope = "col">زیرنویس</th>
 <!--                    <th class = "d-none d-xl-table-cell" scope = "col">با طعم</th>-->
                     <th class = "d-none d-md-table-cell" scope = "col">تاریخ ثبت</th>
                     <th scope = "col" class = "active_cell">وضعیت</th>
@@ -35,10 +34,9 @@
                     </td>
 <!--                    <td class = "d-none d-xl-table-cell text_cell">{{ // data.text }}</td>-->
                     <td class = "d-none d-md-table-cell" style = "width: 100px">
-                        <img v-if = "data.image2" :src = "data.image2" width = "80" alt = "">
+                        <img v-if = "data.product.image" :src = "data.product.image" width = "80" alt = "">
                     </td>
-                    <td class = "d-none d-xl-table-cell text_cell">{{ data.text2 }}</td>
-                    <td class = "d-none d-xl-table-cell text_cell">{{ data.text3 }}</td>
+                    <td class = "d-none d-xl-table-cell text_cell">{{ data.product.title }}</td>
 <!--                    <td class = "d-none d-xl-table-cell text_cell">{{ // data.text4 }}</td>-->
                     <td class = "d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
