@@ -332,7 +332,7 @@ class ProductController extends Controller
         $data = Product::all();
 
         foreach ($data as $item){
-            $item->update('image', str_replace('/img', '/images/products', $item['image']));
+            $item->update(['image'=> str_replace('/img', '/images/products', $item['image'])]);
         }
 //        $data2 = Article::all();
 //        foreach ($data2 as $item){
