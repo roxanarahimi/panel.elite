@@ -55,7 +55,7 @@
                                     <div class="col-md-3 col-lg-2 mb-3">
                                         <label for="color" class="form-label">تم رنگ محصول</label>
                                         <input @input="updateData" type="text" :class="{hasError: errors.color}"
-                                               class="form-control"
+                                               class="form-control en"
                                                id="color" :value="data.color" aria-describedby="colorHelp" required>
                                         <div id="colorHelp" class="form-text error"></div>
                                         <p class="form-text error m-0" v-for="e in errors.color">{{ e }}</p>

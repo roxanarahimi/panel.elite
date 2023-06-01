@@ -4,7 +4,7 @@
             <div class="row " v-if="data.id" >
                 <div class="col-12 ">
                     <div class="row px-3 ">
-                        <div class="col-12 mb-3 " :style="{ backgroundImage: 'linear-gradient('+data.color+', white)'  }">
+                        <div class="col-12 mb-3 " :style="{ backgroundImage: 'linear-gradient(to right,'+data.color+', white)'  }">
                             <div class="d-inline-block mt-5"  >
                                 <div class="index_image">
                                     <img class="img-fluid mb-2" :src="data.image" width="350" alt="">

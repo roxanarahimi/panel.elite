@@ -755,7 +755,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "text",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
           hasError: $data.errors.color
-        }, "form-control"]),
+        }, "form-control en"]),
         id: "color",
         value: $data.data.color,
         "aria-describedby": "colorHelp",
