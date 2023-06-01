@@ -1,11 +1,11 @@
 <template>
     <transition name="route" mode="out-in" appear>
         <section class="" style="text-align: justify">
-            <div class="row " v-if="data.id">
+            <div class="row " v-if="data.id" >
                 <div class="col-12 ">
-                    <div class="row ">
-                        <div class="col-12 mb-3">
-                            <div class="d-inline-block mt-5">
+                    <div class="row px-3 ">
+                        <div class="col-12 mb-3 " :style="{ backgroundImage: 'linear-gradient('+data.color+', white)'  }">
+                            <div class="d-inline-block mt-5"  >
                                 <div class="index_image">
                                     <img class="img-fluid mb-2" :src="data.image" width="350" alt="">
                                     <div class="label">
