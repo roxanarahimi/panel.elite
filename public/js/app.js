@@ -21446,6 +21446,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       })["catch"]();
       axios.get('/api/panel/category/product?page=1&perPage=100000').then(function (response) {
         _this2.productCategories = response.data.data;
+      }).then(function () {
+        _this2.showProducts();
       })["catch"]();
     },
     showProducts: function showProducts() {

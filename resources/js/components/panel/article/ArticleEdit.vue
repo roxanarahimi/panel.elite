@@ -178,6 +178,9 @@ export default {
                 .then((response) => {
                     this.productCategories = response.data.data;
                 })
+                .then(()=>{
+                  this.showProducts();
+                })
                 .catch();
         },
         showProducts(){

@@ -4,9 +4,9 @@
             <div class="row " v-if="data.id" >
                 <div class="col-12 ">
                     <div class="row px-3 ">
-                        <div class="col-12 mb-3 " :style="{ backgroundImage: 'linear-gradient(to right,'+data.color+', white)'  }">
+                        <div class="col-12 mb-3 " :style="{ backgroundImage: 'linear-gradient(to right,'+data.color+',white, transparent)'  }">
                             <div class="d-inline-block mt-5"  >
-                                <div class="index_image">
+                                <div class="ind">
                                     <img class="img-fluid mb-2" :src="data.image" width="350" alt="">
                                     <div class="label">
                                         <span class="badge bg-danger">
