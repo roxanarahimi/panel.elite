@@ -202,7 +202,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 } // await App.methods.checkToken();
 
 
-                perPage = ((_document$querySelect = document.querySelector('#perPage')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.value) || 10;
+                perPage = ((_document$querySelect = document.querySelector('#perPage')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.value) || 100;
                 document.querySelector('#loader').classList.remove('d-none');
                 _context.next = 5;
                 return axios.get('/api/panel/category/' + model.value + '?page=' + page.value + '&perPage=' + perPage).then(function (response) {
@@ -764,6 +764,7 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    selected: "",
     value: "100"
   }, "100", -1
   /* HOISTED */

@@ -78,7 +78,7 @@ export default {
             }
             document.querySelector('#loader').classList.remove('d-none');
 
-            let perPage = document.querySelector('#perPage')?.value || 10;
+            let perPage = document.querySelector('#perPage')?.value || 100;
             axios.get('/api/panel/' + model.value + '?page=' + page.value+'&perPage='+perPage)
                 .then((response) => {
                     allData.value = response.data.data;
