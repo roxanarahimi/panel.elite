@@ -262,7 +262,6 @@ class ProductController extends Controller
     {
 
         try {
-            $product->sizes->each->delete();
             $product->delete();
             return response('product deleted', 200);
         } catch (\Exception $exception) {
