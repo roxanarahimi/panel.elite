@@ -306,14 +306,17 @@ class ProductController extends Controller
             $data = Product::orderBy('id')->where('product_category_id', $id)->where('active',1)->get()->toArray();
 
             $info=[];
+            if (count($data)%2==0){
+                $data[] = $data[count($data)-1];
+            }
             for($i=0;$i<count($data);$i+=2){
-                if (count($data)%2==0){
-                    $x=$data[$i+1];
-                }else{
-                    $x=$data[count($data)-1];
-                }
+                if ($i+1 >= count($data)){
+                    $info[]=[0=>$data[$i],1=>$data[$i]];
 
-                $info[]=[0=>$data[$i],1=>$x];
+                }else{
+                    $info[]=[0=>$data[$i],1=>$data[$i+1]];
+
+                }
             }
 
             return response([
