@@ -65,7 +65,7 @@ class ArticleCategoryController extends Controller
         try {
             $data = ArticleCategory::create($request->except('image'));
             if ($request['image']) {
-                $name = 'article_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $name = 'article_' . $data['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $data->update(['image' => '/' . $image_path]);
             }
@@ -93,7 +93,7 @@ class ArticleCategoryController extends Controller
         try {
             $articleCategory->update($request->except('image'));
             if ($request['image']) {
-                $name = 'article_' . $articleCategory['id'] . '_' . uniqid() . '.jpg';
+                $name = 'article_' . $articleCategory['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $articleCategory->update(['image' => '/' . $image_path]);
             }

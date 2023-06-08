@@ -67,7 +67,7 @@ class ProductCategoryController extends Controller
         try {
             $data = ProductCategory::create($request->except('image'));
             if ($request['image']) {
-                $name = 'Product_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $name = 'Product_' . $data['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $data->update(['image' => '/' . $image_path]);
             }
@@ -95,7 +95,7 @@ class ProductCategoryController extends Controller
         try {
             $productCategory->update($request->except('image'));
             if ($request['image']) {
-                $name = 'Product_' . $productCategory['id'] . '_' . uniqid() . '.jpg';
+                $name = 'Product_' . $productCategory['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'img/');
                 $productCategory->update(['image' => '/' . $image_path]);
             }
