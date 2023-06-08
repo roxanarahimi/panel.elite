@@ -184,7 +184,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var labels = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
     var imgRequired = true;
     var hasCaption = false;
-    var aspect = 2 / 3;
+    var aspect = 1 / 1;
     var isPng = true;
 
     var loadData = /*#__PURE__*/function () {
@@ -409,7 +409,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var errors = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
     var imgRequired = true;
     var hasCaption = false;
-    var aspect = 2 / 3;
+    var aspect = 1 / 1;
     var isPng = true;
 
     var loadData = /*#__PURE__*/function () {

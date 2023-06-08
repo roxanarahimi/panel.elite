@@ -110,7 +110,7 @@ export default {
         const labels = ref([]);
         const imgRequired = true;
         const hasCaption = false;
-        const aspect = 2 / 3;
+        const aspect = 1 / 1;
         const isPng = true;
 
         const loadData = async (p) => {
