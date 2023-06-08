@@ -54,7 +54,7 @@ class ProductCategoryController extends Controller
     {
         $validator = Validator::make($request->all('title'),
             [
-                'title' => 'required|unique:Product_categories',
+                'title' => 'required|unique:product_categories',
             ],
             [
                 'title.required' => 'لطفا عنوان را وارد کنید',
@@ -82,7 +82,7 @@ class ProductCategoryController extends Controller
     {
         $validator = Validator::make($request->all('title'),
             [
-                'title' => 'required|unique:Product_categories,title,' . $productCategory['id'],
+                'title' => 'required|unique:product_categories,title,' . $productCategory['id'],
             ],
             [
                 'title.required' => 'لطفا عنوان را وارد کنید',
