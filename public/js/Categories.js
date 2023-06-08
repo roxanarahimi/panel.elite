@@ -185,6 +185,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var imgRequired = true;
     var hasCaption = false;
     var aspect = 330 / 244;
+    var isPng = true;
 
     var loadData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(p) {
@@ -366,7 +367,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       deleteInfo: deleteInfo,
       imgRequired: imgRequired,
       hasCaption: hasCaption,
-      aspect: aspect
+      aspect: aspect,
+      isPng: isPng
     };
   }
 });
@@ -408,6 +410,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var imgRequired = true;
     var hasCaption = false;
     var aspect = 330 / 244;
+    var isPng = true;
 
     var loadData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(p) {
@@ -608,7 +611,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors: errors,
       imgRequired: imgRequired,
       hasCaption: hasCaption,
-      aspect: aspect
+      aspect: aspect,
+      isPng: isPng
     };
   }
 });
@@ -1038,11 +1042,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         name: "",
         caption: "",
         hasCaption: $setup.hasCaption,
+        isPng: $setup.isPng,
         isRequired: $setup.imgRequired,
         aspect: $setup.aspect
       }, null, 8
       /* PROPS */
-      , ["hasCaption", "isRequired", "aspect"]), _hoisted_16])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.title, function (error) {
+      , ["hasCaption", "isPng", "isRequired", "aspect"]), _hoisted_16])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.title, function (error) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1
         /* TEXT */
         );
@@ -1266,6 +1271,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "d-none px-3 py-3 edit",
       colspan: "7"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_cropper, {
+      isPng: $setup.isPng,
       name: data.id,
       caption: "",
       hasCaption: $setup.hasCaption,
@@ -1274,7 +1280,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       src: data.image
     }, null, 8
     /* PROPS */
-    , ["name", "hasCaption", "isRequired", "aspect", "src"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    , ["isPng", "name", "hasCaption", "isRequired", "aspect", "src"]), _hoisted_26])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
       "for": 'title_' + data.id
     }, "عنوان", 8
     /* PROPS */

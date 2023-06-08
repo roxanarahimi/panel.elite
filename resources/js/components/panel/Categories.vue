@@ -31,7 +31,7 @@
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر</label><br/>
                                         <image-cropper name="" caption="" :hasCaption="hasCaption"
-                                                       :isRequired="imgRequired" :aspect="aspect"/>
+                                                       :isPng="isPng" :isRequired="imgRequired" :aspect="aspect"/>
                                         <div id="imageHelp" class="form-text error"></div>
                                     </div>
                                 </div>
@@ -111,6 +111,7 @@ export default {
         const imgRequired = true;
         const hasCaption = false;
         const aspect = 330 / 244;
+        const isPng = true;
 
         const loadData = async (p) => {
             if (p === undefined) {
@@ -211,7 +212,7 @@ export default {
         })
         return {
             model, errors, allData, page, pages, total, labels,
-            loadData, createInfo, activeToggle, deleteInfo, imgRequired, hasCaption, aspect
+            loadData, createInfo, activeToggle, deleteInfo, imgRequired, hasCaption, aspect, isPng
         }
     },
 

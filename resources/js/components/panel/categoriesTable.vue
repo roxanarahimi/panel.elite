@@ -34,7 +34,7 @@
                                 <div class="col-xl-12 py-2">
                                     <div class = "col-12 mb-3">
                                         <label class = "form-label">تصویر</label><br/>
-                                        <image-cropper :name = "data.id" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :aspect = "aspect" :src="data.image"/>
+                                        <image-cropper   :isPng="isPng"  :name = "data.id" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :aspect = "aspect" :src="data.image"/>
                                         <div id = "imageHelp" class = "form-text error"></div>
                                     </div>
                                 </div>
@@ -99,6 +99,7 @@ export default {
         const imgRequired = true;
         const hasCaption = false;
         const aspect = 330 / 244;
+        const isPng = true;
 
         const loadData = async (p) => {
             props.load(p);
@@ -190,7 +191,7 @@ export default {
 
         return {
             loadData, updateInfo, showUpdateForm, hideUpdateForm, activeToggle,
-            showDeleteModal, errors, imgRequired, hasCaption, aspect
+            showDeleteModal, errors, imgRequired, hasCaption, aspect, isPng
         }
 
     },
