@@ -118,7 +118,14 @@
                                         <p class="form-text error m-0" v-for="e in errors.tag2">{{ e }}</p>
 
                                     </div>
+                                  <div class="col-md-12 col-lg-12 mb-3">
+                                    <label for="link" class="form-label">لینک خرید</label>
+                                    <input type="text" :class="{hasError: errors.link}"
+                                          :value="data.link" class="en form-control text-start" id="link">
+                                    <div id="linkHelp" class="form-text error"></div>
+                                    <p class="form-text error m-0" v-for="e in errors.link">{{ e }}</p>
 
+                                  </div>
 
                                     <!--                                    <div class="col-md-4 col-lg-2 mb-3">-->
                                     <!--                                        <label for="price" class="form-label">قیمت (ریال)</label>-->
@@ -355,6 +362,7 @@ export default {
                         product_category_id: document.getElementById('category').value,
                         text: document.getElementById('text').value,
                         color: document.getElementById('color').value,
+                        link: document.getElementById('link').value,
                         features: features,
                         // sizes: this.sizes,
                         // off: document.getElementById('off').value,

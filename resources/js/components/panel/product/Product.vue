@@ -75,6 +75,9 @@
                                 <p>{{ data.tag1 }}</p>
                                 <p>{{ data.tag2 }}</p>
                             </div>
+                          <div class="">
+                                <p>لینک خرید: {{ data.link }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
