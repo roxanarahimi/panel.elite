@@ -17,6 +17,7 @@ class ProductCategoryResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "title" => $this->title,
+            "title_en" => $this->title_en,
             "image" => $this->image,
             "active" => (boolean)$this->active,
             "products" => ProductResource::collection($this->products),
