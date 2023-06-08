@@ -98,7 +98,7 @@ export default {
         const errors = ref([]);
         const imgRequired = true;
         const hasCaption = false;
-        const aspect = 330 / 244;
+        const aspect = 2 / 3;
         const isPng = true;
 
         const loadData = async (p) => {
