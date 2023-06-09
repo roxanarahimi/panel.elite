@@ -42,6 +42,9 @@
 <!--                            <div>-->
 <!--                                <span v-for = "tag in tags" :key = "tag" :title = "tag.uri" class = "btn btn-sm btn-outline-dark m-1"> {{ tag.label }} </span>-->
 <!--                            </div>-->
+
+                          <b class="">دستور پخت پیشنهادی:</b>
+                          <a class="mx-2" :href="'/panel/article/'+data.tag?.id">{{ data.tag?.title}}</a>
                         </div>
                     </div>
                 </div>

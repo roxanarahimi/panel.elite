@@ -22,4 +22,8 @@ class Article extends Model
     {
         return $this->hasOne(Product::class,  'id','product_id');
     }
+    public function tag()
+    {
+        return $this->hasOne(Article::class,  'id','article_tag_id');
+    }
 }

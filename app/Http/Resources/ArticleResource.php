@@ -9,12 +9,12 @@ class ArticleResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
-        $thumb = $this->image ? str_replace('.jpg','_thumb.jpg',$this->image) : '';
+        $thumb = $this->image ? str_replace('.jpg', '_thumb.jpg', $this->image) : '';
         return [
             "id" => (string)$this->id,
             "image" => $this->image,
@@ -24,21 +24,19 @@ class ArticleResource extends JsonResource
             "active" => (boolean)$this->active,
             "text" => $this->text,
 
-            "text2" => $this->text2,
-            "text3" => $this->text3,
-            "text4" => $this->text4,
-            "image2" => $this->image2,
-
-
-
-            "product"=> new ProductResource($this->product),
+            "product" => new ProductResource($this->product),
 //            "product"=> $this->product,
             "category" => [
                 'id' => $this->category->id,
                 'title' => $this->category->title,
                 'active' => $this->category->active,
             ],
-            "tags" => $this->tags,
+            "tag" => [
+                'id' => $this->tag->id,
+                'title' => $this->tag->title,
+                'active' => $this->tag->active
+            ],
+            "article_tag_id" => $this->article_tag_id,
             "views" => $this->views,
             "likes" => $this->likes,
             "dislikes" => $this->dislikes,
