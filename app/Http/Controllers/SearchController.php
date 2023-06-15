@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         try {
             if ($request['term'] != ''){
-                $data = Product::where('title',  'Like', '%' . $request['term'] . '%')->get();
+                $data = Product::where('title',  'Like', '%' . $request['term'] . '%')->where('active',1)->get();
                 return response(ProductResource::collection($data), 200);
             }else{
                 return response([], 200);
