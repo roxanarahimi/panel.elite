@@ -121,9 +121,9 @@
                   </div>
 
                   <div class="col-md-12 mb-3">
-                    <button class="btn btn-primary" @click.prevent="updateInfo" type="submit">
+                    <BtnSubmit @click.prevent="updateInfo">
                       ویرایش
-                    </button>
+                    </BtnSubmit>
                   </div>
                 </div>
 
@@ -141,11 +141,11 @@
 
 <script>
 import ImageCropper from '../../components/ImageCropper';
-import App from '../App';
 import Editor from "../../components/Editor";
+import BtnSubmit from "../../components/BtnSubmit";
 
 export default {
-  components: {Editor, ImageCropper},
+  components: {Editor, ImageCropper, BtnSubmit},
   data() {
     return {
       id: this.$route.params.id,

@@ -94,10 +94,9 @@
                   </div>
 
                   <div class="col-md-12 mb-3">
-                    <button class="btn btn-primary" @click.prevent="createInfo" type="submit">
-                      <!--                                        <button class = "btn btn-primary" type = "submit">-->
+                    <BtnSubmit  @click.prevent="createInfo">
                       ثبت
-                    </button>
+                    </BtnSubmit>
                   </div>
                 </div>
 
@@ -114,11 +113,11 @@
 
 <script>
 import ImageCropper from '../../components/ImageCropper';
-import App from '../App';
+import BtnSubmit from "../../components/BtnSubmit";
 import Editor from "../../components/Editor";
 
 export default {
-  components: {Editor, ImageCropper},
+  components: {Editor, ImageCropper,BtnSubmit},
   data: function () {
     return {
       id: '',
