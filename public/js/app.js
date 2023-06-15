@@ -19451,13 +19451,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (emptyFieldsCount === 0) {
         document.querySelector('#submit').setAttribute('disabled', 'disabled');
-        document.querySelector('.loader-sm').classList.remove('d-none');
-        setTimeout(function () {
-          var _document$querySelect, _document$querySelect2;
-
-          (_document$querySelect = document.querySelector('#submit')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.removeAttribute('disabled');
-          (_document$querySelect2 = document.querySelector('.loader-sm')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.classList.add('d-none');
-        }, 3000);
+        document.querySelector('.loader-sm').classList.remove('d-none'); // setTimeout(()=>{
+        //     document.querySelector('#submit')?.removeAttribute('disabled');
+        //     document.querySelector('.loader-sm')?.classList.add('d-none');
+        // },10000)
       } else {
         document.querySelector('#submit').classList.remove('btn-primary');
         document.querySelector('#submit').classList.add('btn-danger');

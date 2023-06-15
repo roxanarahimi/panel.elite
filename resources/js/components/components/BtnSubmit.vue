@@ -31,10 +31,10 @@ export default {
             if (emptyFieldsCount === 0){
                 document.querySelector('#submit').setAttribute('disabled', 'disabled');
                 document.querySelector('.loader-sm').classList.remove('d-none');
-                setTimeout(()=>{
-                    document.querySelector('#submit')?.removeAttribute('disabled');
-                    document.querySelector('.loader-sm')?.classList.add('d-none');
-                },3000)
+                // setTimeout(()=>{
+                //     document.querySelector('#submit')?.removeAttribute('disabled');
+                //     document.querySelector('.loader-sm')?.classList.add('d-none');
+                // },10000)
             }else {
                 document.querySelector('#submit').classList.remove('btn-primary');
                 document.querySelector('#submit').classList.add('btn-danger');
