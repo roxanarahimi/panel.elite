@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Article;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Lcobucci\JWT\Exception;
 
@@ -13,8 +15,8 @@ class SearchController extends Controller
     {
         try {
             if ($request['term'] != ''){
-                $data = Article::where('title',  'Like', '%' . $request['term'] . '%')->get();
-                return response(ArticleResource::collection($data), 200);
+                $data = Product::where('title',  'Like', '%' . $request['term'] . '%')->get();
+                return response(ProductResource::collection($data), 200);
             }else{
                 return response([], 200);
             }
