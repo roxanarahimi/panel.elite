@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/panel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/themes.css') }}">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 
     {{--    LOCAL:--}}
 
