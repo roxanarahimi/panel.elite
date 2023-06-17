@@ -25384,7 +25384,7 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    title: "مطالب",
+    title: "دستور پخت ها",
     "class": "bi bi-chat-left-text-fill me-2"
   }, null, -1
   /* HOISTED */
@@ -25394,7 +25394,7 @@ var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "sidebar_title"
-  }, "مطالب", -1
+  }, "دستور پخت ها", -1
   /* HOISTED */
   );
 });
@@ -26072,7 +26072,7 @@ var _hoisted_8 = {
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  title: "ویرایش مطلب",
+  title: "ویرایش دستور پخت",
   "class": "mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "bi bi-pencil p-0 edit-pen"
@@ -26239,7 +26239,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "mb-5"
-}, "ثبت مطلب جدید", -1
+}, "ثبت دستور پخت جدید", -1
 /* HOISTED */
 );
 
@@ -26588,7 +26588,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "mb-5"
-}, "ویرایش مطلب", -1
+}, "ویرایش دستور پخت", -1
 /* HOISTED */
 );
 

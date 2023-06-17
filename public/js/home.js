@@ -561,7 +561,7 @@ var _hoisted_7 = {
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "mb-5"
-}, "جدید ترین مطالب", -1
+}, "جدید ترین دستور پخت ها", -1
 /* HOISTED */
 );
 

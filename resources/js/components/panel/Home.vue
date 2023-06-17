@@ -22,7 +22,7 @@
 
                           </div>
                       </router-link>
-                      <h3 class="mb-5 ">جدید ترین مطالب</h3>
+                      <h3 class="mb-5 ">جدید ترین دستور پخت ها</h3>
 
                       <router-link class="col-sm-6 col-xl-3 mb-3" :to="'/panel/article/'+item.id" :key="item.id" v-for="item in articles" >
                           <div class="card h-100">
