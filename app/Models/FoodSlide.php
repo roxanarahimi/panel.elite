@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FoodSlide extends Model
 {
     use HasFactory;
+    protected $table = 'food_slides';
     protected $guarded = ['id'];
     public function article()
     {

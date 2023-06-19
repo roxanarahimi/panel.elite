@@ -253,8 +253,6 @@ Route::controller(App\Http\Controllers\FoodSlideController::class)->group(functi
 //other API'S
 
 //food api
-Route::get('/foods', [ApiController::class,'foods']);
-Route::get('/food/{food}', [ApiController::class,'food']);
 Route::get('/category/article', [\App\Http\Controllers\ArticleCategoryController::class,'indexSite']);
 Route::get('/category/product', [\App\Http\Controllers\ProductCategoryController::class,'indexSite']);
 Route::get('/food/slides', [\App\Http\Controllers\FoodSlideController::class,'indexSite']);
