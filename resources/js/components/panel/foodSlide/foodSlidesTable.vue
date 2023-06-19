@@ -8,13 +8,12 @@
                     <th class = "d-none d-md-table-cell" style = "width: 100px" scope = "col">تصویر اسلاید</th>
 <!--                    <th scope = "col">عنوان</th>-->
 <!--                    <th scope = "col">دسته</th>-->
-                    <th class = "d-none d-md-table-cell" style = "width: 100px" scope = "col">تصویر دستور پخت</th>
-
-                    <!--                    <th class = "d-none d-xl-table-cell" scope = "col">متن</th>-->
-                    <th class = "d-none d-xl-table-cell" scope = "col">عنوان دستور پخت</th>
-<!--                    <th class = "d-none d-xl-table-cell" scope = "col">با طعم</th>-->
+                    <th class = "d-none d-md-table-cell" scope = "col">تصویر دستور پخت</th>
+                   <th class = "d-none d-xl-table-cell" scope = "col">عنوان دستور پخت</th>
+                    <th class = "d-none d-md-table-cell" scope = "col">تصویر محصول</th>
+                   <th class = "d-none d-xl-table-cell" scope = "col">عنوان محصول</th>
                     <th class = "d-none d-md-table-cell" scope = "col">تاریخ ثبت</th>
-                    <th scope = "col" class = "active_cell">وضعیت</th>
+<!--                    <th scope = "col" class = "active_cell">وضعیت</th>-->
                     <th scope = "col"></th>
                 </tr>
                 </thead>
@@ -27,16 +26,19 @@
                          <img v-if = "data.image" :src = "data.image" width = "80" alt = "">
                        </router-link>
                     </td>
-                    <td class = "d-none d-md-table-cell" style = "width: 100px">
+                    <td class = "d-none d-md-table-cell" >
                         <img v-if = "data.article.image" :src = "data.article.image" width = "80" alt = "">
                     </td>
                     <td class = "d-none d-xl-table-cell text_cell">{{ data.article.title }}</td>
-<!--                    <td class = "d-none d-xl-table-cell text_cell">{{ // data.text4 }}</td>-->
-                    <td class = "d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
-                    <td class="active_cell">
-                        <span @click="activeToggle(model,data.id)" v-if="data.active == true" class="badge bg-success text-light"><i class="bi bi-eye-fill"></i></span>
-                        <span @click="activeToggle(model,data.id)" v-else class="badge bg-danger text-light"><i class="bi bi-eye-slash-fill"></i></span>
+                    <td class = "d-none d-md-table-cell" >
+                        <img v-if = "data.article.image" :src = "data.article.product.image" width = "80" alt = "">
                     </td>
+                    <td class = "d-none d-xl-table-cell text_cell">{{ data.article.product.title }}</td>
+                    <td class = "d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
+<!--                    <td class="active_cell">-->
+<!--                        <span @click="activeToggle(model,data.id)" v-if="data.active == true" class="badge bg-success text-light"><i class="bi bi-eye-fill"></i></span>-->
+<!--                        <span @click="activeToggle(model,data.id)" v-else class="badge bg-danger text-light"><i class="bi bi-eye-slash-fill"></i></span>-->
+<!--                    </td>-->
                     <td>
                         <span role = "button" data-bs-toggle = "dropdown" aria-expanded = "false"><i class = "bi bi-three-dots-vertical"></i></span>
                         <ul class = "dropdown-menu" aria-labelledby = "navbarScrollingDropdown">
