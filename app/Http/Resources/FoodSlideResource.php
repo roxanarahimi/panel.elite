@@ -16,6 +16,7 @@ class FoodSlideResource extends JsonResource
     {
         return [
             "id" => (string)$this->id,
+            "article_id" => $this->article_id,
             "image" => $this->image,
             "article" => new ArticleResource($this->article),
             "active" => $this->active,
