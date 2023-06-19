@@ -36,7 +36,7 @@ class FoodSlideController extends Controller
     {
 
         try {
-            $data = FoodSlide::orderByDesc('id')->where('active',1)->get();
+            $data = FoodSlide::all()->where('active',1);
             return response(FoodSlideResource::collection($data), 200);
         } catch (\Exception $exception) {
             return response($exception);
