@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('article_id');
             $table->string('image')->nullable();
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }
