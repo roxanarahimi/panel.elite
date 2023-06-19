@@ -26,4 +26,8 @@ class Article extends Model
     {
         return $this->hasOne(Article::class,  'id','article_tag_id');
     }
+    public function foodslide()
+    {
+        return $this->hasOne(FoodSlide::class, 'article_id','id');
+    }
 }

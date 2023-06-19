@@ -191,13 +191,6 @@ const routes = [
         // component: Slides,
     },
     {
-        path: "/panel/icon",
-        name: "Icon",
-        component: () => import(/* webpackChunkName: "Icon" */ '../js/components/panel/icon/Icon'),
-
-        // component: Slides,
-    },
-    {
         path: "/panel/new/slide",
         name: "SlideCreate",
         component: SlideCreate,
@@ -209,6 +202,38 @@ const routes = [
         component: SlideEdit,
         params: true
     },
+
+
+
+    {
+        path: "/panel/food/slides",
+        component: () => import(/* webpackChunkName: "foodSlideAllData" */ './components/panel/allData'),
+        name: "foodSlideAllData",
+        params: true,
+        props: true
+    },
+    {
+        path: "/panel/new/foodSlide",
+        name: "FoodSlideCreate",
+        component: () => import(/* webpackChunkName: "FoodSlideCreate" */ '../js/components/panel/foodSlide/FoodSlideCreate'),
+        params: true
+    },
+    {
+        path: "/panel/edit/food/slide/:id",
+        name: "FoodSlideEdit",
+        component: () => import(/* webpackChunkName: "FoodSlideEdit" */ '../js/components/panel/foodSlide/FoodSlideEdit'),
+
+        params: true
+    },
+    {
+        path: "/panel/food/slide/:id",
+        name: "FoodSlide",
+        component: () => import(/* webpackChunkName: "FoodSlideEdit" */ '../js/components/panel/foodSlide/FoodSlide'),
+        params: true
+    },
+
+
+
 
     {
         path: "/panel/user/:id",

@@ -231,71 +231,21 @@ Route::controller(App\Http\Controllers\FinanceController::class)->group(function
 
     });
 });
+Route::controller(App\Http\Controllers\FoodSlideController::class)->group(function () {
+
+    Route::prefix('panel')->group(function () {
+        Route::get('/foodSlide', 'index');
+        Route::get('/foodSlide/{foodSlide}', 'show');
+        Route::post('/foodSlide', 'store');
+        Route::post('/foodSlide/{foodSlide}', 'update');
+        Route::get('/delete/foodSlide/{foodSlide}', 'destroy');
+        Route::get('/active/foodSlide/{foodSlide}','activeToggle');
+
+    });
+});
 //office
-Route::controller(App\Http\Controllers\ProjectController::class)->group(function () {
 
-    Route::prefix('panel')->group(function () {
-        Route::get('/project', 'index');
-        Route::get('/project/{project}', 'show');
-        Route::post('/project', 'store');
-        Route::post('/project/{project}', 'update');
-        Route::get('/delete/project/{project}', 'destroy');
-    });
-});
-Route::controller(App\Http\Controllers\ResumeController::class)->group(function () {
-    Route::prefix('panel')->group(function () {
-        Route::get('/resume','index');
-        Route::get('/resume/{resume}','show');
-        Route::post('/resume','store');
-        Route::post('/resume/{resume}','update');
-        Route::get('/delete/resume/{resume}','destroy');
-    });
-});
-//school
-Route::controller(App\Http\Controllers\CourseController::class)->group(function () {
 
-    Route::get('/course', 'indexSite');
-    Route::get('/course/{course}', 'show');
-    Route::post('/course', 'store');
-    Route::post('/course/{course}', 'update');
-    Route::post('/delete/course', 'destroy');
-    Route::get('/active/course/{course}', 'activeToggle');
-    Route::get('/latest/course', 'latest');
-
-    Route::prefix('panel')->group(function () {
-        Route::get('/course', 'index');
-        Route::get('/course/{course}', 'show');
-        Route::post('/course', 'store');
-        Route::post('/course/{course}', 'update');
-        Route::post('/delete/course', 'destroy');
-        Route::get('/active/course/{course}', 'activeToggle');
-        Route::get('/latest/course', 'latest');
-    });
-});
-Route::controller(App\Http\Controllers\CourseCategoryController::class)->group(function () {
-
-    Route::prefix('panel')->group(function () {
-
-        Route::get('/category/course', 'index');
-        Route::get('/category/course/{courseCategory}', 'show');
-        Route::post('/category/course', 'store');
-        Route::post('/category/course/{courseCategory}', 'update');
-        Route::post('/delete/category/course', 'destroy');
-        Route::get('/active/category/course/{courseCategory}', 'activeToggle');
-    });
-});
-Route::controller(App\Http\Controllers\TeacherController::class)->group(function () {
-
-    Route::prefix('panel')->group(function () {
-        Route::get('/teacher', 'index');
-        Route::get('/teacher/{teacher}', 'show');
-        Route::post('/teacher', 'store');
-        Route::post('/teacher/{teacher}', 'update');
-        Route::get('/delete/teacher/{teacher}', 'destroy');
-        Route::get('/active/teacher/{teacher}', 'activeToggle');
-        Route::get('/latest/teacher', 'latest');
-    });
-});
 
 //Route::post('/panel/upload/editor/image',[\App\Http\Controllers\ImageController::class, 'uploadEditorImage']);
 
@@ -307,6 +257,7 @@ Route::get('/foods', [ApiController::class,'foods']);
 Route::get('/food/{food}', [ApiController::class,'food']);
 Route::get('/category/article', [\App\Http\Controllers\ArticleCategoryController::class,'indexSite']);
 Route::get('/category/product', [\App\Http\Controllers\ProductCategoryController::class,'indexSite']);
+Route::get('/food/slides', [\App\Http\Controllers\FoodSlideController::class,'indexSite']);
 
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class,'search']);
