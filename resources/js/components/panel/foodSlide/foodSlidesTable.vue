@@ -37,7 +37,7 @@
                     <td class = "d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
                         <span @click="activeToggle(model,data.id)" v-if="data.active == 1" class="badge bg-success text-light"><i class="bi bi-eye-fill"></i></span>
-                        <span @click="activeToggle(model,data.id)" v-else class="badge bg-danger text-light"><i class="bi bi-eye-slash-fill"></i></span>
+                        <span @click="activeToggle(model,data.id)" v-if="data.active == 0" class="badge bg-danger text-light"><i class="bi bi-eye-slash-fill"></i></span>
                     </td>
                     <td>
                         <span role = "button" data-bs-toggle = "dropdown" aria-expanded = "false"><i class = "bi bi-three-dots-vertical"></i></span>
