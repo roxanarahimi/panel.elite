@@ -46,6 +46,7 @@ import teachersTable from "./teacher/teachersTable";
 import financesTable from "./finance/financesTable";
 import resumesTable from "./employ/resumesTable";
 import foodSlidesTable from "./foodSlide/foodSlidesTable";
+import blogsTable from "./blog/blogsTable";
 import {useRoute} from "vue-router";
 
 
@@ -54,7 +55,7 @@ export default {
     Loader, AllDataContainer, Pagination,
     productsTable, ordersTable, usersTable, articlesTable, coursesTable,
     adminsTable, projectsTable, teachersTable, financesTable, resumesTable,
-    foodSlidesTable,
+    foodSlidesTable, blogsTable
   },
   setup() {
     const model = ref();

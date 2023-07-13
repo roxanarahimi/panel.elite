@@ -69,8 +69,15 @@
                     <li>
                         <router-link to="/panel/articles" class="nav-link text-white"
                                      :class="{active: $route.fullPath ==='/panel/articles'}">
-                            <i title="دستور پخت ها" class="bi bi-chat-left-text-fill me-2"></i>
+                            <i title="دستور پخت ها" class="bi  bi-cloud-fog-fill me-2"></i>
                             <span class="sidebar_title">دستور پخت ها</span>
+                        </router-link>
+                    </li>
+                     <li>
+                        <router-link to="/panel/blogs" class="nav-link text-white"
+                                     :class="{active: $route.fullPath ==='/panel/blogs'}">
+                            <i title="مطالب" class="bi bi-chat-left-text-fill me-2"></i>
+                            <span class="sidebar_title">مطالب</span>
                         </router-link>
                     </li>
                     <!--                    <li>-->

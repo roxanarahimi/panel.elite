@@ -7,6 +7,7 @@
                 <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
                     <option value="product">محصولات</option>
                     <option value="article">دستور پخت ها</option>
+                    <option value="blog">مطالب</option>
                 </select>
             </div>
             <!--            <div class="row flex-row-reverse ">-->
@@ -92,9 +93,7 @@ import CategoriesTable from "./categoriesTable";
 import {onMounted, ref} from "vue";
 import Loader from "../components/Loader";
 import BtnSubmit from "../components/BtnSubmit";
-// import categoriesTable from "./categoriesTable";
 import Pagination from "../components/Pagination";
-import categoriesTable from "./categoriesTable";
 import imageCropper from "../components/ImageCropper";
 
 

@@ -124,6 +124,42 @@ Route::controller(App\Http\Controllers\ArticleCategoryController::class)->group(
         Route::get('/active/category/article/{articleCategory}', 'activeToggle');
     });
 });
+
+Route::controller(App\Http\Controllers\BlogController::class)->group(function () {
+
+    Route::get('/blog', 'indexSite');
+    Route::get('/blog/{blog}', 'show');
+    Route::get('/latest/blog', 'latestSite');
+    Route::get('/article/by/blog/{id}', 'byCat');
+
+    Route::prefix('panel')->group(function () {
+
+        Route::get('/blog', 'index');
+        Route::get('/blog/{blog}', 'show');
+        Route::post('/blog', 'store');
+        Route::post('/blog/{blog}', 'update');
+        Route::get('/delete/blog/{id}', 'destroy');
+
+        Route::get('/active/blog/{blog}', 'activeToggle');
+        Route::get('/latest/blog', 'latest');
+    });
+});
+Route::controller(App\Http\Controllers\BlogCategoryController::class)->group(function () {
+
+    Route::get('/category/blog', 'indexSite');
+    Route::get('/category/blog/{blogCategory}', 'show');
+
+    Route::prefix('panel')->group(function () {
+        Route::get('/category/blog', 'index');
+        Route::get('/category/blog/{blogCategory}', 'show');
+        Route::post('/category/blog', 'store');
+        Route::post('/category/blog/{blogCategory}', 'update');
+        Route::post('/delete/category/blog', 'destroy');
+        Route::get('/active/category/blog/{blogCategory}', 'activeToggle');
+    });
+});
+
+
 Route::controller(App\Http\Controllers\SlideController::class)->group(function () {
 
     Route::get('/slide', 'indexSite');

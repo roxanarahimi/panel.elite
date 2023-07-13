@@ -8,15 +8,6 @@ import Article from "./components/panel/article/Article";
 import UserEdit from "./components/panel/user/UserEdit";
 import SlideCreate from "./components/panel/slide/SlideCreate";
 import SlideEdit from "./components/panel/slide/SlideEdit";
-import Resume from "./components/panel/employ/Resume";
-
-import TeacherCreate from "./components/panel/teacher/TeacherCreate";
-import TeacherEdit from "./components/panel/teacher/TeacherEdit";
-import Teacher from "./components/panel/teacher/Teacher";
-
-import ProjectCreate from "./components/panel/project/ProjectCreate";
-import ProjectEdit from "./components/panel/project/ProjectEdit";
-import Project from "./components/panel/project/Project";
 
 import Profile from "./components/panel/admin/Profile";
 import Error404 from "./components/panel/error/Error404";
@@ -132,56 +123,6 @@ const routes = [
         component: Article,
     },
 
-    {
-        path: "/panel/projects",
-        component: () => import(/* webpackChunkName: "projectAllData" */  './components/panel/allData'),
-        name: "projectAllData",
-        params: true,
-        props: true
-    },
-    {
-        path: "/panel/new/project",
-        name: "ProjectCreate",
-        component: ProjectCreate,
-        params: true
-    },
-    {
-        path: "/panel/edit/project/:id",
-        name: "ProjectEdit",
-        component: ProjectEdit,
-        params: true
-    },
-    {
-        path: "/panel/project/:id",
-        name: "Project",
-        component: Project,
-    },
-
-    {
-        path: "/panel/courses",
-        component: () => import(/* webpackChunkName: "courseAllData" */ './components/panel/allData'),
-        name: "courseAllData",
-        params: true,
-        props: true
-
-    },
-    {
-        path: "/panel/new/course",
-        name: "CourseCreate",
-        component: CourseCreate,
-        params: true
-    },
-    {
-        path: "/panel/edit/course/:id",
-        name: "CourseEdit",
-        component: CourseEdit,
-        params: true
-    },
-    {
-        path: "/panel/course/:id",
-        name: "Course",
-        component: Course,
-    },
 
     {
         path: "/panel/slides",
@@ -229,6 +170,32 @@ const routes = [
         path: "/panel/food/slide/:id",
         name: "FoodSlide",
         component: () => import(/* webpackChunkName: "FoodSlideEdit" */ '../js/components/panel/foodSlide/FoodSlide'),
+        params: true
+    },
+    {
+        path: "/panel/blogs",
+        component: () => import(/* webpackChunkName: "blogAllData" */ './components/panel/allData'),
+        name: "blogAllData",
+        params: true,
+        props: true
+    },
+    {
+        path: "/panel/new/blog",
+        name: "BlogCreate",
+        component: () => import(/* webpackChunkName: "BlogCreate" */ '../js/components/panel/blog/BlogCreate'),
+        params: true
+    },
+    {
+        path: "/panel/edit/blog/:id",
+        name: "BlogEdit",
+        component: () => import(/* webpackChunkName: "BlogEdit" */ '../js/components/panel/blog/BlogEdit'),
+
+        params: true
+    },
+    {
+        path: "/panel/blog/:id",
+        name: "Blog",
+        component: () => import(/* webpackChunkName: "Blog" */ '../js/components/panel/blog/Blog'),
         params: true
     },
 
@@ -290,55 +257,6 @@ const routes = [
         props: true
     },
 
-    {
-        path: "/panel/resumes",
-        component: () => import(/* webpackChunkName: "resumeAllData" */ './components/panel/allData'),
-        name: "resumeAllData",
-        params: true,
-        props: true,
-    },
-    {
-        path: "/panel/new/resume",
-        name: "ResumeCreate",
-        component: () => import(/* webpackChunkName: "OrderCreate" */ '../js/components/panel/employ/ResumeCreate'),
-        params: true
-    },
-    {
-        path: "/panel/edit/resume/:id",
-        name: "ResumeEdit",
-        component: () => import(/* webpackChunkName: "OrderEdit" */ '../js/components/panel/employ/ResumeEdit'),
-        params: true
-    },
-
-    {
-        path: "/panel/resume/:id",
-        name: "Resume",
-        component: () => import(/* webpackChunkName: "Resume" */ '../js/components/panel/employ/Resume'),
-    },
-    {
-        path: "/panel/teachers",
-        component: () => import(/* webpackChunkName: "teacherAllData" */ './components/panel/allData'),
-        name: "teacherAllData",
-        params: true,
-        props: true
-    },
-    {
-        path: "/panel/new/teacher",
-        name: "TeacherCreate",
-        component: TeacherCreate,
-        params: true
-    },
-    {
-        path: "/panel/edit/teacher/:id",
-        name: "TeacherEdit",
-        component: TeacherEdit,
-        params: true
-    },
-    {
-        path: "/panel/teacher/:id",
-        name: "Teacher",
-        component: Teacher,
-    },
     // {
     //     path: "/sample",
     //     name: "sample",
