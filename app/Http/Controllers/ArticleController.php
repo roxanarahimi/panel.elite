@@ -13,7 +13,7 @@ class ArticleController extends Controller
     {
         try {
             $perPage = $request['perPage'];
-            $data = Article::orderByDesc('id')->paginate($perPage);
+            $data = Article::orderByDesc('id')->where('title', 'Like', '%' . $request['search'] . '%')->paginate($perPage);
             $pages_count = ceil($data->total() / $perPage);
             $labels = [];
             for ($i = 1; $i <= $pages_count; $i++) {

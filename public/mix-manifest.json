@@ -10,9 +10,8 @@
     "/js/OrderEdit.js": "/js/OrderEdit.js",
     "/js/Order.js": "/js/Order.js",
     "/js/Slides.js": "/js/Slides.js",
-    "/js/Icon.js": "/js/Icon.js",
-    "/js/User.js": "/js/User.js",
-    "/css/app.css": "/css/app.css",
     "/js/FoodSlideCreate.js": "/js/FoodSlideCreate.js",
-    "/js/FoodSlideEdit.js": "/js/FoodSlideEdit.js"
+    "/js/FoodSlideEdit.js": "/js/FoodSlideEdit.js",
+    "/js/User.js": "/js/User.js",
+    "/css/app.css": "/css/app.css"
 }

@@ -11,6 +11,11 @@
     </h3>
 
     <loader/>
+
+    <div class="mb-3 col-lg-6" :class="{'d-none': model === 'foodSlide'}">
+      <label for="search" class="form-label">جستوجو</label>
+      <input @input="loadData" type="text" class="form-control" id="search" >
+    </div>
     <div class="col-12 mb-3" v-if="allData && allData.length">
       <Suspense>
         <component :is="model+'sTable'" :allData="allData" :page="page" :model="model" :loadData="loadData"/>
@@ -81,7 +86,8 @@ export default {
       document.querySelector('#loader').classList.remove('d-none');
 
       let perPage = document.querySelector('#perPage')?.value || 100;
-      axios.get('/api/panel/' + model.value + '?page=' + page.value + '&perPage=' + perPage)
+      let search = document.querySelector('#search')?.value || '';
+      axios.get('/api/panel/' + model.value + '?page=' + page.value + '&perPage=' + perPage+ '&search='+search)
           .then((response) => {
             allData.value = response.data.data;
             pages.value = response.data.pages;

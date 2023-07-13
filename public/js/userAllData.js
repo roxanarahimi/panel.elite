@@ -386,9 +386,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var loadData = /*#__PURE__*/function () {
       var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(p) {
-        var _document$querySelect;
+        var _document$querySelect, _document$querySelect2;
 
-        var perPage;
+        var perPage, search;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -401,7 +401,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 document.querySelector('#loader').classList.remove('d-none');
                 perPage = ((_document$querySelect = document.querySelector('#perPage')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.value) || 100;
-                axios.get('/api/panel/' + model.value + '?page=' + page.value + '&perPage=' + perPage).then(function (response) {
+                search = ((_document$querySelect2 = document.querySelector('#search')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.value) || '';
+                axios.get('/api/panel/' + model.value + '?page=' + page.value + '&perPage=' + perPage + '&search=' + search).then(function (response) {
                   allData.value = response.data.data;
                   pages.value = response.data.pages;
                   total.value = response.data.total;
@@ -411,9 +412,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   document.querySelector('#loader').classList.add('d-none');
 
                   if (pages.value > 1) {
-                    var _document$querySelect2;
+                    var _document$querySelect3;
 
-                    (_document$querySelect2 = document.querySelector('.paginate')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.classList.remove('d-none');
+                    (_document$querySelect3 = document.querySelector('.paginate')) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.classList.remove('d-none');
                   }
 
                   if (allData.value) {
@@ -423,12 +424,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 })["catch"]();
                 setTimeout(function () {
-                  var _document$querySelect3;
+                  var _document$querySelect4;
 
-                  (_document$querySelect3 = document.querySelector('#loader')) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.classList.add('d-none');
+                  (_document$querySelect4 = document.querySelector('#loader')) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.classList.add('d-none');
                 }, 4000);
 
-              case 5:
+              case 6:
               case "end":
                 return _context4.stop();
             }
@@ -442,12 +443,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onUpdated)(function () {
-      var _document$querySelect4;
+      var _document$querySelect5;
 
       model.value = (0,vue_router__WEBPACK_IMPORTED_MODULE_16__.useRoute)().name.replace('AllData', '');
       allData.value = [];
       loadData();
-      (_document$querySelect4 = document.querySelector('.paginate')) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.classList.add('d-none'); // alert(model.value)
+      (_document$querySelect5 = document.querySelector('.paginate')) === null || _document$querySelect5 === void 0 ? void 0 : _document$querySelect5.classList.add('d-none'); // alert(model.value)
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
       loadData();
@@ -1995,7 +1996,15 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = [_hoisted_3];
-var _hoisted_5 = {
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "search",
+  "class": "form-label"
+}, "جستوجو", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
   key: 0,
   "class": "col-12 mb-3"
 };
@@ -2034,7 +2043,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader), $setup.allData && $setup.allData.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Suspense, null, {
+      , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mb-3 col-lg-6", {
+          'd-none': $setup.model === 'foodSlide'
+        }])
+      }, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        onInput: _cache[0] || (_cache[0] = function () {
+          return $setup.loadData && $setup.loadData.apply($setup, arguments);
+        }),
+        type: "text",
+        "class": "form-control",
+        id: "search"
+      }, null, 32
+      /* HYDRATE_EVENTS */
+      )], 2
+      /* CLASS */
+      ), $setup.allData && $setup.allData.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Suspense, null, {
         fallback: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader)];
         }),

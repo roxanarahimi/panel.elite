@@ -20425,6 +20425,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // cropBoxMovable: false,
         // cropBoxResizable: false,
         zoomable: false,
+        // zoomOnTouch: true,
+        // zoomOnWheel: true,
         scalable: false,
         aspectRatio: _props.aspect
       });
@@ -24893,6 +24895,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <p v-if = \"hasCaption\" class = \"align-bottom\"> {{ caption }} </p>")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        @mousemove = \"handleImageCropped\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "img-fluid",
+    style: {
+      "width": "360px !important",
+      "height": "auto !important"
+    },
     ref: "image",
     src: $setup.imageSrc,
     alt: ""
@@ -31012,7 +31018,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\n    width: inherit;\n    height: inherit;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\n  width: inherit;\n  height: inherit;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
