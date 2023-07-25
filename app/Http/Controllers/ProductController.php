@@ -307,7 +307,7 @@ class ProductController extends Controller
 
             $info=[];
             if (count($data)%2==1){
-                $data[] = [];
+                $data[] = $data[count($data)-1];
             }
             for($i=0;$i<count($data);$i+=2){
                 if ($i+1 >= count($data)){
