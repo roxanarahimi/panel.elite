@@ -310,13 +310,13 @@ class ProductController extends Controller
                 $data[] = $data[count($data)-1];
             }
             for($i=0;$i<count($data);$i+=2){
-                if ($i+1 >= count($data)){
-                    $info[]=[0=>$data[$i],1=>$data[$i]];
-
-                }else{
+                if ($i+1 < count($data)){
                     $info[]=[0=>$data[$i],1=>$data[$i+1]];
-
                 }
+//                else{
+////                    $info[]=[0=>$data[$i],1=>$data[$i]];
+//
+//                }
             }
 
             return response([
