@@ -723,7 +723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FoodSlide_vue_vue_type_template_id_68e7a31e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FoodSlide.vue?vue&type=template&id=68e7a31e */ "./resources/js/components/panel/foodSlide/FoodSlide.vue?vue&type=template&id=68e7a31e");
 /* harmony import */ var _FoodSlide_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FoodSlide.vue?vue&type=script&lang=js */ "./resources/js/components/panel/foodSlide/FoodSlide.vue?vue&type=script&lang=js");
 /* harmony import */ var _FoodSlide_vue_vue_type_style_index_0_id_68e7a31e_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FoodSlide.vue?vue&type=style&index=0&id=68e7a31e&lang=css */ "./resources/js/components/panel/foodSlide/FoodSlide.vue?vue&type=style&index=0&id=68e7a31e&lang=css");
-/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_elite_panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -731,7 +731,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_FoodSlide_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FoodSlide_vue_vue_type_template_id_68e7a31e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/foodSlide/FoodSlide.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_elite_panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_FoodSlide_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FoodSlide_vue_vue_type_template_id_68e7a31e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/foodSlide/FoodSlide.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -753,7 +753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FoodSlideEdit_vue_vue_type_template_id_3d78571b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FoodSlideEdit.vue?vue&type=template&id=3d78571b */ "./resources/js/components/panel/foodSlide/FoodSlideEdit.vue?vue&type=template&id=3d78571b");
 /* harmony import */ var _FoodSlideEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FoodSlideEdit.vue?vue&type=script&lang=js */ "./resources/js/components/panel/foodSlide/FoodSlideEdit.vue?vue&type=script&lang=js");
 /* harmony import */ var _FoodSlideEdit_vue_vue_type_style_index_0_id_3d78571b_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FoodSlideEdit.vue?vue&type=style&index=0&id=3d78571b&lang=css */ "./resources/js/components/panel/foodSlide/FoodSlideEdit.vue?vue&type=style&index=0&id=3d78571b&lang=css");
-/* harmony import */ var F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2023_elite_panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -761,7 +761,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_p_elite_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_FoodSlideEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FoodSlideEdit_vue_vue_type_template_id_3d78571b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/foodSlide/FoodSlideEdit.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2023_elite_panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_FoodSlideEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FoodSlideEdit_vue_vue_type_template_id_3d78571b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/panel/foodSlide/FoodSlideEdit.vue"]])
 /* hot reload */
 if (false) {}
 
