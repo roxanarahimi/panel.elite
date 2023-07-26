@@ -21,18 +21,18 @@ class ProductController extends Controller
         try {
             $perPage = $request['perPage'];
             $data = Product::latest()->where('title', 'Like', '%' . $request['search'] . '%')->paginate($perPage);
-            $pages_count = ceil($data->total()/$perPage);
+            $pages_count = ceil($data->total() / $perPage);
             $labels = [];
-            for ($i=1; $i <= $pages_count; $i++){
-                (array_push($labels,$i));
+            for ($i = 1; $i <= $pages_count; $i++) {
+                (array_push($labels, $i));
             }
             return response([
-                "data"=>ProductResource::collection($data),
-                "pages"=>$pages_count,
-                "total"=> $data->total(),
-                "labels"=> $labels,
-                "title"=> 'محصولات',
-                "tooltip_new"=> 'ثبت محصول جدید',
+                "data" => ProductResource::collection($data),
+                "pages" => $pages_count,
+                "total" => $data->total(),
+                "labels" => $labels,
+                "title" => 'محصولات',
+                "tooltip_new" => 'ثبت محصول جدید',
 
             ], 200);
         } catch (\Exception $exception) {
@@ -60,8 +60,8 @@ class ProductController extends Controller
             $data = Product::whereHas('activeCategory')->with('category')->where('active', 1);
             if ($request['stock'] == 'true') {
                 $data = $data->where('stock', '>', 0);
-            }elseif ($request['stock'== 'limited']){
-                $data = $data->where('stock', '>', 0)->where('stock','<',5);
+            } elseif ($request['stock' == 'limited']) {
+                $data = $data->where('stock', '>', 0)->where('stock', '<', 5);
             }
             if ($request['cat_ids'] != '') {
                 $ids = explode(',', $request['cat_ids']);
@@ -197,7 +197,7 @@ class ProductController extends Controller
                 }
             }
             return $images;
-        }catch (Exception $exception){
+        } catch (Exception $exception) {
             return $exception;
         }
     }
@@ -278,7 +278,8 @@ class ProductController extends Controller
             return response($exception);
         }
     }
-    public function updateOrder(Request $request, Product $product )
+
+    public function updateOrder(Request $request, Product $product)
     {
         try {
 
@@ -288,30 +289,39 @@ class ProductController extends Controller
             return response($exception);
         }
     }
+
     public function byCatPanel($id)
     {
         try {
-            $data = Product::orderBy('title')->where('product_category_id', $id)->where('active',1)->get();
+            $data = Product::orderBy('title')->where('product_category_id', $id)->where('active', 1)->get();
 
 
-            return response(["data"=>ProductResource::collection($data)], 200);
+            return response(["data" => ProductResource::collection($data)], 200);
         } catch (\Exception $exception) {
             return response($exception);
 
         }
     }
+
     public function byCat($id)
     {
         try {
-            $data = Product::orderBy('id')->where('product_category_id', $id)->where('active',1)->get()->toArray();
+            $data = Product::orderBy('id')->where('product_category_id', $id)->where('active', 1)->get()->toArray();
 
-            $info=[];
-            if (count($data)%2==1){
-                $data[] = $data[count($data)-1];
+            $info = [];
+            if (count($data) % 2 == 1) {
+                $data[] = json_encode([
+                    "id" => 32,
+                    "product_category_id" => "1",
+                    "title" => "",
+                    "image" => "",
+                    "created_at" => "",
+                    "updated_at" => ""
+                ]);
             }
-            for($i=0;$i<count($data);$i+=2){
-                if ($i+1 < count($data)){
-                    $info[]=[0=>$data[$i],1=>$data[$i+1]];
+            for ($i = 0; $i < count($data); $i += 2) {
+                if ($i + 1 < count($data)) {
+                    $info[] = [0 => $data[$i], 1 => $data[$i + 1]];
                 }
 //                else{
 ////                    $info[]=[0=>$data[$i],1=>$data[$i]];
@@ -320,7 +330,8 @@ class ProductController extends Controller
             }
 
             return response([
-                "data"=>$info,
+                "data" => $info,
+                "data2" => $data,
 
             ], 200);
         } catch (\Exception $exception) {
@@ -333,12 +344,12 @@ class ProductController extends Controller
     {
         $data = Product::all();
 
-        foreach ($data as $item){
-            $item->update(['image'=> str_replace('/img', '/images/products', $item['image'])]);
+        foreach ($data as $item) {
+            $item->update(['image' => str_replace('/img', '/images/products', $item['image'])]);
         }
         $data2 = Article::all();
-        foreach ($data2 as $item){
-            $item->update(['image'=> str_replace('/img', '/images/articles', $item['image'])]);
+        foreach ($data2 as $item) {
+            $item->update(['image' => str_replace('/img', '/images/articles', $item['image'])]);
         }
     }
 }
