@@ -310,14 +310,7 @@ class ProductController extends Controller
 
             $info = [];
             if (count($data) % 2 == 1) {
-                $data[] = json_encode([
-                    "id" => 32,
-                    "product_category_id" => "1",
-                    "title" => "",
-                    "image" => "",
-                    "created_at" => "",
-                    "updated_at" => ""
-                ]);
+                $data[] = [];
             }
             for ($i = 0; $i < count($data); $i += 2) {
                 if ($i + 1 < count($data)) {
