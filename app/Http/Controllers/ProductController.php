@@ -308,6 +308,8 @@ class ProductController extends Controller
         try {
             $data = Product::orderBy('id')->where('product_category_id', $id)->where('active', 1)->get()->toArray();
 
+            $data2 = $data;
+
             $info = [];
             if (count($data) % 2 == 1) {
                 $data[] = [];
@@ -324,7 +326,7 @@ class ProductController extends Controller
 
             return response([
                 "data" => $info,
-                "data2" => $data,
+                "data2" => $data2,
 
             ], 200);
         } catch (\Exception $exception) {
