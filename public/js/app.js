@@ -20381,13 +20381,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
-            if (img.width < 400) {
+            if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");
               document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
-              destination.value = null; // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 400 پیکسل باشد';
+              destination.value = null; // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
 
-              alert('عرض تصویر باید بیش از 400 پیکسل باشد');
+              alert('عرض تصویر باید بیش از 200 پیکسل باشد');
             }
           };
 

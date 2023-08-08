@@ -174,6 +174,7 @@ export default {
         // thumb.value = null;
       }
     });
+
     watch(imageSrc, async () => {
       if (imageSrc.value) {
         await cropper.replace(imageSrc.value);
