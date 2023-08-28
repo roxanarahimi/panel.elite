@@ -20370,10 +20370,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (files.length) {
         selectedFile.value = files[0];
-      } //console.log('file size:', files[0].size+' bytes');
+      }
 
+      if (files[0].type != 'image/png') {
+        selectedFile.value = null; // document.getElementById("preview_" + _props.name).setAttribute('src', "");
+        // document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
+        // destination.value = null;
 
-      if (files[0]) {
+        alert('فرمت باید png باشد');
+      }
+
+      if (files[0], files[0].type == 'image/png') {
         var reader = new FileReader();
 
         reader.onload = function (files) {
@@ -23664,7 +23671,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.selectedFile]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <div v-show = \"selectedFile\" v-if = \"hasCaption\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_alt'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \" alt (اختیاری) \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_max_width'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \"حد اکثر عرض مجاز (اختیاری)\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: 'image' + $props.name,
     ref: "imageInput",
-    accept: ".jpg, .jpeg, .png",
+    accept: ".png",
     onChange: _cache[2] || (_cache[2] = function () {
       return $setup.fileChanged && $setup.fileChanged.apply($setup, arguments);
     }),

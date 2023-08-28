@@ -35,7 +35,7 @@
     <!--            <input type = "text" :id = "'Image_'+name+'_max_width'" class = "form-control mb-2" style = "width: 260px" placeholder = "حد اکثر عرض مجاز (اختیاری)">-->
     <!--        </div>-->
 
-    <input :id="'image'+ name" ref="imageInput" accept=".jpg, .jpeg, .png" @change="fileChanged" type="file"
+    <input :id="'image'+ name" ref="imageInput" accept=".png" @change="fileChanged" type="file"
            :name="'content_image_file'+name" class="form-control d-none">
 
     <input :id="'Image_'+name+'_code'" name="content_image_code" type="text"
@@ -104,14 +104,23 @@ export default {
       if (files.length) {
         selectedFile.value = files[0];
       }
-      //console.log('file size:', files[0].size+' bytes');
-      if (files[0]) {
+
+      if(files[0].type != 'image/png'){
+
+        selectedFile.value = null;
+        // document.getElementById("preview_" + _props.name).setAttribute('src', "");
+        // document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
+        // destination.value = null;
+        alert('فرمت باید png باشد');
+      }
+      if (files[0], files[0].type == 'image/png') {
+
         let reader = new FileReader();
         reader.onload = function (files) {
           let img = new Image;
           img.onload = function () {
-
             // console.log("The width of the image is " + img.width + "px.");
+
             if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");
@@ -174,7 +183,6 @@ export default {
         // thumb.value = null;
       }
     });
-
     watch(imageSrc, async () => {
       if (imageSrc.value) {
         await cropper.replace(imageSrc.value);

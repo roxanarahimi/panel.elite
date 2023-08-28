@@ -67,9 +67,11 @@ class ProductCategoryController extends Controller
         try {
             $data = ProductCategory::create($request->except('image'));
             if ($request['image']) {
-                $name = 'Product_' . $data['id'] . '_' . uniqid() . '.png';
+                $name = 'product_category' . $data['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
                 $data->update(['image' => '/' . $image_path]);
+                (new ImageController)->resizeImage('images/products/',$name);
+
             }
 
             return response(new ProductCategoryResource($data), 201);
@@ -95,9 +97,18 @@ class ProductCategoryController extends Controller
         try {
             $productCategory->update($request->except('image'));
             if ($request['image']) {
-                $name = 'Product_' . $productCategory['id'] . '_' . uniqid() . '.png';
+                $name = 'product_category' . $productCategory['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
+                if ($productCategory['image']){
+                    $file_to_delete = ltrim($productCategory['image'], $productCategory['image'][0]); //remove '/' from file name start
+                    $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
+                    if (file_exists($file_to_delete)){  unlink($file_to_delete);}
+                    if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
+                }
+
                 $productCategory->update(['image' => '/' . $image_path]);
+
+                (new ImageController)->resizeImage('images/products/',$name);
             }
 
             return response(new ProductCategoryResource($productCategory), 200);
@@ -111,6 +122,12 @@ class ProductCategoryController extends Controller
         try {
             $data = ProductCategory::where('id',$request['id'])->first();
             $data->Products->each->delete();
+            if ($data['image']){
+                $file_to_delete = ltrim($data['image'], $data['image'][0]);
+                $file_to_delete_thumb = str_replace('.png','_thumb.png',$file_to_delete);
+                if (file_exists($file_to_delete)){ unlink($file_to_delete); }
+                if (file_exists($file_to_delete_thumb)){ unlink($file_to_delete_thumb); }
+            }
             $data->delete();
             return response("category and it's subsets deleted", 200);
         } catch (\Exception $exception) {

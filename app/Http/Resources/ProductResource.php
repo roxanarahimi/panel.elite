@@ -14,18 +14,13 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-//        $dots = strlen($this->text)>20 ? '...' : '';
-        $images= [];
-//        if ($this->images){
-//            $images = explode(',',$this->images);
-//        }
+
+        $thumb = $this->image ? str_replace('.png','_thumb.png', $this->image) : '';
         return [
             "id" => (string)$this->id,
-//            "image" => $this->images[0],
-//            "images" => $images,
             "product_category_id" => $this->product_category_id,
-
             "image" => $this->image,
+            "thumb" => $thumb,
             "title" => $this->title,
             "title_en" => $this->title_en,
             "subTitle" => $this->subTitle,

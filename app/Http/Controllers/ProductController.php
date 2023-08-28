@@ -222,6 +222,9 @@ class ProductController extends Controller
                 $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
                 $product->update(['image' => '/' . $image_path]);
+
+                (new ImageController)->resizeImage('images/products/',$name);
+
             }
 
             return response(new ProductResource($product), 201);
@@ -249,7 +252,16 @@ class ProductController extends Controller
             if ($request['image']) {
                 $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
+                if ($product['image']){
+                    $file_to_delete = ltrim($product['image'], $product['image'][0]); //remove '/' from file name start
+                    $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
+                    if (file_exists($file_to_delete)){  unlink($file_to_delete);}
+                    if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
+                }
+
                 $product->update(['image' => '/' . $image_path]);
+                (new ImageController)->resizeImage('images/products/',$name);
+
             }
 
             return response(new ProductResource($product), 200);
@@ -262,6 +274,12 @@ class ProductController extends Controller
     {
 
         try {
+            if ($product['image']){
+                $file_to_delete = ltrim($product['image'], $product['image'][0]); //remove '/' from file name start
+                $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
+                if (file_exists($file_to_delete)){  unlink($file_to_delete);}
+                if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
+            }
             $product->delete();
             return response('product deleted', 200);
         } catch (\Exception $exception) {
@@ -307,6 +325,10 @@ class ProductController extends Controller
     {
         try {
             $data = Product::orderBy('id')->where('product_category_id', $id)->where('active', 1)->get()->toArray();
+            foreach ($data as $item){
+                $thumb2 = $item->image ? str_replace('.png','_thumb.png', $item->image) : '';
+                $item->thumb = $thumb2;
+            }
 
             $data2 = $data;
 
@@ -335,16 +357,17 @@ class ProductController extends Controller
         }
     }
 
-    public function fix()
+    public function fix(Request $request)
     {
-        $data = Product::all();
-
-        foreach ($data as $item) {
-            $item->update(['image' => str_replace('/img', '/images/products', $item['image'])]);
-        }
-        $data2 = Article::all();
-        foreach ($data2 as $item) {
-            $item->update(['image' => str_replace('/img', '/images/articles', $item['image'])]);
+        try {
+            $dir= "images/".$request['dir'];
+            $dirlist = scandir($dir);
+            for ($i=2; $i<count($dirlist); $i++){
+                (new ImageController)->resizeImage($dir.'/',$dirlist[$i]);
+            }
+            echo "<pre>",print_r(scandir($dir)),"</pre>";
+        }catch (\Exception $exception){
+            return $exception;
         }
     }
 }

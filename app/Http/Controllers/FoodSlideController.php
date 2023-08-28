@@ -80,7 +80,7 @@ class FoodSlideController extends Controller
         try {
             $data = FoodSlide::create($request->except('image'));
             if ($request['image']) {
-                $name = 'FoodSlide_' . $data['id'] . '_' . uniqid() . '.jpg';
+                $name = 'FoodSlide_' . $data['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/foodslides/');
                 $data->update(['image' => '/' . $image_path]);
             }
@@ -111,7 +111,7 @@ class FoodSlideController extends Controller
             $foodSlide->update($request->except('image'));
 
             if ($request['image']) {
-                $name = 'FoodSlide_' . $foodSlide['id'] . '_' . uniqid() . '.jpg';
+                $name = 'FoodSlide_' . $foodSlide['id'] . '_' . uniqid() . '.png';
                 $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/foodslides/');
                 $foodSlide->update(['image' => '/' . $image_path]);
             }
