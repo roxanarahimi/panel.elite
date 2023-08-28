@@ -47,7 +47,7 @@ class ImageController extends Controller
             $image = imagecreatefrompng($image_name);
             $width = imagesx($image);
             $height = imagesy($image);
-            $newWidth = 300;
+            $newWidth = 500;
             $newHeight = $height*$newWidth/$width;
             $imgResized = imagescale($image, $newWidth, $newHeight);
             imagealphablending($imgResized, false);
