@@ -57,7 +57,7 @@ class ProductController extends Controller
     {
         // dd($request->all());
         try {
-            $data = Product::whereHas('activeCategory')->with('category')->where('active', 1);
+            $data = Product::orderBy('index')->orderByDesc('id')->whereHas('activeCategory')->with('category')->where('active', 1);
             if ($request['stock'] == 'true') {
                 $data = $data->where('stock', '>', 0);
             } elseif ($request['stock' == 'limited']) {
@@ -76,41 +76,41 @@ class ProductController extends Controller
                 $data = $data->where('title', 'Like', '%' . $request['search'] . '%');
 
             }
-            if ($request['sort'] != '') {
-                switch ($request['sort']) {
-
-                    case ('sale'):
-                    {
-                        $data = $data->orderByDesc('sale');
-                        break;
-                    }
-                    case ('score'):
-                    {
-                        $data = $data->orderByDesc('score');
-                        break;
-                    }
-                    case ('cheap'):
-                    {
-                        $data = $data->orderBy('price');
-                        break;
-                    }
-                    case ('expensive'):
-                    {
-                        $data = $data->orderByDesc('price');
-                        break;
-                    }
-                    case ('view'):
-                    {
-                        $data = $data->orderByDesc('view');
-                        break;
-                    }
-                    default:
-                    {
-                        $data = $data->orderByDesc('id');
-                        break;
-                    }
-                }
-            }
+//            if ($request['sort'] != '') {
+//                switch ($request['sort']) {
+//
+//                    case ('sale'):
+//                    {
+//                        $data = $data->orderByDesc('sale');
+//                        break;
+//                    }
+//                    case ('score'):
+//                    {
+//                        $data = $data->orderByDesc('score');
+//                        break;
+//                    }
+//                    case ('cheap'):
+//                    {
+//                        $data = $data->orderBy('price');
+//                        break;
+//                    }
+//                    case ('expensive'):
+//                    {
+//                        $data = $data->orderByDesc('price');
+//                        break;
+//                    }
+//                    case ('view'):
+//                    {
+//                        $data = $data->orderByDesc('view');
+//                        break;
+//                    }
+//                    default:
+//                    {
+//                        $data = $data->orderByDesc('id');
+//                        break;
+//                    }
+//                }
+//            }
             if ($request['sale'] == 'true') {
                 $data = $data->orderByDesc('sale');
 
@@ -264,6 +264,29 @@ class ProductController extends Controller
 
             }
 
+            return response(new ProductResource($product), 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+        }
+    }
+
+    public function sort(Request $request, Product $product)
+    {
+//        $validator = Validator::make($request->all('title'),
+//            [
+//                'title' => 'required|unique:products,title,' . $product['id'],
+//            ],
+//            [
+//                'title.required' => 'لطفا عنوان را وارد کنید',
+//                'title.unique' => 'این عنوان قبلا ثبت شده است',
+//            ]
+//        );
+//
+//        if ($validator->fails()) {
+//            return response()->json($validator->messages(), 422);
+//        }
+        try {
+            $product->update($request->all('index'));
             return response(new ProductResource($product), 200);
         } catch (\Exception $exception) {
             return response($exception);

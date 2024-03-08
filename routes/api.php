@@ -201,6 +201,8 @@ Route::controller(App\Http\Controllers\ProductController::class)->group(function
         Route::get('/product/{product}', 'show');
         Route::post('/product', 'store');
         Route::post('/product/{product}', 'update');
+        Route::post('/sort/product/{product}', 'sort');
+
         Route::get('/delete/product/{product}', 'destroy');
 
         Route::get('/active/product/{product}', 'activeToggle');
