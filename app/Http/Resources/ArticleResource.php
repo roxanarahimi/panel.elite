@@ -20,20 +20,28 @@ class ArticleResource extends JsonResource
             "image" => $this->image,
             "thumb" => $thumb,
             "title" => $this->title,
+            "title_en" => $this->title_en,
+            "title_ar" => $this->title_ar,
             "stock" => $this->stock,
             "active" => (boolean)$this->active,
             "text" => $this->text,
+            "text_en" => $this->text_en,
+            "text_ar" => $this->text_ar,
 
             "product" => new ProductResource($this->product),
 //            "product"=> $this->product,
             "category" => [
                 'id' => $this->category->id,
                 'title' => $this->category->title,
+                'title_en' => $this->category->title_en,
+                'title_ar' => $this->category->title_ar,
                 'active' => $this->category->active,
             ],
             "tag" => [
                 'id' => $this->tag->id,
                 'title' => $this->tag->title,
+                'title_en' => $this->tag->title_en,
+                'title_ar' => $this->tag->title_ar,
                 'active' => $this->tag->active
             ],
             "article_tag_id" => $this->article_tag_id,

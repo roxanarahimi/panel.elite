@@ -18,6 +18,8 @@ class BlogCategoryResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "title" => $this->title,
+            "title_en" => $this->title_en,
+            "title_ar" => $this->title_ar,
             "image" => $this->image,
             "thumb" => $thumb,
             "active" => (boolean)$this->active,

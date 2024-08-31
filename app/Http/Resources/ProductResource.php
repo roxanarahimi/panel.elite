@@ -15,7 +15,7 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
 
-        $thumb = $this->image ? str_replace('.png','_thumb.png', $this->image) : '';
+        $thumb = $this->image ? str_replace('.png', '_thumb.png', $this->image) : '';
         return [
             "id" => (string)$this->id,
             "product_category_id" => $this->product_category_id,
@@ -24,25 +24,41 @@ class ProductResource extends JsonResource
             "thumb" => $thumb,
             "title" => $this->title,
             "title_en" => $this->title_en,
+            "title_ar" => $this->title_ar,
             "subTitle" => $this->subTitle,
+            "subTitle_en" => $this->subTitle_en,
+            "subTitle_ar" => $this->subTitle_ar,
             "flavor" => $this->flavor,
+            "flavor_en" => $this->flavor_en,
+            "flavor_ar" => $this->flavor_ar,
             "tag1" => $this->tag1,
+            "tag1_en" => $this->tag1_en,
+            "tag1_ar" => $this->tag1_ar,
             "tag2" => $this->tag2,
+            "tag2_en" => $this->tag2_en,
+            "tag2_ar" => $this->tag2_ar,
+            "text" => $this->text,
+            "text_en" => $this->text_en,
+            "text_ar" => $this->text_ar,
+            "features" => $this->features,
+            "features_en" => $this->features_en,
+            "features_ar" => $this->features_ar,
+
             "color" => $this->color,
             "link" => $this->link,
 
             "stock" => $this->stock,
             "active" => (boolean)$this->active,
-            "text" => $this->text,
             "category" => [
                 'id' => $this->category->id,
                 'title' => $this->category->title,
+                'title_en' => $this->category->title_en,
+                'title_ar' => $this->category->title_ar,
                 'active' => $this->category->active,
             ],
             "sizes" => $this->sizes,
 
 
-            "features" => $this->features,
             "price" => $this->price,
             "off" => $this->off,
             "view" => $this->view,

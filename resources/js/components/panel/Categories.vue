@@ -7,7 +7,7 @@
                 <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
                     <option value="product">محصولات</option>
                     <option value="article">دستور پخت ها</option>
-                    <option value="blog">مطالب</option>
+<!--                    <option value="blog">مطالب</option>-->
                 </select>
             </div>
             <!--            <div class="row flex-row-reverse ">-->
@@ -42,6 +42,22 @@
                                         <input type="text" class="form-control" id="title" required="required">
                                         <div>
                                             <small v-for="error in errors.title"
+                                                   class="form-text error py-0 my-0 d-block">{{ error }}</small>
+                                        </div>
+                                    </div>
+                                 <div class="col-12 mb-3">
+                                        <label for="title_en" class="form-label">عنوان انگلیسی</label>
+                                        <input type="title_en" class="form-control" id="title_en" required="required">
+                                        <div>
+                                            <small v-for="error in errors.title_en"
+                                                   class="form-text error py-0 my-0 d-block">{{ error }}</small>
+                                        </div>
+                                    </div>
+                                 <div class="col-12 mb-3">
+                                        <label for="title_ar" class="form-label">عنوان عربی</label>
+                                        <input type="text" class="form-control" id="title_ar" required="required">
+                                        <div>
+                                            <small v-for="error in errors.title_ar"
                                                    class="form-text error py-0 my-0 d-block">{{ error }}</small>
                                         </div>
                                     </div>
@@ -136,6 +152,8 @@ export default {
             await axios.post('/api/panel/category/' + model.value,
                 {
                     title: document.getElementById('title').value,
+                    title_en: document.getElementById('title_en').value,
+                    title_ar: document.getElementById('title_ar').value,
                     image: document.getElementById('Image__code').value,
 
                 })
