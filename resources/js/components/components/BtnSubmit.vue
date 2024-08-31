@@ -1,10 +1,8 @@
 <template>
-    <div class="col-md-12 mb-3">
-        <button id="submit" class="btn btn-primary d-flex justify-content-between" @click="submitForm">
+        <button id="submit" class="btn btn-primary d-flex justify-content-between mb-3" @click="submitForm">
             <slot/>
             <loader-sm class="loader-sm d-none"/>
         </button>
-    </div>
 </template>
 
 <script>

@@ -23170,21 +23170,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "col-md-12 mb-3"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_loader_sm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("loader-sm");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     id: "submit",
-    "class": "btn btn-primary d-flex justify-content-between",
+    "class": "btn btn-primary d-flex justify-content-between mb-3",
     onClick: _cache[0] || (_cache[0] = function () {
       return $setup.submitForm && $setup.submitForm.apply($setup, arguments);
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loader_sm, {
     "class": "loader-sm d-none"
-  })])]);
+  })]);
 }
 
 /***/ }),
