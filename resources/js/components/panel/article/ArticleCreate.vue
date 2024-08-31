@@ -17,7 +17,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 col-xl-8 mb-3">
+                  <div class="col-md-4 mb-3">
                     <label for="title" class="form-label">عنوان</label>
                     <input type="text" :class="{hasError: errors.title}" class="form-control"
                            id="title" aria-describedby="titleHelp" required>
@@ -25,7 +25,23 @@
                     <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
 
                   </div>
-                  <div class="col-md-6 col-xl-4 mb-3">
+                  <div class="col-md-4 mb-3">
+                    <label for="title_en" class="form-label">عنوان انگلیسی</label>
+                    <input type="text" :class="{hasError: errors.title_en}" class="form-control"
+                           id="title_en" aria-describedby="titleHelp" >
+                    <div id="title_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_en">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="title_ar" class="form-label">عنوان عربی</label>
+                    <input type="text" :class="{hasError: errors.title_ar}" class="form-control"
+                           id="title_ar" aria-describedby="title_arHelp" >
+                    <div id="title_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_ar">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-6 col-xl-3 mb-3">
                     <label for="category" class="form-label">دسته</label>
                     <select class="form-select" id="category" aria-describedby="categoryHelp"
                             aria-label="category" required>
@@ -38,9 +54,7 @@
                     <div id="categoryHelp" class="form-text error"></div>
 
                   </div>
-                  <!--                                </div>-->
-                  <!--                                <div class="row">-->
-                  <div class="col-md-4 col-xl-4 mb-3">
+                  <div class="col-md-6 col-xl-3 mb-3">
                     <label for="category" class="form-label">دسته بندی محصول</label>
                     <select @change="showProducts" class="form-select" id="productCategory"
                             aria-describedby="categoryHelp" aria-label="category" required>
@@ -53,7 +67,7 @@
                     </select>
                     <div id="productCategoryHelp" class="form-text error"></div>
                   </div>
-                  <div class="col-md-4 col-xl-4 mb-3">
+                  <div class="col-md-6 col-xl-3 mb-3">
                     <label for="product_id" class="form-label">محصول</label>
                     <select class="form-select" id="product_id" aria-describedby="productHelp"
                             aria-label="product" required>
@@ -64,7 +78,7 @@
                     </select>
                     <div id="productHelp" class="form-text error"></div>
                   </div>
-                  <div class="col-md-4 col-xl-4 mb-3">
+                  <div class="col-md-6 col-xl-3 mb-3">
                     <label for="article_tag_id" class="form-label">دستور پخت پیشنهادی</label>
                     <select class="form-select" id="article_tag_id" aria-describedby="article_tag_idHelp"
                             aria-label="article_tag_id" required>
@@ -83,14 +97,29 @@
                 <div class="row">
                   <div class="col-md-12 mb-3">
                     <label class="form-label">دستور پخت</label>
-                    <!--                                       <div id="editor"></div>-->
-
-                    <!--                                        <editor mode = "new" />-->
                     <textarea @input="watchTextAreas" :class="{hasError: errors.text}"
                               aria-describedby="textHelp" class="form-control text-start"
                               id="text"></textarea>
                     <div id="textHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.text">{{ e }}</p>
+                  </div>
+
+                 <div class="col-md-12 mb-3">
+                    <label class="form-label">دستور پخت انگلیسی</label>
+                    <textarea @input="watchTextAreas" :class="{hasError: errors.text_en}"
+                              aria-describedby="text_enHelp" class="form-control text-start"
+                              id="text_en"></textarea>
+                    <div id="text_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_en">{{ e }}</p>
+                  </div>
+
+                 <div class="col-md-12 mb-3">
+                    <label class="form-label">دستور پخت عربی</label>
+                    <textarea @input="watchTextAreas" :class="{hasError: errors.text_ar}"
+                              aria-describedby="text_arHelp" class="form-control text-start"
+                              id="text_ar"></textarea>
+                    <div id="text_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_ar">{{ e }}</p>
                   </div>
 
                   <div class="col-md-12 mb-3">
@@ -185,16 +214,15 @@ export default {
         await axios.post('/api/panel/article', {
           image: document.getElementById('Image__code').value,
           title: document.getElementById('title').value,
+          title_en: document.getElementById('title_en').value,
+          title_ar: document.getElementById('title_ar').value,
           article_category_id: document.getElementById('category').value,
           text: document.getElementById('text').value,
+          text_en: document.getElementById('text_en').value,
+          text_ar: document.getElementById('text_ar').value,
           product_id: document.getElementById('product_id').value,
           article_tag_id: document.getElementById('article_tag_id').value,
 
-          // image2: document.getElementById('Image_product_code').value,
-          // text2: document.getElementById('text2').value,
-          // text3: document.getElementById('text3').value,
-          // text4: document.getElementById('text4').value,
-          // tags: tags,
         })
             .then((response) => {
               console.log(response.data)

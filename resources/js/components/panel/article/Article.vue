@@ -11,7 +11,12 @@
                 </div>
             </div>
 
-                <h3 class = "mb-2 fw-bold d-inline-block ">{{data.title}}</h3>
+          <div class="d-inline-block">
+            <h3 class = "mb-2 fw-bold  ">{{data.title}}</h3>
+            <h3 class = "mb-2 fw-bold ">{{data.title_en}}</h3>
+            <h3 class = "mb-2 fw-bold">{{data.title_ar}}</h3>
+          </div>
+
 
             <router-link :to = "'/panel/edit/article/'+data.id" class = "text-dark">
                 <span title = "ویرایش دستور پخت" class = "mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle">
@@ -48,6 +53,23 @@
                         </div>
                     </div>
                 </div>
+                <div class = "col-lg-6 mb-3">
+                    <div class = "card h-100">
+                        <div class = "card-body p-md-5">
+                            <h3 class="mb-5">دستور پخت انگلیسی:</h3>
+                            <div id = "text_en" style="font-size: 18px;white-space: pre-line; text-align: right !important" class = "mb-5"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-lg-6 mb-3">
+                    <div class = "card h-100">
+                        <div class = "card-body p-md-5">
+                            <h3 class="mb-5">دستور پخت عربی:</h3>
+
+                            <div id = "text_ar" style="font-size: 18px;white-space: pre-line; text-align: right !important" class = "mb-5"></div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -79,6 +101,8 @@
                             .then((response) => {
                                 this.data = response.data;
                                 document.getElementById('text').innerHTML = this.data.text;
+                                document.getElementById('text_en').innerHTML = this.data.text_en;
+                                document.getElementById('text_ar').innerHTML = this.data.text_ar;
 
                                 // if (this.data.tags) {
                                 //     for (let i = 0; i < JSON.parse(this.data.tags).length; i++) {
