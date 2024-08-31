@@ -478,6 +478,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context5.next = 2;
                 return axios.post('/api/panel/category/' + props.model + '/' + id, {
                   title: document.getElementById('title_' + id).value,
+                  title_en: document.getElementById('title_en_' + id).value,
+                  title_ar: document.getElementById('title_ar_' + id).value,
                   image: document.getElementById('Image_' + id + '_code').value
                 }).then(function (response) {
                   console.log(response.data);
