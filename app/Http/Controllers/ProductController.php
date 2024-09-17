@@ -237,11 +237,11 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all('title'),
             [
-                'title' => 'required|unique:products,title,' . $product['id'],
+//                'title' => 'required|unique:products,title,' . $product['id'],
             ],
             [
-                'title.required' => 'لطفا عنوان را وارد کنید',
-                'title.unique' => 'این عنوان قبلا ثبت شده است',
+//                'title.required' => 'لطفا عنوان را وارد کنید',
+//                'title.unique' => 'این عنوان قبلا ثبت شده است',
             ]
         );
         if ($validator->fails()) {
