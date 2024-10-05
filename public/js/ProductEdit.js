@@ -814,8 +814,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, "en form-control"]),
         id: "title_en",
         value: $data.data.title_en,
-        "aria-describedby": "title_enHelp",
-        required: ""
+        "aria-describedby": "title_enHelp"
       }, null, 42
       /* CLASS, PROPS, HYDRATE_EVENTS */
       , _hoisted_20), _hoisted_21, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors.title_en, function (e) {
@@ -834,8 +833,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, "form-control"]),
         id: "title_ar",
         value: $data.data.title_ar,
-        "aria-describedby": "title_arHelp",
-        required: ""
+        "aria-describedby": "title_arHelp"
       }, null, 42
       /* CLASS, PROPS, HYDRATE_EVENTS */
       , _hoisted_25), _hoisted_26, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors.title_ar, function (e) {
@@ -853,8 +851,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           hasError: $data.errors.subTitle
         }, "en form-control text-start"]),
         value: $data.data.subTitle,
-        id: "subTitle",
-        required: ""
+        id: "subTitle"
       }, null, 42
       /* CLASS, PROPS, HYDRATE_EVENTS */
       , _hoisted_30), _hoisted_31, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors.subTitle, function (e) {

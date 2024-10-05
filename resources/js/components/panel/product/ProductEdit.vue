@@ -30,7 +30,7 @@
                     <input @input="updateData" type="text" :class="{hasError: errors.title_en}"
                            class="en form-control"
                            id="title_en" :value="data.title_en" aria-describedby="title_enHelp"
-                           required>
+                           >
                     <div id="title_enHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.title_en">{{ e }}</p>
                   </div>
@@ -38,7 +38,7 @@
                     <label for="title_ar" class="form-label">عنوان عربی</label>
                     <input @input="updateData" type="text" :class="{hasError: errors.title_ar}" class="form-control"
                            id="title_ar" :value="data.title_ar" aria-describedby="title_arHelp"
-                           required>
+                           >
                     <div id="title_arHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.title_ar">{{ e }}</p>
                   </div>
@@ -48,7 +48,7 @@
                     <label for="subTitle" class="form-label">زیرنویس انگلیسی</label>
                     <input @input="updateData" type="text" :class="{hasError: errors.subTitle}"
                            :value="data.subTitle" class="en form-control text-start" id="subTitle"
-                           required>
+                           >
                     <div id="subTitleHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.subTitle">{{ e }}</p>
 
