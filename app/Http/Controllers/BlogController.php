@@ -35,7 +35,7 @@ class BlogController extends Controller
     public function indexSite()
     {
         try {
-            $data = Blog::orderBy('id')->where('active',1)->get();
+            $data = Blog::orderByDESC('id')->where('active',1)->get();
             return response(BlogResource::collection($data), 200);
         } catch (\Exception $exception) {
             return response($exception);
