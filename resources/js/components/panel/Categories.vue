@@ -7,7 +7,7 @@
                 <select id="model" @change="loadData" v-model="model" class="form-select" style="width: 200px">
                     <option value="product">محصولات</option>
                     <option value="article">دستور پخت ها</option>
-<!--                    <option value="blog">مطالب</option>-->
+                    <option value="blog">مطالب</option>
                 </select>
             </div>
             <!--            <div class="row flex-row-reverse ">-->
@@ -27,7 +27,7 @@
                     <div class="card">
                         <div class="card-body">
                             <p class="fw-bold">ثبت دسته جدید</p>
-                            <form>
+                            <div>
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="form-label">تصویر</label><br/>
@@ -66,7 +66,7 @@
                                     ثبت
                                 </btn-submit>
 
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
