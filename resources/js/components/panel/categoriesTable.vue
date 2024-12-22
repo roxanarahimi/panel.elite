@@ -217,4 +217,3 @@ export default {
   background: #d7d7d7 !important;
 }
 </style>
-
