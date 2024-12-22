@@ -17,15 +17,29 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 col-xl-8 mb-3">
+                  <div class="col-md-6 col-xl-6 mb-3">
                     <label for="title" class="form-label">عنوان</label>
                     <input type="text" :class="{hasError: errors.title}" class="form-control"
                            id="title" aria-describedby="titleHelp" required>
                     <div id="titleHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
-
                   </div>
-                  <div class="col-md-6 col-xl-4 mb-3">
+                  <div class="col-md-6 col-xl-6 mb-3">
+                    <label for="title_en" class="form-label">عنوان انگلیسی</label>
+                    <input type="text" :class="{hasError: errors.title_en}" class="form-control en"
+                           id="title_en" aria-describedby="title_enHelp" required>
+                    <div id="title_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_en">{{ e }}</p>
+                  </div>
+                  <div class="col-md-6 col-xl-6 mb-3">
+                    <label for="title_ar" class="form-label">عنوان عربی</label>
+                    <input type="text" :class="{hasError: errors.title_ar}" class="form-control"
+                           id="title_ar" aria-describedby="title_arHelp" required>
+                    <div id="title_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_ar">{{ e }}</p>
+                  </div>
+
+                  <div class="col-md-6 col-xl-6 mb-3">
                     <label for="category" class="form-label">دسته</label>
                     <select class="form-select" id="category" aria-describedby="categoryHelp"
                             aria-label="category" required>
@@ -38,43 +52,6 @@
                     <div id="categoryHelp" class="form-text error"></div>
 
                   </div>
-                  <!--                                </div>-->
-                  <!--                                <div class="row">-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="category" class="form-label">دسته بندی محصول</label>-->
-<!--                    <select @change="showProducts" class="form-select" id="productCategory"-->
-<!--                            aria-describedby="categoryHelp" aria-label="category" required>-->
-<!--                      <option value=""></option>-->
-<!--                      &lt;!&ndash;                                            &ndash;&gt;-->
-<!--                      <option v-for="Pcategory in productCategories" :key="Pcategory.id"-->
-<!--                              :value="Pcategory.id">-->
-<!--                        {{ Pcategory.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="productCategoryHelp" class="form-text error"></div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="product_id" class="form-label">محصول</label>-->
-<!--                    <select class="form-select" id="product_id" aria-describedby="productHelp"-->
-<!--                            aria-label="product" required>-->
-<!--                      &lt;!&ndash;                                          &ndash;&gt;-->
-<!--                      <option v-for="product in products" :key="product.id" :value="product.id">-->
-<!--                        {{ product.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="productHelp" class="form-text error"></div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="blog_tag_id" class="form-label">دستور پخت پیشنهادی</label>-->
-<!--                    <select class="form-select" id="blog_tag_id" aria-describedby="blog_tag_idHelp"-->
-<!--                            aria-label="blog_tag_id" required>-->
-<!--                      &lt;!&ndash;                                          &ndash;&gt;-->
-<!--                      <option v-for="blog in blogs"  :key="blog.id" :value="blog.id">-->
-<!--                        {{ blog.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="blog_tag_idHelp" class="form-text error"></div>-->
-<!--                  </div>-->
 
 
                 </div>
@@ -83,18 +60,31 @@
                 <div class="row">
                   <div class="col-md-12 mb-3">
                     <label class="form-label">متن</label>
-                    <!--                                       <div id="editor"></div>-->
-
-                    <!--                                        <editor mode = "new" />-->
-                    <textarea @input="watchTextAreas" :class="{hasError: errors.text}"
+                    <textarea  :class="{hasError: errors.text}"
                               aria-describedby="textHelp" class="form-control text-start"
                               id="text"></textarea>
                     <div id="textHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.text">{{ e }}</p>
                   </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label">متن انگلیسی</label>
+                    <textarea  :class="{hasError: errors.text_en}"
+                              aria-describedby="text_enHelp" class="form-control en"
+                              id="text_en"></textarea>
+                    <div id="text_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_en">{{ e }}</p>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label">متن عربی</label>
+                    <textarea  :class="{hasError: errors.text_ar}"
+                              aria-describedby="textHelp" class="form-control text-start"
+                              id="text_ar"></textarea>
+                    <div id="text_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_ar">{{ e }}</p>
+                  </div>
 
                   <div class="col-md-12 mb-3">
-                    <BtnSubmit  @click.prevent="createInfo">
+                    <BtnSubmit @click.prevent="createInfo">
                       ثبت
                     </BtnSubmit>
                   </div>
@@ -117,7 +107,7 @@ import BtnSubmit from "../../components/BtnSubmit";
 import Editor from "../../components/Editor";
 
 export default {
-  components: {Editor, ImageCropper,BtnSubmit},
+  components: {Editor, ImageCropper, BtnSubmit},
   data: function () {
     return {
       id: '',
@@ -158,15 +148,6 @@ export default {
           .catch();
     },
 
-    showProducts() {
-
-      axios.get('/api/panel/product/by/category/' + document.getElementById('productCategory').value)
-          .then((response) => {
-            this.products = response.data.data;
-            console.log(response.data.data)
-          })
-          .catch();
-    },
     async createInfo() {
       this.errors = [];
       let emptyFieldsCount = 0;
@@ -185,16 +166,12 @@ export default {
         await axios.post('/api/panel/blog', {
           image: document.getElementById('Image__code').value,
           title: document.getElementById('title').value,
+          title_en: document.getElementById('title_en').value,
+          title_ar: document.getElementById('title_ar').value,
           blog_category_id: document.getElementById('category').value,
           text: document.getElementById('text').value,
-          // product_id: document.getElementById('product_id').value,
-          // blog_tag_id: document.getElementById('blog_tag_id').value,
-
-          // image2: document.getElementById('Image_product_code').value,
-          // text2: document.getElementById('text2').value,
-          // text3: document.getElementById('text3').value,
-          // text4: document.getElementById('text4').value,
-          // tags: tags,
+          text_en: document.getElementById('text_en').value,
+          text_ar: document.getElementById('text_ar').value,
         })
             .then((response) => {
               console.log(response.data)

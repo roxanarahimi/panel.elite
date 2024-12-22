@@ -18,7 +18,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 col-xl-8 mb-3">
+                  <div class="col-md-6 col-xl-6 mb-3">
                     <label for="title" class="form-label">عنوان</label>
                     <input type="text" :class="{hasError: errors.title}" class="form-control" id="title"
                            :value="data.title" aria-describedby="titleHelp" required>
@@ -26,7 +26,23 @@
                     <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
 
                   </div>
-                  <div class="col-md-6 col-xl-4 mb-3">
+                  <div class="col-md-6 col-xl-6 mb-3">
+                    <label for="title_en" class="form-label">عنوان انگلیسی</label>
+                    <input type="text" :class="{hasError: errors.title_en}" class="form-control en" id="title_en"
+                           :value="data.title_en" aria-describedby="title_enHelp" required>
+                    <div id="title_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_en">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-6 col-xl-6 mb-3">
+                    <label for="title_ar" class="form-label">عنوان عربی</label>
+                    <input type="text" :class="{hasError: errors.title_ar}" class="form-control" id="title_ar"
+                           :value="data.title_ar" aria-describedby="titleHelp" required>
+                    <div id="title_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.title_ar">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-6 col-xl-6 mb-3">
                     <label for="category" class="form-label">دسته بندی</label>
                     <select class="form-select" id="category" aria-describedby="categoryHelp" aria-label="category"
                             required>
@@ -39,84 +55,32 @@
                     </select>
                     <div id="categoryHelp" class="form-text error"></div>
                   </div>
-                  <!--                                </div>-->
-
-                  <!--                                <div class="row">-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="category" class="form-label">دسته بندی محصول</label>-->
-<!--                    <select @change="showProducts" class="form-select" id="productCategory"-->
-<!--                            aria-describedby="categoryHelp" aria-label="category" required>-->
-<!--                      <option value=""></option>-->
-<!--                      &lt;!&ndash;                                            &ndash;&gt;-->
-<!--                      <option :selected="data.product.category.id == Pcategory.id"-->
-<!--                              v-for="Pcategory in productCategories" :key="Pcategory.id" :value="Pcategory.id">-->
-<!--                        {{ Pcategory.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="productCategoryHelp" class="form-text error"></div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="product_id" class="form-label">محصول</label>-->
-<!--                    <select class="form-select" id="product_id" aria-describedby="productHelp" aria-label="product"-->
-<!--                            required>-->
-<!--                      &lt;!&ndash;                                          &ndash;&gt;-->
-<!--                      <option :selected="data.product.id == product.id" v-for="product in products" :key="product.id"-->
-<!--                              :value="product.id">-->
-<!--                        {{ product.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="productHelp" class="form-text error"></div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-4 col-xl-4 mb-3">-->
-<!--                    <label for="blog_tag_id" class="form-label">دستور پخت پیشنهادی</label>-->
-<!--                    <select class="form-select" id="blog_tag_id" aria-describedby="blog_tag_idHelp"-->
-<!--                            aria-label="blog_tag_id" required>-->
-<!--                      &lt;!&ndash;                                          &ndash;&gt;-->
-<!--                      <option :selected="data.tag.id == blog.id" v-for="blog in blogs"-->
-<!--                              :key="blog.id" :value="blog.id">-->
-<!--                        {{ blog.title }}-->
-<!--                      </option>-->
-<!--                    </select>-->
-<!--                    <div id="blog_tag_idHelp" class="form-text error"></div>-->
-<!--                  </div>-->
 
                 </div>
-                <!--                                <div class = "row">-->
-                <!--                                    <div class = "col-12 mb-3">-->
-                <!--                                        <label class = "form-label">تصویر محصول</label><br/>-->
-                <!--                                        <image-cropper   :isPng="isPng" name = "product" caption = "" :hasCaption = "hasCaption" :isRequired = "imgRequired" :src="data.image2"/>-->
-                <!--                                        <div id = "image2Help" class = "form-text error"></div>-->
-                <!--                                    </div>-->
-                <!--                                </div>-->
-                <!--                                <div class = "row">-->
-                <!--                                    <div class = "col-md-3 mb-3">-->
-                <!--                                        <label for = "text2" class = "form-label">عنوان محصول</label>-->
-                <!--                                        <input type = "text" :class = "{hasError: errors.text2}" class = "form-control" id = "text2" :value = "data.text2" aria-describedby = "text2Help" required>-->
-                <!--                                        <div id = "text2Help" class = "form-text error"></div>-->
-                <!--                                        <p class = "form-text error m-0" v-for = "e in errors.text2">{{ e }}</p>-->
-                <!--                                    </div>-->
-                <!--                                    <div class = "col-md-3 mb-3">-->
-                <!--                                        <label for = "text3" class = "form-label">زیرنویس</label>-->
-                <!--                                        <input type = "text" :class = "{hasError: errors.text3}" class = "form-control" id = "text3" :value = "data.text3" aria-describedby = "text3Help" required>-->
-                <!--                                        <div id = "text3Help" class = "form-text error"></div>-->
-                <!--                                        <p class = "form-text error m-0" v-for = "e in errors.text3">{{ e }}</p>-->
-                <!--                                    </div>-->
-                <!--                                    <div class = "col-md-3 mb-3">-->
-                <!--                                        <label for = "text4" class = "form-label">با طعم</label>-->
-                <!--                                        <input type = "text" :class = "{hasError: errors.text4}" class = "form-control" id = "text4" :value = "data.text4" aria-describedby = "text4Help" >-->
-                <!--                                        <div id = "text4Help" class = "form-text error"></div>-->
-                <!--                                        <p class = "form-text error m-0" v-for = "e in errors.text4">{{ e }}</p>-->
-                <!--                                    </div>-->
-                <!--                                </div>-->
+
                 <div class="row">
                   <div class="col-md-12 mb-3">
                     <label class="form-label">متن</label>
-                    <textarea @input="watchTextAreas" :class="{hasError: errors.text}" aria-describedby="textHelp"
+                    <textarea :class="{hasError: errors.text}" aria-describedby="textHelp"
                               class="form-control text-start" id="text">{{ data.text}}</textarea>
-                    <!--                                        <editor mode = "edit" :content = "data.text" :id = "data.id" />-->
-
                     <div id="textHelp" class="form-text error"></div>
                     <p class="form-text error m-0" v-for="e in errors.text">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label">متن انگلیسی</label>
+                    <textarea :class="{hasError: errors.text_en}" aria-describedby="text_enHelp"
+                              class="form-control en" id="text_en">{{ data.text_en}}</textarea>
+                    <div id="text_enHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_en">{{ e }}</p>
+
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label">متن عربی</label>
+                    <textarea :class="{hasError: errors.text_ar}" aria-describedby="text_arHelp"
+                              class="form-control text-start" id="text_ar">{{ data.text_ar}}</textarea>
+                    <div id="text_arHelp" class="form-text error"></div>
+                    <p class="form-text error m-0" v-for="e in errors.text_ar">{{ e }}</p>
 
                   </div>
 
@@ -176,7 +140,6 @@ export default {
     async loadblog() {
       await axios.get('/api/panel/blog/' + this.id)
           .then((response) => {
-
             this.data = response.data;
           })
           .then(() => {
@@ -185,37 +148,12 @@ export default {
           .then(() => {
             this.watchTextAreas();
           })
-          .then(() => {
-            this.showProducts();
-          })
           .catch();
     },
     loadCategories() {
       axios.get('/api/panel/category/blog?page=1&perPage=100000')
           .then((response) => {
             this.categories = response.data.data;
-          })
-          .catch();
-      axios.get('/api/panel/category/product?page=1&perPage=100000')
-          .then((response) => {
-            this.productCategories = response.data.data;
-          })
-          .then(() => {
-            this.showProducts();
-          })
-          .catch();
-      axios.get('/api/panel/blog?page=1&perPage=100000')
-          .then((response) => {
-            this.blogs = response.data.data;
-          })
-          .catch();
-    },
-    showProducts() {
-
-      axios.get('/api/panel/product/by/category/' + document.getElementById('productCategory').value)
-          .then((response) => {
-            this.products = response.data.data;
-            console.log(response.data.data)
           })
           .catch();
     },
@@ -240,16 +178,12 @@ export default {
             {
               image: document.getElementById('Image__code').value,
               title: document.getElementById('title').value,
+              title_en: document.getElementById('title_en').value,
+              title_ar: document.getElementById('title_ar').value,
               blog_category_id: document.getElementById('category').value,
               text: document.getElementById('text').value,
-              // product_id: document.getElementById('product_id').value,
-              // blog_tag_id: document.getElementById('blog_tag_id').value,
-
-              // image2: document.getElementById('Image_product_code').value,
-              // text2:  document.getElementById('text2').value,
-              // text3:  document.getElementById('text3').value,
-              // text4:  document.getElementById('text4').value,
-              // tags: tags,
+              text_en: document.getElementById('text_en').value,
+              text_ar: document.getElementById('text_ar').value,
             })
             .then((response) => {
               console.log(response)
@@ -310,22 +244,7 @@ export default {
         this.style.height = (this.scrollHeight) + "px";
       }
     },
-    addTag() {
-      // this.tags.push('{"uri": "", "label": ""}');
-    },
-    removeTag(index) {
-      // this.tags.splice(index, 1)
-    },
-    updateTags() {
-      // this.tags = [];
-      // for (let i = 0; i < document.getElementsByName('tagLabel').length; i++) {
-      //     this.tags.push({
-      //         "label": document.getElementsByName('tagLabel')[i].value.toString(),
-      //         "uri": document.getElementsByName('tagUri')[i].value.toString()
-      //     });
-      // }
 
-    },
 
 
   }
