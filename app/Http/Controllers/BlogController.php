@@ -32,6 +32,15 @@ class BlogController extends Controller
             return response($exception);
         }
     }
+    public function indexSite()
+    {
+        try {
+            $data = Blog::orderBy('id')->where('active',1)->get();
+            return response(BlogResource::collection($data), 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+        }
+    }
 
     public function latest()
     {
