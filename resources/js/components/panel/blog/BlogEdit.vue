@@ -120,7 +120,7 @@ export default {
       errors: [],
       imgRequired: false,
       hasCaption: false,
-      aspect: 388 / 391,
+      aspect: 16 / 9,
       isDefined: false,
       enableClick: true,
       // tags: [],

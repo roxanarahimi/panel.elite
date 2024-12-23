@@ -118,7 +118,7 @@ export default {
       errors: [],
       imgRequired: true,
       hasCaption: false,
-      aspect: 388 / 391,
+      aspect: 16 / 9,
       isPng: true,
       blogs: [],
 
